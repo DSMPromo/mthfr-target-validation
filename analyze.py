@@ -25,11 +25,16 @@ RESULTS_DIR = Path("alphafold/results")
 OUTPUT_DIR = Path("analysis/outputs")
 C677T_POS, A1298C_POS = 222, 429
 
-JOBS = {"Job01":"WT mono+FAD","Job02":"WT dimer+FAD","Job03":"C677T mono+FAD",
-        "Job04":"C677T dimer+FAD","Job05":"A1298C mono+FAD","Job06":"Compound dimer+FAD",
-        "Job07":"WT mono rep","Job08":"WT dimer rep","Job09":"C677T mono rep",
-        "Job10":"C677T dimer rep","Job11":"A1298C mono rep","Job12":"Compound rep",
-        "Job13":"WT+FAD+THF","Job14":"C677T+FAD+THF","Job15":"Compound+FAD+THF","Job16":"WT+FAD+SAM"}
+JOBS = {
+    "job01_wt_mono_fad":"WT mono+FAD", "job02_wt_dimer_fad":"WT dimer+FAD",
+    "job03_c677t_mono_fad":"C677T mono+FAD", "job04_c677t_dimer_fad":"C677T dimer+FAD",
+    "job05_a1298c_mono_fad":"A1298C mono+FAD", "job06_compound_dimer_fad":"Compound dimer+FAD",
+    "job07_wt_mono_rep":"WT mono rep", "job08_wt_dimer_rep":"WT dimer rep",
+    "job09_c677t_mono_rep":"C677T mono rep", "job10_c677t_dimer_rep":"C677T dimer rep",
+    "job11_a1298c_mono_rep":"A1298C mono rep", "job12_compound_rep":"Compound rep",
+    "job13_wt_fad_thf":"WT+FAD+THF", "job14_c677t_fad_thf":"C677T+FAD+THF",
+    "job15_compound_fad_thf":"Compound+FAD+THF", "job16_wt_fad_sam":"WT+FAD+SAM",
+}
 
 def find_jobs(d):
     d=Path(d); d.mkdir(parents=True,exist_ok=True); dirs=[]

@@ -1,6 +1,6 @@
-# MTHFR Gene Therapy Platform: One Gene, Five Disease Pathways, Billions of Lives
+# MTHFR Gene Therapy Platform: One Gene, Seven Disease Pathways, Billions of Lives
 
-> **An open computational research project using AlphaFold 3 to structurally characterize MTHFR variants (C677T/A1298C) and their impact on FAD cofactor binding across five disease pathways -- seeking collaboration with structural biologists, gene therapy researchers, and clinicians.**
+> **An open computational research project using AlphaFold 3 to structurally characterize MTHFR variants (C677T/A1298C) and their impact on FAD cofactor binding across seven disease pathways -- seeking collaboration with structural biologists, gene therapy researchers, and clinicians.**
 
 [![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 [![Status: Active Research](https://img.shields.io/badge/Status-Active%20Research-green.svg)]()
@@ -15,7 +15,7 @@
 - [Who I Am](#who-i-am-and-who-i-am-not)
 - [The Problem](#the-problem-nobody-connected)
 - [The Science](#the-mthfr-enzyme)
-- [Five Disease Pathways](#the-five-disease-pathways)
+- [Seven Disease Pathways](#the-five-disease-pathways)
 - [AlphaFold 3 Results](#alphafold-3-structural-predictions)
 - [Research Findings](#what-the-research-shows)
 - [Quick Start: Replicate This](#quick-start-replicate-this-research)
@@ -51,7 +51,7 @@ Modern medicine is organized by organ system. Ophthalmologists treat eyes. Psych
 
 **Nobody steps back to see that the same broken enzyme -- MTHFR -- feeds all five problems.**
 
-Thousands of papers have been published on individual aspects of MTHFR. But no single document connects all five disease pathways to one genetic root cause and proposes a unified correction strategy using modern structural biology tools. That's what this project does.
+Thousands of papers have been published on individual aspects of MTHFR. But no single document connects all seven disease pathways to one genetic root cause and proposes a unified correction strategy using modern structural biology tools. That's what this project does.
 
 ---
 
@@ -82,17 +82,17 @@ Thousands of papers have been published on individual aspects of MTHFR. But no s
 
 | Gene | Variant | rsID | Zygosity | Classification | Relevance |
 |------|---------|------|----------|----------------|-----------|
-| **MTHFR** | **C677T (A222V)** | rs1801133 | **Hetero (AG)** | Clinically Significant | Catalytic domain -- FAD cofactor binding destabilized. All 5 disease targets. |
+| **MTHFR** | **C677T (A222V)** | rs1801133 | **Hetero (AG)** | Clinically Significant | Catalytic domain -- FAD cofactor binding destabilized. All 7 disease targets. |
 | **MTHFR** | **A1298C (E429A)** | rs1801131 | **Hetero (TG)** | Conflicting/Uncertain | Regulatory domain -- BH4/neurotransmitter pathway impaired. Anxiety, B-vitamins. |
-| **MTRR** | **I22M (c.66A>G)** | rs1801394 | **Hetero (AG)** | Likely Pathogenic | B12 metabolism cofactor -- compounds the MTHFR methylation defect. |
+| **MTRR** | **I22M (c.66A>G)** | rs1801394 | **Hetero (AG)** | Likely Pathogenic | B12 metabolism cofactor -- compounds the MTHFR methylation defect (triple-hit). |
 
 > **Voluntary Disclosure:** I am sharing my genetic variant data voluntarily because I believe transparency strengthens this research. This is my personal decision. You should never feel pressured to share your genetic information publicly. If you want to contribute your own data to this project, you can do so anonymously.
 
 ---
 
-## The Five Disease Pathways
+## The Seven Disease Pathways
 
-When MTHFR is impaired, five pathological cascades activate simultaneously:
+When MTHFR is impaired, seven pathological cascades activate simultaneously:
 
 ### Target 1: Vision Loss and Retinal Neurodegeneration
 
@@ -134,7 +134,25 @@ Every 5 umol/L increase in plasma homocysteine is associated with 20-30% higher 
 - Homocysteine triggers endothelial dysfunction through oxidative damage -- the same vascular injury mechanism affecting the retina
 - B-vitamin supplementation reduces homocysteine but clinical trial results on CVD outcomes remain debated
 
-**The thesis:** One CRISPR base editing correction of MTHFR could address all five pathways through a single genetic intervention.
+### Target 6: Genome-Wide DNA Methylation Disruption
+
+MTHFR produces the methyl groups used by >200 methyltransferases. When MTHFR is impaired, the entire methylation landscape shifts.
+
+- **Transgenerational epigenetic inheritance:** Mthfr-deficient male mice show profound genome-wide loss of sperm DNA methylation persisting across F1 and F2 generations (Sovechia et al., 2021, *Development*)
+- **Riboflavin alters methylation:** B2 supplementation changes global and gene-specific DNA methylation patterns in 677TT adults (Pentieva et al., 2020)
+- Affects histone modification, genomic imprinting, and cancer susceptibility
+- This means MTHFR dysfunction affects not just the carrier but potentially their children and grandchildren
+
+### Target 7: Pregnancy Complications and Reproductive Health
+
+MTHFR variants are associated with multiple adverse pregnancy outcomes.
+
+- **Preeclampsia:** Meta-analysis of 51 studies confirms significant association with C677T (Xia et al., 2013)
+- **Recurrent pregnancy loss:** A1298C specifically linked to recurrent miscarriage (Kumar et al., 2024, *BMC Pregnancy Childbirth*)
+- **Neural tube defects:** MTHFR is the key enzyme in the folate pathway that prevents NTDs; global folic acid fortification was designed partly because of MTHFR variant prevalence
+- VTE in pregnancy: 50% of compound heterozygous patients vs 28.6% wild-type (Liew & Gupta, 2015)
+
+**The thesis:** One CRISPR base editing correction of MTHFR could address all seven pathways through a single genetic intervention.
 
 ---
 
@@ -190,6 +208,10 @@ The 2024 cryo-EM structures (PDB 8QA5, 8QA6) revealed for the first time how SAM
 
 The 2006 structural perturbation study (Pejchal et al.) showed that the C677T (A222V) variant displaces **helix alpha-5**, which carries three FAD-interacting residues (Asn168, Arg171, Lys172). This explains the thermolability -- the variant enzyme loses its FAD cofactor more easily, especially at body temperature.
 
+### The MTRR Compounding Effect
+
+The author also carries MTRR I22M (rs1801394), which impairs B12 regeneration -- the enzyme immediately downstream of MTHFR. This creates a **triple-hit** to the methylation cycle: less substrate produced (MTHFR), impaired regulation (A1298C), AND less-functional downstream cofactor (MTRR). This may explain why some compound heterozygous individuals are more severely affected than others.
+
 ### Therapeutic Precedent: Base Editing Is Working in Humans
 
 | Program | Company | Target | Delivery | Status |
@@ -197,8 +219,9 @@ The 2006 structural perturbation study (Pejchal et al.) showed that the C677T (A
 | VERVE-102 | Verve Therapeutics | PCSK9 (single base edit) | IV LNP | Phase 1b |
 | Beam-101 | Beam Therapeutics | Sickle cell (base edit) | Ex vivo | Phase I/II |
 | Casgevy | Vertex/CRISPR | Sickle cell / beta-thal | Ex vivo | **FDA Approved (2023)** |
+| YOLT-101 | YolTech | PCSK9 (next-gen ABE) | IV LNP | Phase 1 -- good safety (2025) |
 
-The C677T variant (T>C at DNA level) is a candidate for **adenine base editing (ABE)**, which converts A-T base pairs to G-C base pairs -- the same mechanism used by VERVE-102 currently in clinical trials.
+The C677T variant (T>C at DNA level) is a candidate for **adenine base editing (ABE)**, which converts A-T base pairs to G-C base pairs -- the same mechanism used by VERVE-102 and YOLT-101 currently in clinical trials.
 
 ---
 
@@ -302,8 +325,22 @@ All references have been verified against PubMed and primary sources (March 2026
 ### B-Vitamins and Cardiovascular
 11. McNulty H, et al. (2006). *Circulation*, 113(1):74-80. [AHA](https://www.ahajournals.org/doi/10.1161/circulationaha.105.580332) -- Riboflavin lowers homocysteine in 677TT homozygotes
 
+### Epigenetics and DNA Methylation
+12. Sovechia A, et al. (2021). *Development*, 148(13). [Company of Biologists](https://journals.biologists.com/dev/article/148/13/e148_e1303/270833/) -- MTHFR deficiency causes transgenerational loss of sperm DNA methylation
+13. Pentieva K, et al. (2020). *Biochimie*, 173:17-26. [ScienceDirect](https://www.sciencedirect.com/science/article/abs/pii/S0300908420300778) -- Riboflavin alters global/gene-specific DNA methylation in 677TT adults
+
+### Pregnancy and Reproductive Health
+14. Xia XP, et al. (2013). *Hypertension Research*. [Nature](https://www.nature.com/articles/hr2012117) -- Meta-analysis: C677T and preeclampsia risk
+15. Kumar A, et al. (2024). *BMC Pregnancy Childbirth*. [PMC](https://pmc.ncbi.nlm.nih.gov/articles/PMC11066823/) -- A1298C and recurrent pregnancy loss
+
+### Comprehensive Reviews
+16. MTHFR Gene Polymorphisms: A Single Gene with Wide-Ranging Clinical Implications. (2025). *Genes*, 16(4):441. [PMC](https://pmc.ncbi.nlm.nih.gov/articles/PMC12027316/) -- Comprehensive 2025 review
+
 ### Computational Methods
-12. Abramson J, et al. (2024). *Nature*, 630:493-500. [Nature](https://www.nature.com/articles/s41586-024-07487-w) -- AlphaFold 3: accurate structure prediction of biomolecular interactions
+17. Abramson J, et al. (2024). *Nature*, 630:493-500. [Nature](https://www.nature.com/articles/s41586-024-07487-w) -- AlphaFold 3: accurate structure prediction of biomolecular interactions
+
+### Gene Therapy and Base Editing
+18. YOLT-101 Phase 1 Clinical Data. (2025). [YolTech](https://www.yoltx.com/news/press-release/95) -- Next-gen adenine base editor, good safety, no SAEs
 
 ### Key Database Links
 [UniProt P42898](https://www.uniprot.org/uniprotkb/P42898/entry) | [PDB 6FCX](https://www.rcsb.org/structure/6FCX) | [PDB 8QA5](https://www.rcsb.org/structure/8QA5) | [PDB 8QA6](https://www.rcsb.org/structure/8QA6) | [ClinVar rs1801133](https://www.ncbi.nlm.nih.gov/clinvar/?term=rs1801133) | [ClinVar rs1801131](https://www.ncbi.nlm.nih.gov/clinvar/?term=rs1801131)
