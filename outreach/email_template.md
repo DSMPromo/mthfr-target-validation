@@ -15,12 +15,12 @@ Building on your published work on [CITE THEIR SPECIFIC PAPER], I have conducted
 My research thesis connects seven disease pathways — retinal neurodegeneration, autism/cerebral folate deficiency, anxiety/depression, B-vitamin metabolism failure, cardiovascular disease, genome-wide DNA methylation disruption, and pregnancy complications — to a single correctable genetic root cause. As a compound heterozygous carrier of both MTHFR C677T and A1298C, I bring both a personal genomic proof-of-concept and a comprehensive research foundation.
 
 I have prepared:
-- A detailed research white paper with published evidence across all seven disease targets
+- A detailed research paper with published evidence across all seven disease targets
 - AlphaFold 3 structural comparison data with confidence metrics
 - A complete replication protocol that any lab can follow
 - A GitHub repository with all sequences, protocols, and analysis tools
 
-I am seeking a research partner with wet-lab capabilities to validate the structural predictions and advance toward preclinical testing of base editor correction. The full project is available at [YOUR GITHUB URL].
+I am seeking a research partner with wet-lab capabilities to validate the structural predictions and advance toward preclinical testing of base editor correction. The full project is available at https://github.com/DSMPromo/mthfr-gene-therapy-project.
 
 Would you be open to a 15-minute call to discuss potential collaboration?
 

@@ -15,7 +15,7 @@
 - [Who I Am](#who-i-am-and-who-i-am-not)
 - [The Problem](#the-problem-nobody-connected)
 - [The Science](#the-mthfr-enzyme)
-- [Seven Disease Pathways](#the-five-disease-pathways)
+- [Seven Disease Pathways](#the-seven-disease-pathways)
 - [AlphaFold 3 Results](#alphafold-3-structural-predictions)
 - [Research Findings](#what-the-research-shows)
 - [Quick Start: Replicate This](#quick-start-replicate-this-research)
@@ -33,7 +33,7 @@ My name is Igor Mihaljko. I'm a cybersecurity specialist, cloud solution archite
 
 I'm just a guy who thinks outside the box. I looked at my genetic test results, started asking questions that crossed the boundaries between medical specialties, and used AI tools to organize what I found. This project exists because I believe the next generation deserves better -- and sometimes it takes someone from outside a field to see what the people inside it can't.
 
-**This project started with my own DNA.** I discovered I carry compound heterozygous MTHFR mutations (C677T + A1298C). When I started researching what this means, I found that the same broken enzyme is connected to five major disease categories -- and nobody had put the full picture together in one place.
+**This project started with my own DNA.** I discovered I carry compound heterozygous MTHFR mutations (C677T + A1298C). When I started researching what this means, I found that the same broken enzyme is connected to seven major disease categories -- and nobody had put the full picture together in one place.
 
 I built this project to hand it to the real scientists. Everything is here -- the sequences, the protocols, the analysis pipeline. Take it. Build on it. Prove me wrong or prove me right.
 
@@ -49,7 +49,7 @@ I built this project to hand it to the real scientists. Everything is here -- th
 
 Modern medicine is organized by organ system. Ophthalmologists treat eyes. Psychiatrists treat anxiety. Neurologists study autism. Cardiologists manage heart disease. Nutritionists advise on B-vitamins.
 
-**Nobody steps back to see that the same broken enzyme -- MTHFR -- feeds all five problems.**
+**Nobody steps back to see that the same broken enzyme -- MTHFR -- feeds all seven problems.**
 
 Thousands of papers have been published on individual aspects of MTHFR. But no single document connects all seven disease pathways to one genetic root cause and proposes a unified correction strategy using modern structural biology tools. That's what this project does.
 
@@ -253,6 +253,8 @@ See the [full research paper](docs/RESEARCH_PAPER_DRAFT.md#47-safety-architectur
 3. Upload `alphafold/jobs/json/ALL_12_JOBS.json` from this repo
 4. Click **"Submit 12 jobs as drafts"**
 5. Open each draft, turn off Seed toggle, click **"Confirm and submit job"**
+
+> **Note:** The JSON file contains 12 core jobs (6 variants + 6 replications). Jobs 13-16 (substrate/inhibitor binding with THF and SAM) require manual setup through the AlphaFold Server UI -- see the submission plan for details.
 
 ### Option B: Manual Setup
 Follow the detailed step-by-step instructions in [`alphafold/jobs/submission_plan.md`](alphafold/jobs/submission_plan.md)

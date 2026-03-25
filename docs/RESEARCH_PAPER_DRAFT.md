@@ -439,7 +439,7 @@ This safety architecture is not theoretical -- every component is either already
 
 For compound heterozygous MTHFR carriers watching their parents, children, or themselves suffer from preventable symptoms across seven disease pathways, the question is not whether gene correction is safe enough to try -- it is whether we can afford to wait while the safety tools already exist.
 
-### 4.9 Limitations
+### 4.8 Limitations
 
 This study has several important limitations:
 
@@ -459,7 +459,7 @@ This study has several important limitations:
 
 8. **AlphaFold 3 limitations for single-point mutations.** AF3 may not have sufficient resolution to detect subtle structural changes caused by single amino acid substitutions, particularly at the monomer level. The dimer and ligand-bound predictions may be more informative.
 
-### 4.10 Future Directions
+### 4.9 Future Directions
 
 1. **Experimental structure determination:** Cryo-EM of purified C677T and A1298C variant MTHFR in complex with FAD, with and without folate substrate. The compound heterozygous dimer (one A222V chain + one E429A chain) has never been structurally characterized.
 

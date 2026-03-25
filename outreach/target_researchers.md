@@ -16,7 +16,7 @@
 ## Priority 3: MTHFR Structural Biologist
 
 ### Dr. D. Sean Froese — University of Zurich (Children's Hospital)
-- **Why:** Solved the crystal structure of human MTHFR (PDB 6FCX, Nature Chemical Biology 2018). Can validate AlphaFold predictions against experimental data.
+- **Why:** Solved the crystal structure of human MTHFR (PDB 6FCX, Nature Communications 2018). Can validate AlphaFold predictions against experimental data.
 - **Ask:** Review AlphaFold structural comparisons, confirm interpretation of variant effects on FAD binding and SAM regulation.
 
 ## Priority 4: CRISPR Base Editing Pioneers

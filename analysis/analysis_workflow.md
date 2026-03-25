@@ -153,7 +153,7 @@ Use the `metrics_template.csv` to create a publication-quality table:
 Template sentence:
 > "AlphaFold 3 structural modeling revealed that the C677T variant (A222V) showed a [X%] reduction in ipTM score at the protein-FAD interface compared to wild-type ([ipTM_WT] vs [ipTM_C677T]), consistent with the known destabilization of FAD cofactor binding in the thermolabile enzyme. The compound heterozygous dimer (modeling the author's genotype) showed [describe findings]."
 
-## What to Save for the White Paper
+## What to Save for the Research Paper
 - [ ] Metrics comparison table (filled CSV)
 - [ ] Side-by-side PyMOL images: position 222 (WT vs C677T)
 - [ ] Side-by-side PyMOL images: position 429 (WT vs A1298C)

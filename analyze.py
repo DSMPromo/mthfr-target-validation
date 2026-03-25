@@ -31,7 +31,7 @@ JOBS = {
     "job05_a1298c_mono_fad":"A1298C mono+FAD", "job06_compound_dimer_fad":"Compound dimer+FAD",
     "job07_wt_mono_rep":"WT mono rep", "job08_wt_dimer_rep":"WT dimer rep",
     "job09_c677t_mono_rep":"C677T mono rep", "job10_c677t_dimer_rep":"C677T dimer rep",
-    "job11_a1298c_mono_rep":"A1298C mono rep", "job12_compound_rep":"Compound rep",
+    "job11_a1298c_mono_rep":"A1298C mono rep", "job12_compound_rep":"Compound rep", "job12_compound_dimer_rep":"Compound dimer rep",
     "job13_wt_fad_thf":"WT+FAD+THF", "job14_c677t_fad_thf":"C677T+FAD+THF",
     "job15_compound_fad_thf":"Compound+FAD+THF", "job16_wt_fad_sam":"WT+FAD+SAM",
 }
@@ -189,7 +189,7 @@ img{{max-width:100%;border:1px solid #ddd;margin:8px 0}}
 <li>Open CIF files in PyMOL — use scripts in pymol_scripts/</li>
 <li>Superimpose WT and variant structures</li>
 <li>Measure FAD distances at active site</li>
-<li>Update white paper with findings</li>
+<li>Update research paper with findings</li>
 <li>Share with research collaborators</li></ol></body></html>"""
     
     with open(out/"report.html",'w') as f: f.write(h)
