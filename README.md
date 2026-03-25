@@ -10,11 +10,11 @@
 
 ## Who I Am (And Who I Am Not)
 
-**I am not a doctor. I am not a biomedical scientist. I am not a geneticist.**
+**I'm not a biohacker. I'm not trying to be something I'm not.**
 
 My name is Igor Mihaljko. I'm a cybersecurity specialist, cloud solution architect, and infrastructure architect with 20+ years in IT and 14 Microsoft certifications. I run an AI marketing agency called DSM.Promo in Chicago.
 
-What I am is someone who understands systems. I understand how to see patterns across complex architectures. I understand how AI tools like AlphaFold can accelerate research. And I understand that sometimes it takes someone outside a field to connect dots that specialists -- trapped in their silos -- cannot see.
+I'm just a guy who thinks outside the box. I looked at my genetic test results, started asking questions that crossed the boundaries between medical specialties, and used AI tools to organize what I found. This project exists because I believe the next generation deserves better -- and sometimes it takes someone from outside a field to see what the people inside it can't.
 
 **This project started with my own DNA.**
 
@@ -57,6 +57,8 @@ Everything in this project traces back to my actual genetic variants, confirmed 
 | **TCF7L2** | rs7903146 | Homozygous TT | Type 2 diabetes risk -- diabetic retinopathy |
 | **PTPN22** | R620W | Heterozygous | Autoimmune susceptibility (Hashimoto's, lupus, RA) |
 | **NOD2** | rs5743289 | Heterozygous | Inflammatory bowel disease / Crohn's |
+
+> **Voluntary Disclosure:** I am sharing my genetic variant data voluntarily because I believe transparency strengthens this research. This is my personal decision. You should never feel pressured to share your genetic information publicly. If you want to contribute your own data to this project, you can do so anonymously.
 
 **The compound heterozygous MTHFR status is the key.** C677T hits the catalytic domain (less folate processed). A1298C hits the regulatory domain (less neurotransmitter cofactor produced). Together, they create a dual failure that affects methylation, homocysteine, neurotransmitters, and B-vitamin processing simultaneously.
 
@@ -196,8 +198,8 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed instructions.
 
 ---
 
-*I'm not a doctor. I'm a guy who looked at his DNA results, fell down a research rabbit hole, and realized that the dots nobody was connecting could potentially help billions of people. I don't have a lab. I don't have a PhD. What I have is the ability to see patterns across systems -- the same skill that makes me good at cybersecurity and cloud architecture -- applied to the most important system of all: the human body.*
+*I'm not a doctor. I'm not a biohacker. I'm a cybersecurity guy and cloud architect who looked at his DNA results, fell down a research rabbit hole, and realized that the dots nobody was connecting could potentially help billions of people. I don't have a lab. I don't have a PhD. I built this project to hand it to the real scientists. Everything is here -- the sequences, the protocols, the analysis pipeline. Take it. Build on it. Prove me wrong or prove me right.*
 
 *If you're a researcher who can take this further, please reach out. If you're a parent of a child with autism, or someone living with unexplained anxiety, or someone losing their vision -- get tested for MTHFR. Know your status. It might explain everything.*
 
-*This is for the kids who struggle every day. For the adults who've been told "it's just anxiety." For the millions losing their vision. We can do better. We just need to connect the dots.*
+*I want to help future generations not have to go through what so many people are going through right now.*
