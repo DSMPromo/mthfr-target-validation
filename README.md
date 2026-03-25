@@ -48,15 +48,11 @@ I'm not the first person to study MTHFR. Thousands of papers have been published
 
 Everything in this project traces back to my actual genetic variants, confirmed by consumer genetic testing:
 
-| Gene | Variant | My Status | What It Means |
-|------|---------|-----------|---------------|
-| **MTHFR** | **C677T (A222V)** | **Heterozygous** | Catalytic domain -- FAD cofactor binding is destabilized. My enzyme works at ~65% capacity on this side. |
-| **MTHFR** | **A1298C (E429A)** | **Heterozygous** | Regulatory domain -- BH4/neurotransmitter pathway impaired. Serotonin and dopamine production affected. |
-| **CFH** | His402= | Heterozygous | Age-related macular degeneration risk factor |
-| **MTRR** | I22M | Heterozygous | B12 metabolism cofactor -- compounds the MTHFR problem |
-| **TCF7L2** | rs7903146 | Homozygous TT | Type 2 diabetes risk -- diabetic retinopathy |
-| **PTPN22** | R620W | Heterozygous | Autoimmune susceptibility (Hashimoto's, lupus, RA) |
-| **NOD2** | rs5743289 | Heterozygous | Inflammatory bowel disease / Crohn's |
+| Gene | Variant | rsID | Zygosity | Classification | Relevance |
+|------|---------|------|----------|----------------|-----------|
+| **MTHFR** | **C677T (A222V)** | rs1801133 | **Hetero (AG)** | Clinically Significant | Catalytic domain -- FAD cofactor binding destabilized. All 5 disease targets. |
+| **MTHFR** | **A1298C (E429A)** | rs1801131 | **Hetero (TG)** | Conflicting/Uncertain | Regulatory domain -- BH4/neurotransmitter pathway impaired. Anxiety, B-vitamins. |
+| **MTRR** | **I22M (c.66A>G)** | rs1801394 | **Hetero (AG)** | Likely Pathogenic | B12 metabolism cofactor -- compounds the MTHFR methylation defect. |
 
 > **Voluntary Disclosure:** I am sharing my genetic variant data voluntarily because I believe transparency strengthens this research. This is my personal decision. You should never feel pressured to share your genetic information publicly. If you want to contribute your own data to this project, you can do so anonymously.
 
