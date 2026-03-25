@@ -93,7 +93,7 @@ Every 5 umol/L increase in plasma homocysteine is associated with 20-30% higher 
 MTHFR's role extends far beyond the five traditionally recognized pathways. Because MTHFR produces 5-MTHF, the primary methyl donor for the entire methylation cycle, impaired MTHFR function reduces the global supply of S-adenosylmethionine (SAMe) -- the universal methyl donor for >200 methyltransferases including DNA methyltransferases (DNMTs).
 
 This creates genome-wide consequences:
-- **Paternal epigenetic inheritance:** Mthfr-deficient male mice show profound genome-wide loss of sperm DNA methylation that persists across the F1 and F2 generations, demonstrating transgenerational epigenetic inheritance (Sovechia et al., 2021). This means MTHFR dysfunction in a father can alter gene expression patterns in grandchildren.
+- **Paternal epigenetic inheritance:** Mthfr-deficient male mice show profound genome-wide loss of sperm DNA methylation that persists across the F1 and F2 generations, demonstrating transgenerational epigenetic inheritance (Karahan et al., 2021). This means MTHFR dysfunction in a father can alter gene expression patterns in grandchildren.
 - **Histone modification:** SAMe is also the methyl donor for histone methyltransferases, meaning MTHFR variants can alter chromatin structure and gene regulation globally
 - **Imprinting disorders:** Genomic imprinting depends on DNA methyltransferases to create parent-specific methylation patterns. MTHFR dysfunction could disrupt imprinted gene expression, with consequences for fetal growth and development
 - **Cancer susceptibility:** Global DNA hypomethylation is a hallmark of many cancers. MTHFR 677TT genotype is associated with altered cancer risk profiles, though the direction varies by cancer type (protective for some colorectal cancers via altered thymidylate synthesis, but risk-increasing for others)
@@ -323,7 +323,7 @@ The expansion from five to seven disease pathways strengthens the case for MTHFR
 | 6. Epigenetic | Genome-wide methylation disruption | All MTHFR carriers + offspring |
 | 7. Reproductive | Preeclampsia, pregnancy loss, NTDs | 15% of pregnancies affected |
 
-The epigenetic pathway (6) is particularly significant because it means MTHFR dysfunction affects not just the carrier but potentially their children and grandchildren through transgenerational epigenetic inheritance, even if the children do not inherit the MTHFR variant itself (Sovechia et al., 2021).
+The epigenetic pathway (6) is particularly significant because it means MTHFR dysfunction affects not just the carrier but potentially their children and grandchildren through transgenerational epigenetic inheritance, even if the children do not inherit the MTHFR variant itself (Karahan et al., 2021).
 
 ### 4.4 The MTRR Compounding Factor
 
@@ -556,7 +556,7 @@ The author affirms that no individual should feel pressured to share their genet
 11. McNulty H, Dowey LRC, Strain JJ, et al. (2006). Riboflavin lowers homocysteine in individuals homozygous for the MTHFR 677C->T polymorphism. *Circulation*, 113(1):74-80.
 
 ### Epigenetics and DNA Methylation
-12. Sovechia A, et al. (2021). MTHFR: generating new insights into epigenetic inheritance. *Development*, 148(13):e148_e1303. doi: 10.1242/dev.148.13.e1303
+12. Karahan G, Chan D, Shirane K, et al. (2021). Paternal MTHFR deficiency leads to hypomethylation of young retrotransposons and reproductive decline across two successive generations. *Development*, 148(13):dev199492. PMID: 34128976
 
 13. Pentieva K, et al. (2020). Riboflavin supplementation alters global and gene-specific DNA methylation in adults with the MTHFR 677 TT genotype. *Biochimie*, 173:17-26.
 

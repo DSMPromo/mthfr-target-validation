@@ -138,7 +138,7 @@ Every 5 umol/L increase in plasma homocysteine is associated with 20-30% higher 
 
 MTHFR produces the methyl groups used by >200 methyltransferases. When MTHFR is impaired, the entire methylation landscape shifts.
 
-- **Transgenerational epigenetic inheritance:** Mthfr-deficient male mice show profound genome-wide loss of sperm DNA methylation persisting across F1 and F2 generations (Sovechia et al., 2021, *Development*)
+- **Transgenerational epigenetic inheritance:** Mthfr-deficient male mice show profound genome-wide loss of sperm DNA methylation persisting across F1 and F2 generations (Karahan et al., 2021, *Development*)
 - **Riboflavin alters methylation:** B2 supplementation changes global and gene-specific DNA methylation patterns in 677TT adults (Pentieva et al., 2020)
 - Affects histone modification, genomic imprinting, and cancer susceptibility
 - This means MTHFR dysfunction affects not just the carrier but potentially their children and grandchildren
@@ -346,7 +346,7 @@ All references have been verified against PubMed and primary sources (March 2026
 11. McNulty H, et al. (2006). *Circulation*, 113(1):74-80. [AHA](https://www.ahajournals.org/doi/10.1161/circulationaha.105.580332) -- Riboflavin lowers homocysteine in 677TT homozygotes
 
 ### Epigenetics and DNA Methylation
-12. Sovechia A, et al. (2021). *Development*, 148(13). [Company of Biologists](https://journals.biologists.com/dev/article/148/13/e148_e1303/270833/) -- MTHFR deficiency causes transgenerational loss of sperm DNA methylation
+12. Karahan G, Chan D, Shirane K, et al. (2021). *Development*, 148(13):dev199492. [PMID: 34128976](https://pubmed.ncbi.nlm.nih.gov/34128976/) -- Paternal MTHFR deficiency causes transgenerational loss of sperm DNA methylation
 13. Pentieva K, et al. (2020). *Biochimie*, 173:17-26. [ScienceDirect](https://www.sciencedirect.com/science/article/abs/pii/S0300908420300778) -- Riboflavin alters global/gene-specific DNA methylation in 677TT adults
 
 ### Pregnancy and Reproductive Health
