@@ -160,7 +160,7 @@ These predictions are used for hypothesis prioritization only. They do not estab
 1. Monomer predictions show preserved overall folding across the tested variant states (ipTM 0.97-0.98); the tested monomer predictions do not suggest large-scale loss of overall folding confidence
 2. Dimer predictions show inter-chain differences: FAD binding confidence drops from 0.97 (monomer) to 0.53-0.58 (dimer), consistent with known cooperativity in the homodimer
 3. The compound heterozygous dimer yielded the lowest comparative confidence values across the assessed metrics in both independent runs
-4. Compound heterozygous dimers averaged lower than the tested comparators (ipTM 0.715 vs WT 0.740 and C677T 0.765), consistent with a possible combined destabilizing effect at the dimer level
+4. Compound heterozygous dimers averaged lower than the tested comparators (ipTM 0.715 vs WT 0.740 and C677T 0.765), consistent with a possible combined dimer-level perturbation in this modeling setup
 5. Independent random seeds produced consistent directional trends across the tested configurations, supporting limited internal reproducibility within this modeling setup
 6. THF substrate binding: compound het ligand ipTM 0.878 vs 0.974 WT, consistent with reduced substrate access at the dimer level
 
@@ -180,7 +180,7 @@ Any future gene editing program would need to address safety. The following are 
 | 4. Reversible epigenetic editing | CRISPRoff as a non-permanent first step; potentially reversible under laboratory conditions | In early translational development |
 | 5. Post-intervention monitoring | Biomarker panels, off-target sequencing at defined timepoints | Standard clinical protocol design |
 
-At the target base, a successful correction strategy would aim to restore the reference allele sequence rather than introduce a novel coding change.
+At the target base, a candidate correction strategy would aim to restore the reference allele sequence rather than introduce a novel coding change.
 
 At the sequence level, C677T appears theoretically compatible with adenine base editing (ABE) logic, which converts A-T base pairs to G-C base pairs. However, edit window, guide design, bystander edits, tissue targeting, and functional rescue would all need empirical validation.
 

@@ -2,7 +2,7 @@
 
 ### Computational Prioritization of Selected MTHFR Variant States for Experimental Validation
 
-> This project is a computational hypothesis-prioritization study designed to identify experimentally testable differences among wild-type, single-variant, and compound heterozygous MTHFR states. In the tested AlphaFold 3 and Boltz-2 model configurations, the compound heterozygous dimer produced the lowest reported interaction-confidence values across the assessed dimer-interface and ligand-associated metrics relative to the tested wild-type and single-variant comparators. These observations do not establish mechanism, disease causation, clinical relevance, or therapeutic benefit. They support a bounded experimental agenda focused on dimer-level biology, retinal biomarkers, and neuropsychiatric-relevant biochemical readouts.
+> This project is a computational hypothesis-prioritization study designed to identify experimentally testable differences among wild-type, single-variant, and compound heterozygous MTHFR states. In the tested AlphaFold 3 and Boltz-2 model configurations, the compound heterozygous dimer yielded the lowest reported interaction-confidence values across the assessed dimer-interface and ligand-associated metrics relative to the tested wild-type and single-variant comparators. These observations do not establish mechanism, disease causation, clinical relevance, or therapeutic benefit. They support a bounded experimental agenda focused on dimer-level biology, retinal biomarkers, and neuropsychiatric-relevant biochemical readouts.
 >
 > **Core observation:** Across the tested model configurations, monomer predictions showed preserved overall folding confidence, whereas dimer predictions showed comparative inter-chain differences. This is the central computational finding of the current study.
 
@@ -111,7 +111,7 @@ The computational findings in this project generate specific, testable hypothese
 
 ### Hypothesis 1: Retinal Pathway
 
-Because MTHFR dysfunction has been linked in prior literature to homocysteine-related retinal injury, the retina is a candidate downstream system for validation. The current computational results do not establish efficacy in retinal disease, but they support testing whether selected MTHFR states are associated with measurable retinal biomarkers.
+Because prior literature has linked MTHFR-related one-carbon pathway disruption and hyperhomocysteinemia to retinal injury, the retina is a candidate downstream system for validation. The current computational results do not establish efficacy in retinal disease, but they support testing whether selected MTHFR states are associated with measurable retinal biomarkers.
 
 **Supporting literature:**
 - **Mthfr+/- mice** show 2x retinal homocysteine, ~20% ganglion cell loss, thinner nerve fiber layer, and vascular leakage, without elevated IOP (Markand et al., 2015, *IOVS*)
@@ -123,7 +123,7 @@ Because MTHFR dysfunction has been linked in prior literature to homocysteine-re
 
 ### Hypothesis 2: Neuropsychiatric Pathway
 
-Because folate cycle dysfunction may influence BH4-dependent neurotransmitter pathways, neuropsychiatric phenotypes are a second candidate area for validation. The current structural data do not establish causation or treatment effect, but they support testing whether selected MTHFR states correlate with measurable biochemical and clinical features.
+Because one-carbon pathway disruption may influence BH4-dependent neurotransmitter biology, neuropsychiatric phenotypes are a second candidate area for validation. The current structural data do not establish causation or treatment effect, but they support testing whether selected MTHFR states correlate with measurable biochemical and clinical features.
 
 **Supporting literature:**
 - **MTHFR polymorphism** associated with schizophrenia, major depression, autism, bipolar disorder, and ADHD (Wan et al., 2018, *Transl Psychiatry*)
@@ -204,7 +204,7 @@ We used [AlphaFold 3 Server](https://alphafoldserver.com) to predict structures 
 - **Monomer predictions show preserved overall folding confidence** (ipTM 0.97-0.98) -- the tested monomer predictions do not suggest large-scale loss of overall fold confidence
 - **Dimer predictions reveal comparative inter-chain differences** -- reported FAD-associated confidence values are lower in the tested dimer models than in the tested monomer models, consistent with the distinct interaction context of the homodimer
 - **The compound heterozygous dimer yielded the lowest reported interaction-confidence values** across the reported comparative metrics in both runs: pTM (0.73/0.76), ipTM (0.70/0.73), FAD binding (0.53/0.55), pLDDT@429 (95.0/95.3)
-- **Compound heterozygous dimers averaged lower than the tested comparators** -- ipTM 0.715 vs WT 0.740 and C677T 0.765, consistent with a possible combined destabilizing effect at the dimer level
+- **Compound heterozygous dimers averaged lower than the tested comparators** -- ipTM 0.715 vs WT 0.740 and C677T 0.765, consistent with a possible combined dimer-level perturbation in this modeling setup
 - **Consistent directional trends** -- independent random seeds produced consistent directional trends across the tested configurations, supporting limited internal reproducibility within this modeling setup
 - **Position 429 showed the largest confidence decrease** among the reported local metrics in compound dimers -- pLDDT 95.0-95.3 vs 95.8-96.2 in WT, consistent with possible regulatory-domain involvement at the dimer level
 
@@ -216,7 +216,7 @@ We used [AlphaFold 3 Server](https://alphafoldserver.com) to predict structures 
 
 ## Structural and Literature Context
 
-### Key Finding: Structural Context for MTHFR Variants
+### Structural Context Relevant to MTHFR Variants
 
 The 2024 cryo-EM structures (PDB 8QA5, 8QA6) revealed for the first time how SAM-mediated allosteric inhibition works through **dual SAM binding** that reorients the catalytic domain and blocks substrate access. This provides structural context relevant to interpretation of the A1298C (E429A) variant, which sits in the regulatory domain near the SAM-binding pocket.
 
@@ -251,7 +251,7 @@ Any future gene editing program would need to address safety. The following are 
 | **4. Reversible epigenetic editing** | CRISPRoff as a non-permanent first step before committing to base editing | In early translational development |
 | **5. Post-intervention monitoring** | Biomarker panels, off-target sequencing at defined timepoints | Standard clinical protocol design |
 
-**Key point:** At the target base, a successful correction strategy would aim to restore the reference allele sequence rather than introduce a novel coding change.
+**Key point:** At the target base, a candidate correction strategy would aim to restore the reference allele sequence rather than introduce a novel coding change.
 
 See the [full research paper](docs/RESEARCH_PAPER_DRAFT.md#47-safety-architecture-built-in-safeguards-and-emergency-off-switches) for complete safety analysis.
 
@@ -459,6 +459,6 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed instructions.
 
 *The structural workflow is reproducible within the documented pipeline, the cited references have been checked against primary or database sources, and the analysis pipeline is open source. I am not qualified to determine whether these computational differences are biologically meaningful, but I have tried to make the question easier for qualified researchers to test.*
 
-*If you are a clinician or researcher, I hope this project helps define a tractable experimental path. If you are a patient or family member, this project should be read as a research document, not as medical guidance. Variant status needs clinical interpretation in context with symptoms, labs, and the broader medical picture.*
+*If you are a clinician or researcher, I hope this project helps clarify a tractable experimental path. If you are a patient or family member, this project should be read as a research document, not as medical guidance. Variant status needs clinical interpretation in context with symptoms, labs, and the broader medical picture.*
 
 *My goal is to help move a testable research question into the hands of qualified scientists who can evaluate it rigorously.*
