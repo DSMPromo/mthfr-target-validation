@@ -19,6 +19,7 @@ from datetime import datetime
 SCAN_FILES = [
     "README.md",
     "docs/RESEARCH_PAPER_DRAFT.md",
+    "docs/MTHFR_Master_Document.md",
     "CONTRIBUTING.md",
     "DISCLAIMER.md",
     "outreach/email_template.md",
@@ -183,7 +184,8 @@ RULES = [
         "description": "'Platform' implies tested reusable system — use 'program' or 'design' for our work",
         "suggestion": "program / design / approach",
         "exclude_context": ["delivery platform", "gene editing platform", "LNP platform",
-                           "validated gene editing platforms", "open-source platform"],
+                           "validated gene editing programs", "open-source platform",
+                           "| Platform |", "AlphaFold", "Boltz"],
     },
     {
         "id": "M07",
