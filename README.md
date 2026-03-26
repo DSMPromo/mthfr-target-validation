@@ -56,7 +56,7 @@ Modern medicine is organized by organ system. Ophthalmologists treat eyes. Psych
 
 **Nobody steps back to see that MTHFR dysfunction is implicated across all seven disease pathways.**
 
-Thousands of papers have been published on individual aspects of MTHFR. But no single document connects all seven disease pathways to one genetic root cause and proposes a unified correction strategy using modern structural biology tools. That's what this project does.
+Thousands of papers have been published on individual aspects of MTHFR. But no single document connects all seven disease pathways to one genetic variant and proposes a unified experimental correction strategy using modern structural biology tools. That's what this project does.
 
 ### Why Has Nobody Tried to Fix This Genetically?
 
@@ -64,11 +64,11 @@ As of March 2026, among ~250 active CRISPR clinical trials worldwide, **zero tar
 
 | Reason It Was Ignored | Why That's Wrong |
 |----------------------|------------------|
-| "It's just a polymorphism" | 40% prevalence ≠ benign. 1.5-2 billion people affected across 7 pathways |
+| "It's just a polymorphism" | 40% prevalence ≠ benign. 1.5-2 billion people carrying these variants across diverse populations |
 | "Supplements work fine" | Lifelong, imperfect, addresses downstream effects not the genetic variant. The enzyme carries variant alleles in every cell |
 | Specialists stay in lanes | 7 diseases = 7 specialties. No one sees the full picture |
 | Structural data didn't exist | First crystal structure 2018, cryo-EM 2024, AlphaFold 3 2024 |
-| Gene therapy targets rare diseases | PCSK9 editing (VERVE-102, YOLT-101) proves common-variant correction is viable |
+| Gene therapy targets rare diseases | PCSK9 editing (VERVE-102, YOLT-101) demonstrates common-variant correction is technically feasible |
 
 **What changed:** AlphaFold 3 + adenine base editing (proven in humans) + LNP delivery (proven at scale) + 2024 cryo-EM structures = a window that didn't exist two years ago. This project exists to open it.
 
@@ -145,7 +145,7 @@ MTHFR dysfunction extends beyond vision and neuropsychiatry. Correcting the unde
 
 ### Autism Spectrum Disorder and Cerebral Folate Deficiency
 
-Reduced 5-MTHF transport across the blood-brain barrier starves the developing brain of folate. Meta-analysis of 15 studies confirms C677T association with ASD (Pu et al., 2020). Folinic acid improved verbal communication in ASD children (Frye et al., 2018, *Mol Psychiatry*). Maternal folate supplementation reduces autism risk (Levine, 45,300 children).
+Reduced 5-MTHF transport across the blood-brain barrier starves the developing brain of folate. Meta-analysis of 15 studies supports an association between C677T and ASD (Pu et al., 2020). Folinic acid improved verbal communication in ASD children (Frye et al., 2018, *Mol Psychiatry*). Maternal folate supplementation reduces autism risk (Levine, 45,300 children).
 
 ### B-Vitamin Processing Failure
 
@@ -163,12 +163,12 @@ MTHFR produces methyl groups used by >200 methyltransferases. Mthfr-deficient ma
 
 MTHFR variants are associated with multiple adverse pregnancy outcomes.
 
-- **Preeclampsia:** Meta-analysis of 51 studies confirms significant association with C677T (Xia et al., 2013)
+- **Preeclampsia:** Meta-analysis of 51 studies supports significant association with C677T (Xia et al., 2013)
 - **Recurrent pregnancy loss:** A1298C specifically linked to recurrent miscarriage (Kumar et al., 2024, *BMC Pregnancy Childbirth*)
 - **Neural tube defects:** MTHFR is the key enzyme in the folate pathway that prevents NTDs; global folic acid fortification was designed partly because of MTHFR variant prevalence
 - VTE in pregnancy: 50% of compound heterozygous patients vs 28.6% wild-type (Liew & Gupta, 2015)
 
-**Working hypothesis:** The compound heterozygous MTHFR dimer shows lower predicted confidence for cofactor-associated and substrate-associated interactions relative to wild-type. These results support experimental testing of whether selected high-risk MTHFR states contribute to measurable dysfunction in retinal and neuropsychiatric-relevant pathways, and whether genetic correction could restore normal enzyme function.
+**Working hypothesis:** The compound heterozygous MTHFR dimer shows lower predicted confidence for cofactor-associated and substrate-associated interactions relative to wild-type. These results support experimental testing of whether selected high-risk MTHFR states contribute to measurable dysfunction in retinal and neuropsychiatric-relevant pathways, and whether genetic correction could restore enzyme activity toward wild-type levels.
 
 ---
 

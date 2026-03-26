@@ -62,8 +62,9 @@ If you have access to wet-lab facilities:
 - All contributions must be for non-commercial research/educational purposes
 - Be respectful and constructive
 - Cite sources for all scientific claims
-- Never overstate the clinical implications of computational predictions
-- Remember: this is for the people — the kids with autism, the adults with unexplained anxiety, the millions losing their vision. Keep that mission front and center.
+- Never overstate the experimental indication hypotheses generated from computational predictions
+- Use hypothesis-generating language: "supports," "is consistent with," "suggests" -- not "proves," "confirms," or "demonstrates"
+- Remember: rigorous, defensible science is the best way to help people. Keep that standard front and center.
 
 ## Questions?
 

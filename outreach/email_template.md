@@ -4,15 +4,15 @@
 
 ---
 
-**Subject:** Collaboration Inquiry — MTHFR Base Editing Platform for Retinal Neurodegeneration & Cerebral Folate Deficiency
+**Subject:** Collaboration Inquiry — Computational Structural Analysis and Experimental Hypotheses for MTHFR C677T/A1298C
 
 Dear Dr. [Name],
 
-I am writing to propose a research collaboration targeting MTHFR polymorphisms (C677T/A1298C) as a unified therapeutic platform for multiple disease pathways.
+I am writing to propose a research collaboration targeting MTHFR polymorphisms (C677T/A1298C). I have conducted a computational structural analysis that generates testable hypotheses for experimental validation.
 
 Building on your published work on [CITE THEIR SPECIFIC PAPER], I have conducted AlphaFold 3 structural modeling comparing wild-type and variant MTHFR enzyme complexes with FAD cofactor. The structural analysis reveals [BRIEF FINDING FROM YOUR ALPHAFOLD RESULTS — e.g., "reduced interface confidence at the FAD binding site in the C677T variant, consistent with known thermolability"].
 
-My research thesis connects seven disease pathways — retinal neurodegeneration, autism/cerebral folate deficiency, anxiety/depression, B-vitamin metabolism failure, cardiovascular disease, genome-wide DNA methylation disruption, and pregnancy complications — to a single correctable genetic root cause. As a compound heterozygous carrier of both MTHFR C677T and A1298C, I bring both a personal genomic proof-of-concept and a comprehensive research foundation.
+My research proposes that MTHFR dysfunction is a candidate upstream factor that could contribute to multiple disease-relevant pathways, with retinal neurodegeneration and neuropsychiatric phenotypes as the primary experimental indication hypotheses. As a compound heterozygous carrier of both MTHFR C677T and A1298C, I bring personal genomic context and a comprehensive computational foundation.
 
 I have prepared:
 - A detailed research paper with published evidence across all seven disease targets

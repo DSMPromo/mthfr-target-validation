@@ -347,8 +347,8 @@ def main():
     if plddt_data:
         plot_plddt_comparison(plddt_data, "plddt_comparison.png")
 
-    # 4. Clinical target summary figure
-    print("\n[4/4] Generating clinical target figure...")
+    # 4. Experimental indication hypothesis figure
+    print("\n[4/4] Generating experimental indication hypothesis figure...")
     fig, ax = plt.subplots(figsize=(14, 8))
     ax.set_xlim(0, 10)
     ax.set_ylim(0, 10)

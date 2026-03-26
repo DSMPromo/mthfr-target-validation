@@ -62,11 +62,11 @@ This compound genetic context is directly relevant to the present study, as the 
 
 ### 1.4 Seven Disease Pathways, One Enzyme
 
-When MTHFR function is impaired, seven pathological cascades are simultaneously activated:
+MTHFR dysfunction has been reported in the literature to be associated with seven disease-relevant pathways:
 
 **Pathway 1: Vision Loss and Retinal Neurodegeneration**
 
-Elevated homocysteine damages retinal ganglion cells through oxidative stress, independent of intraocular pressure. Mthfr+/- mice (heterozygous -- the same genetic status as most human carriers) show 2x retinal homocysteine, ~20% ganglion cell loss, thinner nerve fiber layer, and vascular leakage (Markand et al., 2015). Complete blindness has been reversed with betaine treatment in severe MTHFR deficiency (Hergert et al., 2022). Retinal perfusion was improved in compound C677T/A1298C carriers receiving MTHFR genotype-guided supplementation with the medical food Ocufolin (Jiang et al., 2023). MTHFR additionally modifies CRB1-related retinopathies, worsening the rd8 retinal phenotype (Markand et al., 2015).
+Elevated homocysteine is reported to be associated with retinal ganglion cell loss through oxidative stress, independent of intraocular pressure. Mthfr+/- mice (heterozygous -- the same genetic status as most human carriers) show 2x retinal homocysteine, ~20% ganglion cell loss, thinner nerve fiber layer, and vascular leakage (Markand et al., 2015). Complete blindness has been reversed with betaine treatment in severe MTHFR deficiency (Hergert et al., 2022). Retinal perfusion was improved in compound C677T/A1298C carriers receiving MTHFR genotype-guided supplementation with the medical food Ocufolin (Jiang et al., 2023). MTHFR additionally modifies CRB1-related retinopathies, worsening the rd8 retinal phenotype (Markand et al., 2015).
 
 **Pathway 2: Autism Spectrum Disorder and Cerebral Folate Deficiency**
 
@@ -127,11 +127,11 @@ AlphaFold 3 (Abramson et al., 2024) can model protein + cofactor (FAD) + substra
 
 As of March 2026, among approximately 250 active CRISPR/gene editing clinical trials worldwide, zero target MTHFR. No biotech company, no academic lab, no clinical program is pursuing genetic correction of C677T or A1298C. This gap exists for several identifiable reasons, each of which we argue is now addressable:
 
-**1. "It's just a polymorphism, not a disease."** The CDC states that MTHFR variants are "generally not a reason to change treatment." Because the variants are so common (up to 40% of the population), the medical establishment has normalized them as benign polymorphisms rather than recognizing them as clinically actionable targets. However, commonality does not equal benignity -- 40% prevalence means 1.5-2 billion people are affected. The disease burden is massive but distributed across seven specialties, making it invisible to any single field.
+**1. "It's just a polymorphism, not a disease."** The CDC states that MTHFR variants are "generally not a reason to change treatment." Because the variants are so common (up to 40% of the population), the medical establishment has normalized them as benign polymorphisms rather than recognizing them as clinically actionable targets. However, commonality does not equal benignity -- 40% prevalence means 1.5-2 billion people carry these variants. The potential disease burden is distributed across seven specialties, making it invisible to any single field.
 
-**2. Supplementation "works well enough."** The current standard of care -- methylfolate, riboflavin, B12, SAMe supplementation -- partially compensates for impaired enzyme function. This creates the perception that the problem is solved. However, supplementation is lifelong, imperfect (it cannot fully restore enzyme activity), and addresses downstream symptoms rather than the root genetic cause. The C677T enzyme is still thermolabile. The A1298C regulatory domain is still impaired. Every cell in the body still carries the variant. Supplementation is a workaround, not a fix.
+**2. Supplementation "works well enough."** The current standard of care -- methylfolate, riboflavin, B12, SAMe supplementation -- partially compensates for impaired enzyme function. This creates the perception that the problem is solved. However, supplementation is lifelong, and may only partially compensate for reduced enzyme activity, addressing downstream metabolic effects rather than the genetic variant itself. The C677T enzyme is still thermolabile. The A1298C regulatory domain is still impaired. Every cell in the body still carries the variant. Supplementation is a workaround, not a fix.
 
-**3. Specialization blindness.** The seven disease pathways connected to MTHFR are managed by seven different medical specialties: ophthalmology (vision), psychiatry (anxiety/depression), neurology (autism/CFD), cardiology (CVD), nutrition (B-vitamins), reproductive medicine (pregnancy), and genetics (epigenetics). No single specialist sees the full picture. Each sees their piece -- "unexplained retinal thinning," "treatment-resistant anxiety," "elevated homocysteine" -- without recognizing the common root cause.
+**3. Specialization blindness.** The seven disease pathways connected to MTHFR are managed by seven different medical specialties: ophthalmology (vision), psychiatry (anxiety/depression), neurology (autism/CFD), cardiology (CVD), nutrition (B-vitamins), reproductive medicine (pregnancy), and genetics (epigenetics). No single specialist sees the full picture. Each sees their piece -- "unexplained retinal thinning," "treatment-resistant anxiety," "elevated homocysteine" -- without recognizing the potential common upstream factor.
 
 **4. The structural data is new.** The first human MTHFR crystal structure was only published in 2018 (Froese et al., PDB 6FCX). The cryo-EM structures revealing SAM allosteric regulation were published in 2024 (PDB 8QA5, 8QA6). AlphaFold 3, capable of predicting protein-ligand complexes, became available in 2024. The tools to structurally characterize these variants simply did not exist until very recently.
 
@@ -279,7 +279,7 @@ The dimer predictions revealed dramatic differences not visible at the monomer l
 
 **Critical observations:**
 
-1. **FAD binding collapses in dimers:** FAD binding confidence (chain_iptm) drops from 0.97 in monomers to 0.53-0.57 in dimers -- a dramatic reduction that confirms the dimer interface is critical for FAD binding and that AlphaFold detects reduced confidence in the protein-cofactor interaction at the biologically relevant quaternary structure level.
+1. **FAD binding collapses in dimers:** FAD binding confidence (chain_iptm) drops from 0.97 in monomers to 0.53-0.57 in dimers -- a substantial reduction that is consistent with the dimer interface being critical for FAD binding and that AlphaFold detects reduced confidence in the protein-cofactor interaction at the biologically relevant quaternary structure level.
 
 2. **The compound heterozygous dimer consistently shows the lowest scores across every metric in both independent runs:** Job 06 (pTM 0.73, ipTM 0.70, FAD binding 0.53, pLDDT@429 95.0) and Job 12 (pTM 0.76, ipTM 0.73, FAD binding 0.55, pLDDT@429 95.3). This is the author's actual genotype -- one chain carrying A222V (catalytic domain hit) and one chain carrying E429A (regulatory domain hit) -- and it produces the most structurally disrupted prediction of any variant tested, replicated across independent seeds.
 
@@ -383,15 +383,15 @@ The compound heterozygous dimer (Job 06: one chain with A222V, one with E429A) r
 
 ### 4.3 Multi-Pathway Implications
 
-MTHFR dysfunction connects to seven disease pathways, with this study focusing on two primary clinical targets (retinal neurodegeneration and neuropsychiatric disorders) while recognizing broader implications:
+MTHFR dysfunction connects to seven disease pathways, with this study focusing on two primary experimental indication hypotheses (retinal and neuropsychiatric) while recognizing broader potential associations:
 
 | Pathway | Mechanism | Affected Population |
 |---------|-----------|-------------------|
-| 1. Vision loss | Homocysteine-mediated retinal damage | 2.2 billion with vision impairment (WHO) |
+| 1. Vision loss | Homocysteine-associated retinal neurodegeneration | 2.2 billion with vision impairment (WHO) |
 | 2. Autism/CFD | Cerebral folate deficiency | 1 in 36 children (CDC) |
 | 3. Neuropsychiatric | SAMe/BH4 depletion | 280 million with anxiety (WHO) |
 | 4. B-vitamins | Multi-vitamin processing failure | ~1.5-2 billion MTHFR carriers |
-| 5. Cardiovascular | Homocysteine vascular damage | 17.9 million CVD deaths/year |
+| 5. Cardiovascular | Homocysteine-associated vascular dysfunction | 17.9 million CVD deaths/year |
 | 6. Epigenetic | Genome-wide methylation disruption | All MTHFR carriers + offspring |
 | 7. Reproductive | Preeclampsia, pregnancy loss, NTDs | 15% of pregnancies affected |
 
@@ -458,7 +458,7 @@ The proposed therapeutic approach has multiple built-in safety features that dis
 
 - **No double-strand DNA breaks:** Adenine base editors (ABEs) convert A-T to G-C without cutting the DNA backbone, eliminating the risk of chromosomal rearrangements, large deletions, and p53-mediated DNA damage response associated with nuclease-based CRISPR (Cas9)
 - **Transient editor expression:** LNP-delivered mRNA encoding the base editor degrades within 24-48 hours. Unlike AAV-delivered Cas9 (which can persist for months), the editing machinery is gone within days, limiting the window for off-target activity
-- **Restoring wild-type, not creating novelty:** The C677T correction (T>C) restores the ancestral, healthy sequence. The resulting protein is identical to what billions of unaffected people naturally carry -- this is not introducing a foreign or engineered protein
+- **Restoring wild-type, not creating novelty:** The C677T correction (T>C) restores the reference allele sequence. The resulting protein would be identical to the majority allele naturally occurring in human populations -- this is not introducing a foreign or engineered protein
 - **Dose control:** LNP delivery allows precise dosing. If initial low-dose treatment shows partial correction with acceptable safety, the dose can be titrated upward in subsequent administrations
 
 **Layer 2: Pre-Treatment Safety -- Guide RNA Design and Off-Target Screening**
@@ -487,7 +487,7 @@ For patients or clinicians who prefer a reversible first step before committing 
 
 - **CRISPRoff** technology adds DNA methylation marks to silence or activate genes without changing the DNA sequence (Nuñez et al., 2021; PMC 2025)
 - Silencing persists for 100+ days and is propagated through cell division
-- **Fully reversible:** A second dose of dCas9-TET1 demethylase erases the methylation marks and restores original gene expression
+- **Potentially reversible:** A second dose of dCas9-TET1 demethylase could erase methylation marks and restore original gene expression, though biological reversibility is context-dependent
 - This could be used as a "test run" -- temporarily correcting MTHFR expression to validate therapeutic benefit before proceeding to permanent base editing
 - CRISPRoff is currently being translated to clinical applications in CAR-T cell therapy (2025)
 
@@ -509,7 +509,7 @@ A comprehensive monitoring framework would include:
 
 This safety architecture is not theoretical -- every component is either already in clinical use or in active preclinical development. The combination of inherent platform safety (no DNA breaks, transient editor, restoring wild-type) with emergency intervention capability (anti-CRISPR proteins) and a reversible alternative pathway (CRISPRoff) provides multiple layers of protection for patients and their families.
 
-For compound heterozygous MTHFR carriers watching their parents, children, or themselves suffer from preventable symptoms across seven disease pathways, the question is not whether gene correction is safe enough to try -- it is whether we can afford to wait while the safety tools already exist.
+For compound heterozygous MTHFR carriers and their families, the question is whether the convergence of structural prediction tools, validated gene editing platforms, and delivery technologies justifies experimental testing of genetic correction hypotheses.
 
 ### 4.8 Limitations
 
@@ -551,7 +551,7 @@ This study has several important limitations:
 
 ## 5. Conclusion
 
-This study presents the first systematic AlphaFold 3 structural characterization of MTHFR variants (C677T, A1298C, and compound heterozygous) in complex with their functional ligands (FAD, THF, SAM). By connecting structural predictions to seven disease pathways, we provide a framework for understanding how single amino acid changes in one enzyme can have pleiotropic consequences affecting billions of people worldwide.
+This study presents the first systematic AlphaFold 3 structural characterization of MTHFR variants (C677T, A1298C, and compound heterozygous) in complex with their functional ligands (FAD, THF, SAM). By connecting structural predictions to seven disease pathways, we provide a framework for understanding how single amino acid changes in one enzyme can have pleiotropic consequences in populations carrying these variants.
 
 The key contribution is not the computational predictions themselves -- which require experimental validation -- but the integration: connecting structural biology, clinical genetics, epigenetics, reproductive health, and gene therapy in a single, reproducible, open-source framework that any researcher can extend.
 
@@ -577,7 +577,7 @@ Taking this from computational predictions to a real therapy requires a phased a
 
 This project represents a complete Phase 1 deliverable:
 - Structural evidence that compound heterozygous MTHFR has the lowest FAD binding confidence of any variant tested
-- Seven disease pathways connected to a single correctable genetic root cause
+- Seven disease pathways potentially associated with a single genetic variant amenable to correction
 - A safety architecture with anti-CRISPR kill switch and CRISPRoff reversible pathway
 - A fully replicable, open-source pipeline that any researcher can verify
 - All of this done for $0 using freely available tools (AlphaFold Server, Python, GitHub)
