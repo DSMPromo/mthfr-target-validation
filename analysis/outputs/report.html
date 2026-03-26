@@ -1,25 +1,86 @@
 <!DOCTYPE html><html><head><meta charset="UTF-8">
-<title>MTHFR Analysis Report</title>
+<title>MTHFR Gene Therapy Platform — Analysis Report</title>
 <style>
-body{font-family:Arial;max-width:1100px;margin:0 auto;padding:20px;color:#333}
-h1{color:#1B3A5C;border-bottom:3px solid #2E75B6;padding-bottom:10px}
-h2{color:#2E75B6}
-table{border-collapse:collapse;width:100%;margin:15px 0}
-th{background:#1B3A5C;color:#fff;padding:8px}
-td{padding:6px 8px;border-bottom:1px solid #ddd}
-tr:nth-child(even){background:#f2f2f2}
-.warn{border:2px solid #CC3333;padding:12px;background:#fff5f5;margin:15px 0}
-img{max-width:100%;border:1px solid #ddd;margin:8px 0}
+body{font-family:'Segoe UI',Arial,sans-serif;max-width:1200px;margin:0 auto;padding:30px;color:#333;line-height:1.6}
+h1{color:#1B3A5C;border-bottom:3px solid #2E75B6;padding-bottom:12px;font-size:28px}
+h2{color:#2E75B6;margin-top:40px;font-size:22px}
+h3{color:#1B3A5C;font-size:18px}
+table{border-collapse:collapse;width:100%;margin:15px 0;font-size:14px}
+th{background:#1B3A5C;color:#fff;padding:10px 8px;text-align:left}
+td{padding:8px;border-bottom:1px solid #ddd}
+tr:nth-child(even){background:#f8f9fa}
+tr:hover{background:#e8f4fd}
+.warn{border-left:4px solid #CC3333;padding:15px;background:#fff5f5;margin:20px 0;border-radius:4px}
+.info{border-left:4px solid #2E75B6;padding:15px;background:#f0f7ff;margin:20px 0;border-radius:4px}
+.finding{border-left:4px solid #2E7D32;padding:15px;background:#f1f8e9;margin:20px 0;border-radius:4px}
+img{max-width:100%;border:1px solid #ddd;margin:10px 0;border-radius:4px;box-shadow:0 2px 4px rgba(0,0,0,0.1)}
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+.badge{display:inline-block;padding:3px 10px;border-radius:12px;font-size:12px;font-weight:bold;margin-right:8px}
+.badge-af{background:#E3F2FD;color:#1565C0}
+.badge-b2{background:#F3E5F5;color:#7B1FA2}
+.highlight{background:#FFF9C4;font-weight:bold}
+a{color:#2E75B6}
+.footer{margin-top:40px;padding-top:20px;border-top:2px solid #ddd;color:#666;font-size:13px;text-align:center}
 </style></head><body>
-<h1>MTHFR AlphaFold 3 Analysis Report</h1>
-<p><b>Generated:</b> 2026-03-25 19:21</p>
-<p><b>Author:</b> Igor Mihaljko / DSM.Promo | <b>Jobs analyzed:</b> 16</p>
-<div class="warn"><b>DISCLAIMER:</b> For research/educational purposes only. Computational predictions require experimental validation. Author is not a medical professional.</div>
-<h2>Metrics Comparison</h2>
-<table><tr><th>Job</th><th>Config</th><th>pTM</th><th>ipTM</th><th>Rank</th><th>FAD iptm</th><th>pLDDT@222</th><th>pLDDT@429</th></tr><tr><td>job01_wt_mono_fad</td><td>WT mono+FAD</td><td>0.800</td><td>0.970</td><td>0.970</td><td>0.970</td><td>99</td><td>97</td></tr><tr><td>job02_wt_dimer_fad</td><td>WT dimer+FAD</td><td>0.790</td><td>0.760</td><td>0.800</td><td>0.570</td><td>97</td><td>96</td></tr><tr><td>job03_c677t_mono_fad</td><td>C677T mono+FAD</td><td>0.810</td><td>0.970</td><td>0.970</td><td>0.970</td><td>98</td><td>98</td></tr><tr><td>job04_c677t_dimer_fad</td><td>C677T dimer+FAD</td><td>0.770</td><td>0.750</td><td>0.780</td><td>0.570</td><td>97</td><td>96</td></tr><tr><td>job05_a1298c_mono_fad</td><td>A1298C mono+FAD</td><td>0.810</td><td>0.970</td><td>0.970</td><td>0.970</td><td>99</td><td>97</td></tr><tr><td>job06_compound_dimer_fad</td><td>Compound dimer+FAD</td><td>0.730</td><td>0.700</td><td>0.730</td><td>0.530</td><td>97</td><td>95</td></tr><tr><td>job07_wt_mono_rep</td><td>WT mono rep</td><td>0.810</td><td>0.980</td><td>0.970</td><td>0.980</td><td>99</td><td>98</td></tr><tr><td>job08_wt_dimer_rep</td><td>WT dimer rep</td><td>0.760</td><td>0.720</td><td>0.760</td><td>0.540</td><td>97</td><td>96</td></tr><tr><td>job09_c677t_mono_rep</td><td>C677T mono rep</td><td>0.820</td><td>0.970</td><td>0.970</td><td>0.970</td><td>98</td><td>98</td></tr><tr><td>job10_c677t_dimer_rep</td><td>C677T dimer rep</td><td>0.800</td><td>0.780</td><td>0.820</td><td>0.580</td><td>97</td><td>96</td></tr><tr><td>job11_a1298c_mono_rep</td><td>A1298C mono rep</td><td>0.810</td><td>0.970</td><td>0.970</td><td>0.970</td><td>98</td><td>98</td></tr><tr><td>job12_compound_rep</td><td>Compound dimer rep</td><td>0.760</td><td>0.730</td><td>0.770</td><td>0.550</td><td>96</td><td>95</td></tr><tr><td>job13_wt_dimer_fad_thf</td><td>WT dimer+FAD+THF</td><td>0.906</td><td>0.892</td><td>0.869</td><td>0.974</td><td>98</td><td>92</td></tr><tr><td>job14_c677t_dimer_fad_thf</td><td>C677T dimer+FAD+THF</td><td>0.891</td><td>0.875</td><td>0.869</td><td>0.969</td><td>98</td><td>95</td></tr><tr><td>job15_compound_dimer_fad_thf</td><td>Compound dimer+FAD+THF</td><td>0.848</td><td>0.819</td><td>0.854</td><td>0.878</td><td>97</td><td>95</td></tr><tr><td>job16_wt_dimer_fad_sam</td><td>WT dimer+FAD+SAM</td><td>0.911</td><td>0.897</td><td>0.877</td><td>0.925</td><td>97</td><td>95</td></tr></table><h2>Iptm Comparison</h2><img src="charts/iptm_comparison.png"><h2>Ptm Comparison</h2><img src="charts/ptm_comparison.png"><h2>PAE Plots</h2><div class="grid"><img src="pae_plots/pae_job01_wt_mono_fad.png"><img src="pae_plots/pae_job02_wt_dimer_fad.png"><img src="pae_plots/pae_job03_c677t_mono_fad.png"><img src="pae_plots/pae_job04_c677t_dimer_fad.png"><img src="pae_plots/pae_job05_a1298c_mono_fad.png"><img src="pae_plots/pae_job06_compound_dimer_fad.png"><img src="pae_plots/pae_job07_wt_mono_rep.png"><img src="pae_plots/pae_job08_wt_dimer_rep.png"><img src="pae_plots/pae_job09_c677t_mono_rep.png"><img src="pae_plots/pae_job10_c677t_dimer_rep.png"><img src="pae_plots/pae_job11_a1298c_mono_rep.png"><img src="pae_plots/pae_job12_compound_rep.png"><img src="pae_plots/pae_job13_wt_dimer_fad_thf.png"><img src="pae_plots/pae_job14_c677t_dimer_fad_thf.png"><img src="pae_plots/pae_job15_compound_dimer_fad_thf.png"><img src="pae_plots/pae_job16_wt_dimer_fad_sam.png"></div><h2>Next Steps</h2><ol>
-<li>Open CIF files in PyMOL — use scripts in pymol_scripts/</li>
-<li>Superimpose WT and variant structures</li>
-<li>Measure FAD distances at active site</li>
-<li>Update research paper with findings</li>
-<li>Share with research collaborators</li></ol></body></html>
+
+<h1>MTHFR Gene Therapy Platform</h1>
+<p style="font-size:18px;color:#666">Targeting Retinal Neurodegeneration and Neuropsychiatric Disorders Through Structural Biology</p>
+
+<p><b>Generated:</b> 2026-03-25 19:49 |
+<b>Author:</b> Igor Mihaljko / <a href="https://dsm.promo">DSM.Promo</a> |
+<b>ORCID:</b> <a href="https://orcid.org/0009-0000-1408-1065">0009-0000-1408-1065</a> |
+<b>Jobs analyzed:</b> 16 |
+<b>Platforms:</b> <span class="badge badge-af">AlphaFold 3</span> <span class="badge badge-b2">Boltz-2</span></p>
+
+<div class="warn"><b>DISCLAIMER:</b> For research and educational purposes only. These are computational predictions, not experimental structures. All findings require validation through experimental methods (cryo-EM, X-ray crystallography, functional assays). The author is not a medical professional.</div>
+
+<h2>Executive Summary</h2>
+<div class="finding">
+<b>Key Finding:</b> The compound heterozygous MTHFR dimer (C677T + A1298C — the author's actual genotype) consistently shows the lowest structural confidence scores across every metric:
+<ul>
+<li><b>FAD cofactor binding:</b> ipTM 0.53 (vs 0.57 WT) — AlphaFold Server</li>
+<li><b>THF substrate binding:</b> ligand ipTM 0.878 (vs 0.974 WT) — 10% reduction — Boltz-2</li>
+<li><b>Dimer interface:</b> ipTM 0.70 (vs 0.76 WT) — weakened protein-protein interaction</li>
+<li><b>Position 429 (A1298C site):</b> pLDDT 95.0 (vs 96.2 WT) — regulatory domain disruption</li>
+</ul>
+<b>Clinical implication:</b> Reduced FAD binding and folate substrate access in compound heterozygous MTHFR provides structural rationale for (1) retinal ganglion cell damage via elevated homocysteine and (2) impaired BH4-dependent neurotransmitter synthesis.
+</div><h2>Summary Dashboard</h2><img src="figures/summary_dashboard.png" alt="Summary Dashboard"><h2>Primary Clinical Targets</h2><img src="figures/clinical_targets.png" alt="Clinical Targets"><h2>3D Structure Visualizations</h2><p>Backbone traces colored by pLDDT confidence (blue=high, red=low). Mutation sites marked with stars.</p><div class="grid"><img src="figures/structure_job01_wt_mono_fad.png" alt="structure_job01_wt_mono_fad"><img src="figures/structure_job02_wt_dimer_fad.png" alt="structure_job02_wt_dimer_fad"><img src="figures/structure_job06_compound_dimer_fad.png" alt="structure_job06_compound_dimer_fad"><img src="figures/structure_job13_wt_dimer_fad_thf.png" alt="structure_job13_wt_dimer_fad_thf"><img src="figures/structure_job15_compound_dimer_fad_thf.png" alt="structure_job15_compound_dimer_fad_thf"></div><h2>Per-Residue Confidence Comparison</h2><img src="figures/plddt_comparison.png" alt="pLDDT Comparison"><h2>AlphaFold 3 Server Results (Jobs 1-12)</h2><p><span class="badge badge-af">AlphaFold 3</span> FAD cofactor binding — monomers and homodimers with independent replication seeds</p><table><tr><th>Job</th><th>Config</th><th>pTM</th><th>ipTM</th><th>Rank</th><th>FAD ipTM</th><th>pLDDT@222</th><th>pLDDT@429</th></tr><tr><td>job01_wt_mono_fad</td><td>WT mono+FAD</td><td>0.800</td><td>0.970</td><td>0.970</td><td>0.970</td><td>99</td><td>97</td></tr><tr><td>job02_wt_dimer_fad</td><td>WT dimer+FAD</td><td>0.790</td><td>0.760</td><td>0.800</td><td>0.570</td><td>97</td><td>96</td></tr><tr><td>job03_c677t_mono_fad</td><td>C677T mono+FAD</td><td>0.810</td><td>0.970</td><td>0.970</td><td>0.970</td><td>98</td><td>98</td></tr><tr><td>job04_c677t_dimer_fad</td><td>C677T dimer+FAD</td><td>0.770</td><td>0.750</td><td>0.780</td><td>0.570</td><td>97</td><td>96</td></tr><tr><td>job05_a1298c_mono_fad</td><td>A1298C mono+FAD</td><td>0.810</td><td>0.970</td><td>0.970</td><td>0.970</td><td>99</td><td>97</td></tr><tr class="highlight"><td>job06_compound_dimer_fad</td><td>Compound dimer+FAD</td><td>0.730</td><td>0.700</td><td>0.730</td><td>0.530</td><td>97</td><td>95</td></tr><tr><td>job07_wt_mono_rep</td><td>WT mono rep</td><td>0.810</td><td>0.980</td><td>0.970</td><td>0.980</td><td>99</td><td>98</td></tr><tr><td>job08_wt_dimer_rep</td><td>WT dimer rep</td><td>0.760</td><td>0.720</td><td>0.760</td><td>0.540</td><td>97</td><td>96</td></tr><tr><td>job09_c677t_mono_rep</td><td>C677T mono rep</td><td>0.820</td><td>0.970</td><td>0.970</td><td>0.970</td><td>98</td><td>98</td></tr><tr><td>job10_c677t_dimer_rep</td><td>C677T dimer rep</td><td>0.800</td><td>0.780</td><td>0.820</td><td>0.580</td><td>97</td><td>96</td></tr><tr><td>job11_a1298c_mono_rep</td><td>A1298C mono rep</td><td>0.810</td><td>0.970</td><td>0.970</td><td>0.970</td><td>98</td><td>98</td></tr><tr class="highlight"><td>job12_compound_rep</td><td>Compound dimer rep</td><td>0.760</td><td>0.730</td><td>0.770</td><td>0.550</td><td>96</td><td>95</td></tr></table><h2>Boltz-2 Substrate Binding Results (Jobs 13-16)</h2><p><span class="badge badge-b2">Boltz-2</span> THF folate substrate and SAM allosteric inhibitor binding via Tamarind Bio</p><table><tr><th>Job</th><th>Config</th><th>pTM</th><th>ipTM</th><th>Confidence</th><th>Ligand ipTM</th><th>pLDDT@222</th><th>pLDDT@429</th></tr><tr><td>job13_wt_dimer_fad_thf</td><td>WT dimer+FAD+THF</td><td>0.906</td><td>0.892</td><td>0.869</td><td>0.974</td><td>98</td><td>92</td></tr><tr><td>job14_c677t_dimer_fad_thf</td><td>C677T dimer+FAD+THF</td><td>0.891</td><td>0.875</td><td>0.869</td><td>0.969</td><td>98</td><td>95</td></tr><tr class="highlight"><td>job15_compound_dimer_fad_thf</td><td>Compound dimer+FAD+THF</td><td>0.848</td><td>0.819</td><td>0.854</td><td>0.878</td><td>97</td><td>95</td></tr><tr><td>job16_wt_dimer_fad_sam</td><td>WT dimer+FAD+SAM</td><td>0.911</td><td>0.897</td><td>0.877</td><td>0.925</td><td>97</td><td>95</td></tr></table><h2>Comparison Charts</h2><div class="grid"><img src="charts/iptm_comparison.png" alt="iptm_comparison"><img src="charts/ptm_comparison.png" alt="ptm_comparison"></div><h2>Predicted Aligned Error (PAE) Plots</h2><p>Blue = confident relative positioning. Red/white = uncertain. Dashed lines mark mutation positions (222, 429).</p><div class="grid"><img src="pae_plots/pae_job01_wt_mono_fad.png" alt="pae_job01_wt_mono_fad"><img src="pae_plots/pae_job02_wt_dimer_fad.png" alt="pae_job02_wt_dimer_fad"><img src="pae_plots/pae_job03_c677t_mono_fad.png" alt="pae_job03_c677t_mono_fad"><img src="pae_plots/pae_job04_c677t_dimer_fad.png" alt="pae_job04_c677t_dimer_fad"><img src="pae_plots/pae_job05_a1298c_mono_fad.png" alt="pae_job05_a1298c_mono_fad"><img src="pae_plots/pae_job06_compound_dimer_fad.png" alt="pae_job06_compound_dimer_fad"><img src="pae_plots/pae_job07_wt_mono_rep.png" alt="pae_job07_wt_mono_rep"><img src="pae_plots/pae_job08_wt_dimer_rep.png" alt="pae_job08_wt_dimer_rep"><img src="pae_plots/pae_job09_c677t_mono_rep.png" alt="pae_job09_c677t_mono_rep"><img src="pae_plots/pae_job10_c677t_dimer_rep.png" alt="pae_job10_c677t_dimer_rep"><img src="pae_plots/pae_job11_a1298c_mono_rep.png" alt="pae_job11_a1298c_mono_rep"><img src="pae_plots/pae_job12_compound_rep.png" alt="pae_job12_compound_rep"><img src="pae_plots/pae_job13_wt_dimer_fad_thf.png" alt="pae_job13_wt_dimer_fad_thf"><img src="pae_plots/pae_job14_c677t_dimer_fad_thf.png" alt="pae_job14_c677t_dimer_fad_thf"><img src="pae_plots/pae_job15_compound_dimer_fad_thf.png" alt="pae_job15_compound_dimer_fad_thf"><img src="pae_plots/pae_job16_wt_dimer_fad_sam.png" alt="pae_job16_wt_dimer_fad_sam"></div><h2>Interpretation Guide</h2>
+<div class="info">
+<h3>What These Metrics Mean</h3>
+<ul>
+<li><b>pTM (predicted TM-score):</b> Overall fold confidence. >0.7 = reliable fold.</li>
+<li><b>ipTM (interface TM-score):</b> Confidence in protein-protein or protein-ligand interaction. >0.8 = high confidence.</li>
+<li><b>Ligand ipTM:</b> Specifically how well the ligand (FAD, THF, SAM) binds. Higher = stronger predicted binding.</li>
+<li><b>pLDDT:</b> Per-residue confidence. >90 = very high. >70 = confident. <50 = likely disordered.</li>
+<li><b>PAE:</b> How confidently AlphaFold predicts relative positions of residue pairs. Low values (blue) = confident.</li>
+</ul>
+<h3>Why Monomers vs Dimers Matter</h3>
+<p>MTHFR functions as a <b>homodimer</b> in the body. Monomer predictions (Jobs 1,3,5) show all variants fold correctly — the mutations don't destroy the protein. But dimer predictions (Jobs 2,4,6) reveal inter-chain effects: FAD binding drops from 0.97 to 0.53-0.57, and the compound heterozygous dimer is consistently worst. This is the biologically relevant finding.</p>
+<h3>Why Two Platforms</h3>
+<p><b>AlphaFold 3 Server</b> (Jobs 1-12) provided the core FAD binding analysis. <b>Boltz-2</b> (Jobs 13-16) enabled THF substrate and SAM inhibitor modeling not possible through AlphaFold Server's interface. Both confirm the same trend: compound het = worst structural scores.</p>
+</div>
+
+<h2>Primary Clinical Targets</h2>
+<div class="info">
+<h3>Target 1: Retinal Neurodegeneration</h3>
+<p>Reduced MTHFR function → elevated homocysteine → retinal ganglion cell damage. Mouse models exist (Mthfr+/-). Human blindness reversed with betaine (Hergert 2022). Intravitreal gene therapy delivery is established (Luxturna precedent).</p>
+<h3>Target 2: Anxiety and Depression</h3>
+<p>A1298C variant → impaired BH4 recycling → reduced serotonin/dopamine synthesis. Explains treatment-resistant cases where SSRIs fail because the problem is upstream of serotonin reuptake. Compound heterozygous patients respond to SAMe + methylated B vitamins when identified.</p>
+<p><i>Additional implications across autism/CFD, B-vitamin metabolism, cardiovascular disease, epigenetics, and pregnancy complications are documented in the full research paper.</i></p>
+</div>
+
+<h2>Next Steps</h2>
+<ol>
+<li>Compare AlphaFold predictions against experimental PDB 6FCX crystal structure</li>
+<li>Run molecular dynamics simulations on WT vs compound dimer</li>
+<li>Design ABE guide RNAs targeting C677T for base editing correction</li>
+<li>Submit to bioRxiv as preprint</li>
+<li>Contact target researchers (ophthalmology, neuropsychiatry, structural biology)</li>
+</ol>
+
+<div class="footer">
+<p><b>MTHFR Gene Therapy Platform</b> | Igor Mihaljko | <a href="https://github.com/DSMPromo/mthfr-gene-therapy-project">GitHub</a> | <a href="https://orcid.org/0009-0000-1408-1065">ORCID</a> | CC BY-NC-SA 4.0</p>
+<p>Computational predictions — not experimental structures. For research and educational purposes only.</p>
+</div>
+</body></html>

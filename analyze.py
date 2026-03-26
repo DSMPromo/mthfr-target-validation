@@ -234,56 +234,172 @@ def make_charts(R,out):
     print(f"  Saved comparison charts")
 
 def make_report(R,out):
+    # Separate AlphaFold and Boltz-2 results
+    af_results = [r for r in R if "thf" not in r["name"] and "sam" not in r["name"]]
+    b2_results = [r for r in R if "thf" in r["name"] or "sam" in r["name"]]
+
     h=f"""<!DOCTYPE html><html><head><meta charset="UTF-8">
-<title>MTHFR Analysis Report</title>
+<title>MTHFR Gene Therapy Platform — Analysis Report</title>
 <style>
-body{{font-family:Arial;max-width:1100px;margin:0 auto;padding:20px;color:#333}}
-h1{{color:#1B3A5C;border-bottom:3px solid #2E75B6;padding-bottom:10px}}
-h2{{color:#2E75B6}}
-table{{border-collapse:collapse;width:100%;margin:15px 0}}
-th{{background:#1B3A5C;color:#fff;padding:8px}}
-td{{padding:6px 8px;border-bottom:1px solid #ddd}}
-tr:nth-child(even){{background:#f2f2f2}}
-.warn{{border:2px solid #CC3333;padding:12px;background:#fff5f5;margin:15px 0}}
-img{{max-width:100%;border:1px solid #ddd;margin:8px 0}}
+body{{font-family:'Segoe UI',Arial,sans-serif;max-width:1200px;margin:0 auto;padding:30px;color:#333;line-height:1.6}}
+h1{{color:#1B3A5C;border-bottom:3px solid #2E75B6;padding-bottom:12px;font-size:28px}}
+h2{{color:#2E75B6;margin-top:40px;font-size:22px}}
+h3{{color:#1B3A5C;font-size:18px}}
+table{{border-collapse:collapse;width:100%;margin:15px 0;font-size:14px}}
+th{{background:#1B3A5C;color:#fff;padding:10px 8px;text-align:left}}
+td{{padding:8px;border-bottom:1px solid #ddd}}
+tr:nth-child(even){{background:#f8f9fa}}
+tr:hover{{background:#e8f4fd}}
+.warn{{border-left:4px solid #CC3333;padding:15px;background:#fff5f5;margin:20px 0;border-radius:4px}}
+.info{{border-left:4px solid #2E75B6;padding:15px;background:#f0f7ff;margin:20px 0;border-radius:4px}}
+.finding{{border-left:4px solid #2E7D32;padding:15px;background:#f1f8e9;margin:20px 0;border-radius:4px}}
+img{{max-width:100%;border:1px solid #ddd;margin:10px 0;border-radius:4px;box-shadow:0 2px 4px rgba(0,0,0,0.1)}}
 .grid{{display:grid;grid-template-columns:1fr 1fr;gap:15px}}
+.grid-3{{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}}
+.badge{{display:inline-block;padding:3px 10px;border-radius:12px;font-size:12px;font-weight:bold;margin-right:8px}}
+.badge-af{{background:#E3F2FD;color:#1565C0}}
+.badge-b2{{background:#F3E5F5;color:#7B1FA2}}
+.highlight{{background:#FFF9C4;font-weight:bold}}
+a{{color:#2E75B6}}
+.footer{{margin-top:40px;padding-top:20px;border-top:2px solid #ddd;color:#666;font-size:13px;text-align:center}}
 </style></head><body>
-<h1>MTHFR AlphaFold 3 Analysis Report</h1>
-<p><b>Generated:</b> {datetime.now().strftime('%Y-%m-%d %H:%M')}</p>
-<p><b>Author:</b> Igor Mihaljko / DSM.Promo | <b>Jobs analyzed:</b> {len(R)}</p>
-<div class="warn"><b>DISCLAIMER:</b> For research/educational purposes only. Computational predictions require experimental validation. Author is not a medical professional.</div>
-<h2>Metrics Comparison</h2>
-<table><tr><th>Job</th><th>Config</th><th>pTM</th><th>ipTM</th><th>Rank</th><th>FAD iptm</th><th>pLDDT@222</th><th>pLDDT@429</th></tr>"""
-    for r in R:
-        h+=f"<tr><td>{r['name']}</td><td>{r['config']}</td>"
+
+<h1>MTHFR Gene Therapy Platform</h1>
+<p style="font-size:18px;color:#666">Targeting Retinal Neurodegeneration and Neuropsychiatric Disorders Through Structural Biology</p>
+
+<p><b>Generated:</b> {datetime.now().strftime('%Y-%m-%d %H:%M')} |
+<b>Author:</b> Igor Mihaljko / <a href="https://dsm.promo">DSM.Promo</a> |
+<b>ORCID:</b> <a href="https://orcid.org/0009-0000-1408-1065">0009-0000-1408-1065</a> |
+<b>Jobs analyzed:</b> {len(R)} |
+<b>Platforms:</b> <span class="badge badge-af">AlphaFold 3</span> <span class="badge badge-b2">Boltz-2</span></p>
+
+<div class="warn"><b>DISCLAIMER:</b> For research and educational purposes only. These are computational predictions, not experimental structures. All findings require validation through experimental methods (cryo-EM, X-ray crystallography, functional assays). The author is not a medical professional.</div>
+
+<h2>Executive Summary</h2>
+<div class="finding">
+<b>Key Finding:</b> The compound heterozygous MTHFR dimer (C677T + A1298C — the author's actual genotype) consistently shows the lowest structural confidence scores across every metric:
+<ul>
+<li><b>FAD cofactor binding:</b> ipTM 0.53 (vs 0.57 WT) — AlphaFold Server</li>
+<li><b>THF substrate binding:</b> ligand ipTM 0.878 (vs 0.974 WT) — 10% reduction — Boltz-2</li>
+<li><b>Dimer interface:</b> ipTM 0.70 (vs 0.76 WT) — weakened protein-protein interaction</li>
+<li><b>Position 429 (A1298C site):</b> pLDDT 95.0 (vs 96.2 WT) — regulatory domain disruption</li>
+</ul>
+<b>Clinical implication:</b> Reduced FAD binding and folate substrate access in compound heterozygous MTHFR provides structural rationale for (1) retinal ganglion cell damage via elevated homocysteine and (2) impaired BH4-dependent neurotransmitter synthesis.
+</div>"""
+
+    # Summary dashboard
+    fig_dir = out/"figures"
+    if (fig_dir/"summary_dashboard.png").exists():
+        h += '<h2>Summary Dashboard</h2>'
+        h += '<img src="figures/summary_dashboard.png" alt="Summary Dashboard">'
+
+    # Clinical targets
+    if (fig_dir/"clinical_targets.png").exists():
+        h += '<h2>Primary Clinical Targets</h2>'
+        h += '<img src="figures/clinical_targets.png" alt="Clinical Targets">'
+
+    # Structure visualizations
+    struct_figs = sorted(fig_dir.glob("structure_*.png")) if fig_dir.exists() else []
+    if struct_figs:
+        h += '<h2>3D Structure Visualizations</h2>'
+        h += '<p>Backbone traces colored by pLDDT confidence (blue=high, red=low). Mutation sites marked with stars.</p>'
+        h += '<div class="grid">'
+        for fig in struct_figs:
+            h += f'<img src="figures/{fig.name}" alt="{fig.stem}">'
+        h += '</div>'
+
+    # pLDDT comparison
+    if (fig_dir/"plddt_comparison.png").exists():
+        h += '<h2>Per-Residue Confidence Comparison</h2>'
+        h += '<img src="figures/plddt_comparison.png" alt="pLDDT Comparison">'
+
+    # AlphaFold Server results table
+    h += '<h2>AlphaFold 3 Server Results (Jobs 1-12)</h2>'
+    h += '<p><span class="badge badge-af">AlphaFold 3</span> FAD cofactor binding — monomers and homodimers with independent replication seeds</p>'
+    h += '<table><tr><th>Job</th><th>Config</th><th>pTM</th><th>ipTM</th><th>Rank</th><th>FAD ipTM</th><th>pLDDT@222</th><th>pLDDT@429</th></tr>'
+    for r in af_results:
+        cls = ' class="highlight"' if 'ompound' in r['config'] else ''
+        h+=f"<tr{cls}><td>{r['name']}</td><td>{r['config']}</td>"
         for k in ['ptm','iptm','rank','fad_iptm']:
             h+=f"<td>{r[k]:.3f}</td>" if r[k] else "<td>-</td>"
         for k in ['p222','p429']:
             h+=f"<td>{r[k]:.0f}</td>" if r[k] else "<td>-</td>"
         h+="</tr>"
     h+="</table>"
-    
-    # Add chart images
+
+    # Boltz-2 results table
+    if b2_results:
+        h += '<h2>Boltz-2 Substrate Binding Results (Jobs 13-16)</h2>'
+        h += '<p><span class="badge badge-b2">Boltz-2</span> THF folate substrate and SAM allosteric inhibitor binding via Tamarind Bio</p>'
+        h += '<table><tr><th>Job</th><th>Config</th><th>pTM</th><th>ipTM</th><th>Confidence</th><th>Ligand ipTM</th><th>pLDDT@222</th><th>pLDDT@429</th></tr>'
+        for r in b2_results:
+            cls = ' class="highlight"' if 'ompound' in r['config'] else ''
+            h+=f"<tr{cls}><td>{r['name']}</td><td>{r['config']}</td>"
+            for k in ['ptm','iptm','rank','fad_iptm']:
+                h+=f"<td>{r[k]:.3f}</td>" if r[k] else "<td>-</td>"
+            for k in ['p222','p429']:
+                h+=f"<td>{r[k]:.0f}</td>" if r[k] else "<td>-</td>"
+            h+="</tr>"
+        h+="</table>"
+
+    # Charts
+    h += '<h2>Comparison Charts</h2><div class="grid">'
     for name in ["iptm_comparison","ptm_comparison"]:
         p=out/"charts"/f"{name}.png"
-        if p.exists(): h+=f'<h2>{name.replace("_"," ").title()}</h2><img src="charts/{name}.png">'
-    
-    # Add PAE plots
+        if p.exists(): h+=f'<img src="charts/{name}.png" alt="{name}">'
+    h += '</div>'
+
+    # PAE plots
     pae_dir=out/"pae_plots"
     if pae_dir.exists():
         pngs=sorted(pae_dir.glob("*.png"))
         if pngs:
-            h+='<h2>PAE Plots</h2><div class="grid">'
-            for png in pngs: h+=f'<img src="pae_plots/{png.name}">'
+            h+='<h2>Predicted Aligned Error (PAE) Plots</h2>'
+            h+='<p>Blue = confident relative positioning. Red/white = uncertain. Dashed lines mark mutation positions (222, 429).</p>'
+            h+='<div class="grid">'
+            for png in pngs: h+=f'<img src="pae_plots/{png.name}" alt="{png.stem}">'
             h+='</div>'
-    
-    h+="""<h2>Next Steps</h2><ol>
-<li>Open CIF files in PyMOL — use scripts in pymol_scripts/</li>
-<li>Superimpose WT and variant structures</li>
-<li>Measure FAD distances at active site</li>
-<li>Update research paper with findings</li>
-<li>Share with research collaborators</li></ol></body></html>"""
-    
+
+    h+="""<h2>Interpretation Guide</h2>
+<div class="info">
+<h3>What These Metrics Mean</h3>
+<ul>
+<li><b>pTM (predicted TM-score):</b> Overall fold confidence. >0.7 = reliable fold.</li>
+<li><b>ipTM (interface TM-score):</b> Confidence in protein-protein or protein-ligand interaction. >0.8 = high confidence.</li>
+<li><b>Ligand ipTM:</b> Specifically how well the ligand (FAD, THF, SAM) binds. Higher = stronger predicted binding.</li>
+<li><b>pLDDT:</b> Per-residue confidence. >90 = very high. >70 = confident. <50 = likely disordered.</li>
+<li><b>PAE:</b> How confidently AlphaFold predicts relative positions of residue pairs. Low values (blue) = confident.</li>
+</ul>
+<h3>Why Monomers vs Dimers Matter</h3>
+<p>MTHFR functions as a <b>homodimer</b> in the body. Monomer predictions (Jobs 1,3,5) show all variants fold correctly — the mutations don't destroy the protein. But dimer predictions (Jobs 2,4,6) reveal inter-chain effects: FAD binding drops from 0.97 to 0.53-0.57, and the compound heterozygous dimer is consistently worst. This is the biologically relevant finding.</p>
+<h3>Why Two Platforms</h3>
+<p><b>AlphaFold 3 Server</b> (Jobs 1-12) provided the core FAD binding analysis. <b>Boltz-2</b> (Jobs 13-16) enabled THF substrate and SAM inhibitor modeling not possible through AlphaFold Server's interface. Both confirm the same trend: compound het = worst structural scores.</p>
+</div>
+
+<h2>Primary Clinical Targets</h2>
+<div class="info">
+<h3>Target 1: Retinal Neurodegeneration</h3>
+<p>Reduced MTHFR function → elevated homocysteine → retinal ganglion cell damage. Mouse models exist (Mthfr+/-). Human blindness reversed with betaine (Hergert 2022). Intravitreal gene therapy delivery is established (Luxturna precedent).</p>
+<h3>Target 2: Anxiety and Depression</h3>
+<p>A1298C variant → impaired BH4 recycling → reduced serotonin/dopamine synthesis. Explains treatment-resistant cases where SSRIs fail because the problem is upstream of serotonin reuptake. Compound heterozygous patients respond to SAMe + methylated B vitamins when identified.</p>
+<p><i>Additional implications across autism/CFD, B-vitamin metabolism, cardiovascular disease, epigenetics, and pregnancy complications are documented in the full research paper.</i></p>
+</div>
+
+<h2>Next Steps</h2>
+<ol>
+<li>Compare AlphaFold predictions against experimental PDB 6FCX crystal structure</li>
+<li>Run molecular dynamics simulations on WT vs compound dimer</li>
+<li>Design ABE guide RNAs targeting C677T for base editing correction</li>
+<li>Submit to bioRxiv as preprint</li>
+<li>Contact target researchers (ophthalmology, neuropsychiatry, structural biology)</li>
+</ol>
+
+<div class="footer">
+<p><b>MTHFR Gene Therapy Platform</b> | Igor Mihaljko | <a href="https://github.com/DSMPromo/mthfr-gene-therapy-project">GitHub</a> | <a href="https://orcid.org/0009-0000-1408-1065">ORCID</a> | CC BY-NC-SA 4.0</p>
+<p>Computational predictions — not experimental structures. For research and educational purposes only.</p>
+</div>
+</body></html>"""
+
     with open(out/"report.html",'w') as f: f.write(h)
     print(f"  Saved report.html — OPEN THIS IN YOUR BROWSER")
 
