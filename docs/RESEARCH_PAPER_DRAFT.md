@@ -66,7 +66,7 @@ MTHFR dysfunction has been reported in the literature to be associated with seve
 
 **Pathway 1: Vision Loss and Retinal Neurodegeneration**
 
-Elevated homocysteine is reported to be associated with retinal ganglion cell loss through oxidative stress, independent of intraocular pressure. Mthfr+/- mice (heterozygous -- the same genetic status as most human carriers) show 2x retinal homocysteine, ~20% ganglion cell loss, thinner nerve fiber layer, and vascular leakage (Markand et al., 2015). Complete blindness has been reversed with betaine treatment in severe MTHFR deficiency (Hergert et al., 2022). Retinal perfusion was improved in compound C677T/A1298C carriers receiving MTHFR genotype-guided supplementation with the medical food Ocufolin (Jiang et al., 2023). MTHFR additionally modifies CRB1-related retinopathies, worsening the rd8 retinal phenotype (Markand et al., 2015).
+Elevated homocysteine is reported to be associated with retinal ganglion cell loss through oxidative stress, independent of intraocular pressure. Mthfr+/- mice (heterozygous -- the same genetic status as most human carriers) show 2x retinal homocysteine, ~20% ganglion cell loss, thinner nerve fiber layer, and vascular leakage (Markand et al., 2015). Case literature suggests that metabolic correction with betaine can influence retinal outcomes in selected severe MTHFR deficiency contexts (Hergert et al., 2022). Retinal perfusion was improved in compound C677T/A1298C carriers receiving MTHFR genotype-guided supplementation with the medical food Ocufolin (Jiang et al., 2023). MTHFR additionally modifies CRB1-related retinopathies, worsening the rd8 retinal phenotype (Markand et al., 2015).
 
 **Pathway 2: Autism Spectrum Disorder and Cerebral Folate Deficiency**
 
@@ -450,7 +450,7 @@ The A1298C variant (C>A at the DNA level, resulting in E429A) would require a cy
 
 ### 4.7 Safety Architecture: Built-In Safeguards and Emergency Off-Switches
 
-Any gene therapy platform must address the question: *what happens if something goes wrong?* For MTHFR base editing, we propose a multi-layered safety architecture combining inherent platform safety with emergency intervention capabilities.
+Any gene editing program must address the question: *what happens if something goes wrong?* Should MTHFR base editing advance to experimental testing, we outline a multi-layered safety architecture combining inherent delivery safety with emergency intervention capabilities.
 
 **Layer 1: Inherent Safety of LNP-Delivered Base Editing**
 

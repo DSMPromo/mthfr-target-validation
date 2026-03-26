@@ -119,7 +119,7 @@ Because MTHFR dysfunction has been linked in prior literature to homocysteine-re
 
 **Supporting literature:**
 - **Mthfr+/- mice** show 2x retinal homocysteine, ~20% ganglion cell loss, thinner nerve fiber layer, and vascular leakage -- without elevated IOP (Markand et al., 2015, *IOVS*)
-- **Blindness reversed** with betaine treatment in severe MTHFR deficiency (Hergert et al., 2022, *J Neurology*)
+- **Case report:** metabolic correction with betaine was associated with visual recovery in a patient with severe MTHFR deficiency (Hergert et al., 2022, *J Neurology*)
 - **Retinal perfusion improved** by MTHFR genotype-guided supplementation; compound C677T/A1298C carriers showed significant improvement (Jiang et al., 2023, *Clin Ophthalmol*)
 - MTHFR modifies CRB1-related retinopathies, worsening rd8 retinal phenotype (Markand et al., 2015, *Exp Eye Res*)
 
@@ -133,7 +133,7 @@ Because folate cycle dysfunction may influence BH4-dependent neurotransmitter pa
 - **MTHFR polymorphism** associated with schizophrenia, major depression, autism, bipolar disorder, and ADHD (Wan et al., 2018, *Transl Psychiatry*)
 - Compound heterozygous patients show treatment-responsive anxiety with SAMe and methylated B vitamins when MTHFR status is identified (Levin & Varga, 2016)
 - The A1298C variant impairs BH4 recycling -- the cofactor for tryptophan hydroxylase (serotonin) and tyrosine hydroxylase (dopamine)
-- This may be relevant in a subset of treatment-resistant presentations involving upstream one-carbon and BH4-related biology
+- MTHFR-related one-carbon pathway alterations may influence BH4-dependent neurotransmitter synthesis, warranting investigation in defined subgroups with biochemical abnormalities
 
 **Proposed validation:** Measure BH4, homocysteine, SAMe/SAH ratio, and neurotransmitter metabolites in compound heterozygous individuals vs. wild-type controls.
 
@@ -328,12 +328,12 @@ From computational observations to experimental validation -- here's the path fo
 | Phase | What | Timeline | Cost | Status |
 |-------|------|----------|------|--------|
 | **1** | Computational target validation -- AlphaFold/Boltz-2 structural analysis, reproducible pipeline, open-source repo | **Done** | **$0** | ✅ **Complete** |
-| **2** | MD simulations, guide RNA design, bioRxiv preprint, researcher outreach | 1-3 months | ~$500 | Next |
-| **3** | Experimental validation -- express proteins, measure FAD binding, test ABE in cell lines | 6-18 months | $50K-200K | Needs lab partner |
-| **4** | Preclinical: retinal pathway (Mthfr+/- mice, intravitreal ABE, retinal OCT) + neuropsych endpoints | 12-24 months | $500K-2M | Needs institution |
-| **5** | IND filing + Phase 1 trial design (retinal indication first -- established delivery route) | 24-36 months | $5M-20M | Needs biotech |
-| **6** | Clinical trials (Phase 1→2→3), retinal + neuropsych indications | 3-7 years | $50M-500M | Needs pharma |
-| **7** | Market launch + expansion to additional MTHFR-linked indications | Post-approval | -- | 1.5-2B people affected |
+| **2** | Structural validation against PDB 6FCX, molecular dynamics simulations, bioRxiv preprint, researcher outreach | 1-3 months | ~$500 | Next |
+| **3** | Biochemical validation -- express WT/variant proteins, dimer stability assays, FAD/THF cofactor binding assays | 6-12 months | $50K-150K | Needs lab partner |
+| **4** | Subgroup biomarker correlation -- homocysteine, methylation panels, retinal OCT, BH4 levels in defined compound het cohorts | 12-18 months | $100K-300K | Needs clinical collaborator |
+| **5** | If biochemical + biomarker data support: ABE guide RNA design, editing feasibility in cell lines | 18-24 months | $200K-500K | Needs gene editing lab |
+| **6** | If editing feasibility confirmed: preclinical animal studies (Mthfr+/- mice, multi-organ endpoints) | 24-36 months | $500K-2M | Needs institution |
+| **7** | If preclinical success: IND filing, clinical trial design, regulatory pathway | 3-7+ years | $5M+ | Needs biotech/pharma |
 
 **Where we are now:** Phase 1 complete. The computational foundation exists. Every sequence, every prediction, every analysis, every reference -- documented and replicable. Built for $0.
 
@@ -387,7 +387,7 @@ All references have been verified against PubMed and primary sources (March 2026
 
 ### Vision and Retinal Neurodegeneration
 1. Markand S, et al. (2015). *Invest Ophthalmol Vis Sci*, 56(4):2684-2695. [PMID: 25766590](https://pubmed.ncbi.nlm.nih.gov/25766590/) -- Mthfr+/- mice: ~20% ganglion cell loss, retinal vasculopathy
-2. Hergert RM, et al. (2022). *J Neurol*, 269:4571-4577. [PMC](https://pmc.ncbi.nlm.nih.gov/articles/PMC8940754/) -- Complete blindness reversed with betaine in MTHFR deficiency
+2. Hergert RM, et al. (2022). *J Neurol*, 269:4571-4577. [PMC](https://pmc.ncbi.nlm.nih.gov/articles/PMC8940754/) -- Case report: visual recovery associated with betaine in severe MTHFR deficiency
 3. Jiang H, Liu Z, et al. (2023). *Clin Ophthalmol*, 17:1035-1043. [PMC](https://pmc.ncbi.nlm.nih.gov/articles/PMC10106310/) -- Retinal perfusion improved by MTHFR genotype
 
 ### Autism and Cerebral Folate Deficiency
@@ -436,7 +436,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed instructions.
 
 **What we're looking for:**
 - **Ophthalmologists / Retinal researchers:** Validate the retinal neurodegeneration pathway. Existing Mthfr+/- mouse models show ganglion cell loss -- can we test base editing correction via intravitreal delivery?
-- **Psychiatrists / Neuroscientists:** The A1298C/BH4/neurotransmitter connection may explain treatment-resistant anxiety and depression. Is this mechanism well-characterized enough for clinical investigation?
+- **Psychiatrists / Neuroscientists:** Could A1298C/BH4/neurotransmitter pathway alterations be a contributing factor in defined subgroups with psychiatric symptoms and biochemical abnormalities? Is this mechanism well-characterized enough for experimental investigation?
 - **Structural biologists:** Are the AlphaFold/Boltz-2 predictions biologically sensible? Cryo-EM of C677T/A1298C variants with FAD would validate or refute our computational findings
 - **Gene therapy researchers:** Base editor guide RNA design and testing for C677T correction in cell lines
 - **Replication:** Independent researchers reproducing and extending the computational analysis

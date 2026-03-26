@@ -387,11 +387,12 @@ a{{color:#2E75B6}}
 
 <h2>Next Steps</h2>
 <ol>
-<li>Compare AlphaFold predictions against experimental PDB 6FCX crystal structure</li>
-<li>Run molecular dynamics simulations on WT vs compound dimer</li>
-<li>Design ABE guide RNAs targeting C677T for base editing correction</li>
+<li>Structural validation: compare predictions against experimental PDB 6FCX crystal structure</li>
+<li>Molecular dynamics simulations on WT vs compound dimer</li>
+<li>Biochemical validation: express proteins, dimer stability assays, cofactor binding assays</li>
+<li>Subgroup biomarker correlation in defined compound het cohorts</li>
 <li>Submit to bioRxiv as preprint</li>
-<li>Contact target researchers (ophthalmology, neuropsychiatry, structural biology)</li>
+<li>Contact target researchers (structural biology, metabolic disease, retinal, neuropsychiatric)</li>
 </ol>
 
 <div class="footer">
