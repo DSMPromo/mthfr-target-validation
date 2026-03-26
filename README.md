@@ -208,15 +208,13 @@ We used [AlphaFold 3 Server](https://alphafoldserver.com) to predict structures 
 - **Consistent directional trends** -- independent random seeds produced consistent directional trends across the tested configurations, supporting limited internal reproducibility within this modeling setup
 - **Position 429 showed the largest confidence decrease** among the reported local metrics in compound dimers -- pLDDT 95.0-95.3 vs 95.8-96.2 in WT, consistent with possible regulatory-domain involvement at the dimer level
 
-> **The core computational observation:** Monomer predictions showed preserved overall folding confidence, whereas dimer predictions showed comparative inter-chain differences. This is the central finding to build around.
+> **The core computational observation:** Monomer predictions showed preserved overall folding confidence, whereas dimer predictions showed comparative inter-chain differences. This is the central computational finding around which the experimental agenda is organized.
 
 > **Important:** These are computational predictions, not experimental structures. All confidence metrics should be interpreted as hypothesis generators, not proof of mechanism. See the [full research paper draft](docs/RESEARCH_PAPER_DRAFT.md) for complete methodology and limitations.
 
 ---
 
 ## Structural and Literature Context
-
-### Structural Context Relevant to MTHFR Variants
 
 The 2024 cryo-EM structures (PDB 8QA5, 8QA6) revealed for the first time how SAM-mediated allosteric inhibition works through **dual SAM binding** that reorients the catalytic domain and blocks substrate access. This provides structural context relevant to interpretation of the A1298C (E429A) variant, which sits in the regulatory domain near the SAM-binding pocket.
 
@@ -241,7 +239,7 @@ At the sequence level, C677T appears theoretically compatible with **adenine bas
 
 ## Safety Architecture: What If Something Goes Wrong?
 
-Any future gene editing program would need to address safety. The following are examples of safety layers used or discussed in broader editing research that could be relevant to MTHFR correction if it advances to experimental testing. Each would require target-specific validation.
+Any future gene-editing program would need to address safety. The following are examples of safety layers used or discussed in broader editing research that could be relevant to MTHFR correction if it advances to experimental testing. Each would require target-specific validation.
 
 | Layer | Concept | Precedent |
 |-------|---------|-----------|
@@ -304,7 +302,7 @@ From computational prioritization to staged experimental follow-up:
 | **2** | Structural benchmarking against experimental reference structures such as PDB 6FCX, molecular dynamics simulations, preprint preparation, researcher outreach | 1-3 months | ~$500 | Next |
 | **3** | Biochemical validation: expression of wild-type and selected variant proteins, dimer stability assays, FAD and THF interaction assays | 6-12 months | $50K-150K | Requires lab partner |
 | **4** | Exploratory biomarker correlation studies, including homocysteine, methylation panels, retinal OCT, and BH4-related readouts in well-defined compound heterozygous cohorts | 12-18 months | $100K-300K | Requires clinical collaborator |
-| **5** | If biochemical and biomarker findings support continued investigation: sequence-level guide assessment, edit-window analysis, bystander-risk assessment, and cell-based feasibility studies | 18-24 months | $200K-500K | Requires gene editing partner |
+| **5** | If biochemical and biomarker findings support continued investigation: sequence-level guide assessment, edit-window analysis, bystander-risk assessment, and cell-based feasibility studies | 18-24 months | $200K-500K | Requires gene-editing partner |
 | **6** | If cell-based feasibility and safety data support further progression: preclinical animal studies using appropriate Mthfr-relevant models and multi-organ outcome measures | 24-36 months | $500K-2M | Requires institutional partner |
 | **7** | If preclinical data support advancement: IND-enabling planning, regulatory strategy development, and early clinical trial concept design | 3-7+ years | $5M+ | Requires biotech or pharma partner |
 
@@ -370,7 +368,7 @@ All references have been verified against PubMed and primary sources (March 2026
 
 ### Vision and Retinal Neurodegeneration
 1. Markand S, et al. (2015). *Invest Ophthalmol Vis Sci*, 56(4):2684-2695. [PMID: 25766590](https://pubmed.ncbi.nlm.nih.gov/25766590/) -- Mthfr+/- mice: ~20% ganglion cell loss, retinal vasculopathy
-2. Hergert RM, et al. (2022). *J Neurol*, 269:4571-4577. [PMC](https://pmc.ncbi.nlm.nih.gov/articles/PMC8940754/) -- Case report: visual recovery associated with betaine in severe MTHFR deficiency
+2. Hergert RM, et al. (2022). *J Neurol*, 269:4571-4577. [PMC](https://pmc.ncbi.nlm.nih.gov/articles/PMC8940754/) -- Case report: betaine treatment was associated with visual recovery in severe MTHFR deficiency
 3. Jiang H, Liu Z, et al. (2023). *Clin Ophthalmol*, 17:1035-1043. [PMC](https://pmc.ncbi.nlm.nih.gov/articles/PMC10106310/) -- Retinal perfusion improved by MTHFR genotype
 
 ### Autism and Cerebral Folate Deficiency
