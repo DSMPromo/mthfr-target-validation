@@ -52,7 +52,7 @@ Prior literature has linked MTHFR-related one-carbon pathway disruption and hype
 
 - Mthfr+/- mice show 2x retinal homocysteine, ~20% ganglion cell loss, thinner nerve fiber layer, and vascular leakage, without elevated IOP (Markand et al., 2015, *IOVS*)
 - MTHFR modifies CRB1-related retinopathies, worsening rd8 retinal phenotype (Markand et al., 2015, *Exp Eye Res*)
-- Case report: metabolic correction with betaine was associated with visual recovery in a patient with severe MTHFR deficiency (Hergert et al., 2022, *J Neurology*)
+- Case report: betaine treatment was associated with visual recovery in a patient with severe MTHFR deficiency (Hergert et al., 2022, *J Neurology*)
 - Retinal perfusion was improved in compound C677T/A1298C carriers receiving MTHFR genotype-guided supplementation with Ocufolin medical food (Jiang et al., 2023, *Clin Ophthalmol*)
 
 **Pathway 2: Neuropsychiatric Biology (Primary Experimental Focus)**

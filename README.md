@@ -54,7 +54,7 @@ MTHFR dysfunction has been studied extensively within individual medical special
 
 This project attempts to bring the structural biology perspective into that conversation. We do not claim to have connected dots that others missed; we are synthesizing published literature and adding computational structural data to support experimental prioritization.
 
-### Possible Reasons MTHFR Has Not Yet Advanced as a Gene Editing Program
+### Possible Reasons MTHFR Has Not Yet Advanced as a Gene-Editing Research Program
 
 As of March 2026, we did not identify a registered interventional clinical trial focused on MTHFR gene editing in ClinicalTrials.gov searches. This absence should not be interpreted as evidence of scientific disinterest or target invalidity. Several factors may contribute:
 
@@ -123,7 +123,7 @@ Because prior literature has linked MTHFR-related one-carbon pathway disruption 
 
 ### Hypothesis 2: Neuropsychiatric Pathway
 
-Because one-carbon pathway disruption may influence BH4-dependent neurotransmitter biology, neuropsychiatric phenotypes are a second candidate area for validation. The current structural data do not establish causation or treatment effect, but they support testing whether selected MTHFR states correlate with measurable biochemical and clinical features.
+Because one-carbon pathway disruption may influence BH4-dependent neurotransmitter biology, neuropsychiatric phenotypes are a second candidate area for validation. The current structural data do not establish causation or treatment effect, but they support testing whether selected MTHFR states are associated with measurable biochemical and clinical features.
 
 **Supporting literature:**
 - **MTHFR polymorphism** associated with schizophrenia, major depression, autism, bipolar disorder, and ADHD (Wan et al., 2018, *Transl Psychiatry*)
@@ -432,7 +432,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed instructions.
 
 [Creative Commons Attribution-NonCommercial-ShareAlike 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 
-### What This Means for You
+### Reuse and Licensing Summary
 
 | You Want To... | Allowed? | Details |
 |----------------|----------|---------|
@@ -440,7 +440,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed instructions.
 | Replicate the AlphaFold analysis in your lab | ✅ Yes | That's why we built it |
 | Cite this work in your own papers | ✅ Yes | Credit Igor Mihaljko as original author |
 | Build on this research for academic/educational purposes | ✅ Yes | Your work must also be shared openly (ShareAlike) |
-| Use this to develop a commercial therapy or product | ❌ Not without permission | Contact igor@dsm.promo for commercial licensing |
+| Use this work in commercial therapeutic or product development | ❌ Not without permission | Contact igor@dsm.promo for commercial licensing |
 | Take this work and make it closed/proprietary | ❌ No | ShareAlike requires derivative work to remain open |
 
 **For researchers:** This license is designed to maximize scientific collaboration while protecting the original work. Use it freely for research. Cite it. Build on it. Share your results.
