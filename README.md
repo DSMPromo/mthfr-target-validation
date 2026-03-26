@@ -2,9 +2,9 @@
 
 ### Computational Prioritization of High-Risk MTHFR Variant States for Experimental Validation
 
-> This project is a computational hypothesis-prioritization study designed to identify experimentally testable differences among wild-type, single-variant, and compound heterozygous MTHFR states. In our tested AlphaFold 3 and Boltz-2 configurations, the compound heterozygous dimer produced the lowest predicted interaction confidence across the reported dimer interface and ligand-associated metrics relative to the tested wild-type and single-variant comparators. These observations do not establish mechanism, disease causation, or therapeutic benefit. They define a bounded experimental agenda centered on dimer-level biology, retinal biomarkers, and neuropsychiatric biochemical readouts.
+> This project is a computational hypothesis-prioritization study designed to identify experimentally testable differences among wild-type, single-variant, and compound heterozygous MTHFR states. In the tested AlphaFold 3 and Boltz-2 model configurations, the compound heterozygous dimer produced the lowest reported interaction-confidence values across the assessed dimer-interface and ligand-associated metrics relative to the tested wild-type and single-variant comparators. These observations do not establish mechanism, disease causation, or therapeutic benefit. They support a bounded experimental agenda centered on dimer-level biology, retinal biomarkers, and neuropsychiatric biochemical readouts.
 >
-> **Core observation:** Monomer predictions show all variants fold correctly, but dimer predictions reveal inter-chain effects. This is the central finding to build around.
+> **Core observation:** Monomer predictions show preserved overall folding across the tested variant states, whereas dimer predictions show inter-chain differences. This is the central finding of the current study.
 
 [![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 [![Status: Active Research](https://img.shields.io/badge/Status-Active%20Research-green.svg)]()
@@ -97,8 +97,8 @@ As of March 2026, we did not identify a registered interventional clinical trial
 
 | Gene | Variant | rsID | Zygosity | Classification | Relevance |
 |------|---------|------|----------|----------------|-----------|
-| **MTHFR** | **C677T (A222V)** | rs1801133 | **Hetero (AG)** | Clinically Significant | Catalytic domain -- FAD cofactor binding destabilized. All 7 disease targets. |
-| **MTHFR** | **A1298C (E429A)** | rs1801131 | **Hetero (TG)** | Conflicting/Uncertain | Regulatory domain -- BH4/neurotransmitter pathway impaired. Anxiety, B-vitamins. |
+| **MTHFR** | **C677T (A222V)** | rs1801133 | **Hetero (AG)** | Clinically Significant | Catalytic-domain variant with literature support for altered enzyme stability and reduced activity in some contexts |
+| **MTHFR** | **A1298C (E429A)** | rs1801131 | **Hetero (TG)** | Conflicting/Uncertain | Regulatory-domain variant discussed in relation to one-carbon and neurotransmitter-relevant pathways, with mixed clinical interpretation across sources |
 | **MTRR** | **I22M (c.66A>G)** | rs1801394 | **Hetero (AG)** | Likely Pathogenic | B12 metabolism cofactor -- may place additive pressure on one-carbon metabolism. |
 
 > **Voluntary Disclosure:** I am sharing my genetic variant data voluntarily because I believe transparency strengthens this research. This is my personal decision. You should never feel pressured to share your genetic information publicly. If you want to contribute your own data to this project, you can do so anonymously.
@@ -204,9 +204,9 @@ We used [AlphaFold 3 Server](https://alphafoldserver.com) to predict structures 
 - **Monomer predictions show all variants fold correctly** (ipTM 0.97-0.98) -- the mutations do not destroy the protein fold
 - **Dimer predictions reveal inter-chain effects** -- FAD binding confidence drops from 0.97 (monomer) to 0.53-0.58 (dimer), consistent with known cooperativity in the homodimer
 - **The compound heterozygous dimer shows the weakest predicted interaction profile** across every metric in both runs: pTM (0.73/0.76), ipTM (0.70/0.73), FAD binding (0.53/0.55), pLDDT@429 (95.0/95.3)
-- **Compound het dimer averages lower than either single variant** -- ipTM 0.715 vs WT 0.740 and C677T 0.765, suggesting synergistic destabilization
+- **Compound heterozygous dimers averaged lower than the tested comparators** -- ipTM 0.715 vs WT 0.740 and C677T 0.765, consistent with a possible combined destabilizing effect at the dimer level
 - **Results replicate** -- independent random seeds produce consistent trends, supporting the reproducibility of these observations
-- **Position 429 (A1298C site) shows the largest confidence drop in compound dimers** -- pLDDT 95.0-95.3 vs 95.8-96.2 in WT, suggesting regulatory domain perturbation at the dimer level
+- **Position 429 showed the largest confidence decrease** among the reported local metrics in compound dimers -- pLDDT 95.0-95.3 vs 95.8-96.2 in WT, consistent with possible regulatory-domain involvement at the dimer level
 
 > **The core scientific observation:** Monomer predictions show all variants fold correctly, but dimer predictions reveal inter-chain effects. This is the finding to build around.
 
@@ -241,17 +241,17 @@ At the sequence level, C677T appears conceptually compatible with **adenine base
 
 ## Safety Architecture: What If Something Goes Wrong?
 
-Any gene editing program must address safety. Should MTHFR correction advance to experimental testing, we outline a multi-layered safety approach:
+Any future gene editing program would need to address safety. The following are examples of safety layers used or discussed in broader editing research that could be relevant to MTHFR correction if it advances to experimental testing. Each would require target-specific validation.
 
-| Layer | Mechanism | Status |
-|-------|-----------|--------|
-| **1. Inherent safety** | Base editing has no DNA breaks; LNP mRNA degrades in 48 hours; restores wild-type (not novel) protein | Built into design |
-| **2. Guide RNA screening** | Comprehensive off-target analysis before treatment (Cas-OFFinder, GUIDE-seq, whole-genome sequencing) | Standard practice |
-| **3. Anti-CRISPR off-switch** | Emergency LNP dose carrying anti-CRISPR proteins (AcrIIA4) to neutralize any residual editor | Demonstrated in mice |
-| **4. CRISPRoff reversible option** | Epigenetic silencing as a reversible "test run" before permanent editing; reversed with TET1 demethylase | Moving to clinical (2025) |
-| **5. Post-treatment monitoring** | Homocysteine, methylation panels, retinal OCT, off-target sequencing at defined timepoints | Clinical protocol |
+| Layer | Concept | Precedent |
+|-------|---------|-----------|
+| **1. Inherent design** | Base editing avoids DNA double-strand breaks; LNP-delivered mRNA degrades within 48 hours | Used in VERVE-102, BEAM-101 |
+| **2. Off-target screening** | Cas-OFFinder, GUIDE-seq, whole-genome sequencing before any intervention | Standard in current editing programs |
+| **3. Anti-CRISPR proteins** | Emergency neutralization of residual editor activity (e.g., AcrIIA4) | Demonstrated in preclinical models |
+| **4. Reversible epigenetic editing** | CRISPRoff as a non-permanent first step before committing to base editing | In early translational development |
+| **5. Post-intervention monitoring** | Biomarker panels, off-target sequencing at defined timepoints | Standard clinical protocol design |
 
-**Key point:** The C677T correction restores the ancestral wild-type protein sequence. We are not creating a novel protein -- we are restoring the reference allele.
+**Key point:** At the target base, a successful correction strategy would aim to restore the reference allele sequence rather than introduce a novel coding change.
 
 See the [full research paper](docs/RESEARCH_PAPER_DRAFT.md#47-safety-architecture-built-in-safeguards-and-emergency-off-switches) for complete safety analysis.
 
@@ -416,10 +416,10 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed instructions.
 **If you're a scientist:** Our structural and literature synthesis supports a bounded experimental program centered on dimer-level effects, retinal biomarkers, and neuropsychiatric biochemistry. We are choosing to focus where the existing literature is most developed. [Open an issue](../../issues/new?template=collaboration.md) or email me.
 
 **What we're looking for:**
-- **Ophthalmologists / Retinal researchers:** Validate the retinal neurodegeneration pathway. Existing Mthfr+/- mouse models show ganglion cell loss -- can we test base editing correction via intravitreal delivery?
-- **Psychiatrists / Neuroscientists:** Could A1298C/BH4/neurotransmitter pathway alterations be a contributing factor in defined subgroups with psychiatric symptoms and biochemical abnormalities? Is this mechanism well-characterized enough for experimental investigation?
-- **Structural biologists:** Are the AlphaFold/Boltz-2 predictions biologically sensible? Cryo-EM of C677T/A1298C variants with FAD would validate or refute our computational findings
-- **Gene therapy researchers:** Base editor guide RNA design and testing for C677T correction in cell lines
+- **Ophthalmologists / Retinal researchers:** Existing Mthfr+/- mouse models provide one possible system for testing whether correction strategies alter retinal biomarkers. Delivery route, tissue targeting, and edit feasibility would need separate evaluation
+- **Psychiatrists / Neuroscientists:** Could A1298C-related one-carbon pathway alterations be a contributing factor in defined subgroups with biochemical abnormalities? The mechanism and subgroup specificity remain incompletely defined
+- **Structural biologists:** Are the AlphaFold/Boltz-2 predictions biologically sensible? Cryo-EM of C677T/A1298C variants with FAD would provide orthogonal validation
+- **Gene editing researchers:** Evaluate whether C677T is technically tractable for guide design, edit-window fit, bystander risk assessment, and cell-based rescue studies
 - **Replication:** Independent researchers reproducing and extending the computational analysis
 
 **If you're not a scientist:** Share this project with researchers who might find it useful. If you are a patient or family member, discuss any testing or interpretation questions with a qualified clinician.
