@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """
-MTHFR AlphaFold Analysis Pipeline
+MTHFR Structure Analysis Pipeline
 ===================================
-Drop AlphaFold Server ZIP files into alphafold/results/ and run this script.
+Supports both AlphaFold Server (CIF) and Boltz-2/Tamarind Bio (PDB) results.
+Drop result folders or ZIP files into alphafold/results/ and run this script.
 
 Usage:  python analyze.py
 Colab:  !pip install matplotlib numpy && !python analyze.py
@@ -26,15 +27,84 @@ OUTPUT_DIR = Path("analysis/outputs")
 C677T_POS, A1298C_POS = 222, 429
 
 JOBS = {
+    # AlphaFold Server jobs (1-12)
     "job01_wt_mono_fad":"WT mono+FAD", "job02_wt_dimer_fad":"WT dimer+FAD",
     "job03_c677t_mono_fad":"C677T mono+FAD", "job04_c677t_dimer_fad":"C677T dimer+FAD",
     "job05_a1298c_mono_fad":"A1298C mono+FAD", "job06_compound_dimer_fad":"Compound dimer+FAD",
     "job07_wt_mono_rep":"WT mono rep", "job08_wt_dimer_rep":"WT dimer rep",
     "job09_c677t_mono_rep":"C677T mono rep", "job10_c677t_dimer_rep":"C677T dimer rep",
-    "job11_a1298c_mono_rep":"A1298C mono rep", "job12_compound_rep":"Compound rep", "job12_compound_dimer_rep":"Compound dimer rep",
-    "job13_wt_fad_thf":"WT+FAD+THF", "job14_c677t_fad_thf":"C677T+FAD+THF",
-    "job15_compound_fad_thf":"Compound+FAD+THF", "job16_wt_fad_sam":"WT+FAD+SAM",
+    "job11_a1298c_mono_rep":"A1298C mono rep", "job12_compound_rep":"Compound rep",
+    "job12_compound_dimer_rep":"Compound dimer rep",
+    # Boltz-2 / Tamarind Bio jobs (13-16) -- substrate/inhibitor binding
+    "job13_wt_dimer_fad_thf":"WT dimer+FAD+THF", "job14_c677t_dimer_fad_thf":"C677T dimer+FAD+THF",
+    "job15_compound_dimer_fad_thf":"Compound dimer+FAD+THF", "job16_wt_dimer_fad_sam":"WT dimer+FAD+SAM",
 }
+
+def detect_source(d):
+    """Detect whether results are from AlphaFold Server or Boltz-2."""
+    d = Path(d)
+    if list(d.rglob("*summary_confidences*.json")):
+        return "alphafold"
+    if list(d.rglob("*.pdb")) or list(d.rglob("*confidence*.json")) or list(d.rglob("*scores*.json")):
+        return "boltz2"
+    return "unknown"
+
+def get_plddt_from_pdb(pdb_file, resnum, chain="A"):
+    """Extract per-residue pLDDT from PDB B-factor column for CA atom."""
+    with open(pdb_file) as f:
+        for line in f:
+            if line.startswith("ATOM") and line[12:16].strip() == "CA" and line[21] == chain:
+                try:
+                    res_seq = int(line[22:26].strip())
+                    if res_seq == resnum:
+                        return float(line[60:66].strip())
+                except (ValueError, IndexError):
+                    continue
+    return None
+
+def load_boltz2_metrics(d):
+    """Extract metrics from Boltz-2 output (PDB files + optional JSON scores)."""
+    d = Path(d)
+    result = {"ptm": None, "iptm": None, "rank": None, "fad_iptm": None,
+              "p222": None, "p429": None, "pae": None, "clash": False}
+
+    # Look for confidence/scores JSON files
+    for pattern in ["*confidence*.json", "*scores*.json", "*metrics*.json", "*ranking*.json"]:
+        jsons = sorted(d.rglob(pattern))
+        if jsons:
+            data = json.load(open(jsons[0]))
+            for key in ["ptm", "pTM"]:
+                if key in data: result["ptm"] = float(data[key])
+            for key in ["iptm", "ipTM", "interface_ptm"]:
+                if key in data: result["iptm"] = float(data[key])
+            for key in ["ranking_score", "ranking_confidence", "complex_plddt"]:
+                if key in data: result["rank"] = float(data[key])
+            if "pae" in data:
+                result["pae"] = np.array(data["pae"])
+            break
+
+    # Extract pLDDT from best PDB file
+    pdbs = sorted(d.rglob("*rank_0*.pdb")) or sorted(d.rglob("*model_0*.pdb")) or sorted(d.rglob("*.pdb"))
+    if pdbs:
+        best_pdb = pdbs[0]
+        result["p222"] = get_plddt_from_pdb(best_pdb, 222)
+        result["p429"] = get_plddt_from_pdb(best_pdb, 429)
+
+        # If no JSON scores, compute average pLDDT from PDB as proxy
+        if result["ptm"] is None:
+            plddts = []
+            with open(best_pdb) as f:
+                for line in f:
+                    if line.startswith("ATOM") and line[12:16].strip() == "CA":
+                        try:
+                            plddts.append(float(line[60:66].strip()))
+                        except (ValueError, IndexError):
+                            pass
+            if plddts:
+                avg_plddt = np.mean(plddts)
+                result["ptm"] = round(avg_plddt / 100, 4)  # Approximate pTM from avg pLDDT
+
+    return result
 
 def find_jobs(d):
     d=Path(d); d.mkdir(parents=True,exist_ok=True); dirs=[]
@@ -69,20 +139,36 @@ def get_residue_plddt(d, resnum, chain="A"):
 def analyze(dirs):
     results=[]
     for d in dirs:
-        n=d.name; print(f"  {n}")
-        s=load_json(d,"*summary_confidences_0.json")
-        f=load_json(d,"*full_data_0.json")
-        if not s: print(f"    SKIP: no summary JSON"); continue
-        ci=s.get("chain_iptm",[])
-        p222=get_residue_plddt(d, 222)
-        p429=get_residue_plddt(d, 429)
-        e={"name":n,"config":JOBS.get(n,n),"ptm":s.get("ptm"),"iptm":s.get("iptm"),
-           "rank":s.get("ranking_score"),"disordered":s.get("fraction_disordered"),
-           "clash":s.get("has_clash",False),"chains":len(s.get("chain_ptm",[])),
-           "fad_iptm":ci[-1] if len(ci)>1 else None,
-           "p222":p222,"p429":p429,
-           "pae":np.array(f["pae"]) if f and "pae" in f else None}
-        results.append(e)
+        n=d.name; source=detect_source(d)
+        print(f"  {n} [{source}]")
+
+        if source == "alphafold":
+            s=load_json(d,"*summary_confidences_0.json")
+            f=load_json(d,"*full_data_0.json")
+            if not s: print(f"    SKIP: no summary JSON"); continue
+            ci=s.get("chain_iptm",[])
+            p222=get_residue_plddt(d, 222)
+            p429=get_residue_plddt(d, 429)
+            e={"name":n,"config":JOBS.get(n,n),"ptm":s.get("ptm"),"iptm":s.get("iptm"),
+               "rank":s.get("ranking_score"),"disordered":s.get("fraction_disordered"),
+               "clash":s.get("has_clash",False),"chains":len(s.get("chain_ptm",[])),
+               "fad_iptm":ci[-1] if len(ci)>1 else None,
+               "p222":p222,"p429":p429,
+               "pae":np.array(f["pae"]) if f and "pae" in f else None}
+            results.append(e)
+
+        elif source == "boltz2":
+            m = load_boltz2_metrics(d)
+            e={"name":n,"config":JOBS.get(n,n),"ptm":m["ptm"],"iptm":m["iptm"],
+               "rank":m["rank"],"disordered":None,
+               "clash":m["clash"],"chains":0,
+               "fad_iptm":m["fad_iptm"],
+               "p222":m["p222"],"p429":m["p429"],
+               "pae":m["pae"]}
+            results.append(e)
+
+        else:
+            print(f"    SKIP: unknown format in {n}")
     return results
 
 def make_tables(R,out):
