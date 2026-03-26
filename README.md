@@ -321,13 +321,14 @@ mthfr-target-validation/
 |-- README.md                           <-- You are here
 |-- analyze.py                          <-- Automated analysis pipeline (AlphaFold 3 + Boltz-2)
 |-- generate_figures.py                 <-- Publication figure generator
+|-- validate_language.py                <-- Language compliance scanner (21 rules)
 |-- requirements.txt                    <-- Python dependencies
 |-- MTHFR_AlphaFold_Analyzer.ipynb      <-- Google Colab notebook
 |-- MTHFR-Research-Findings.zip         <-- Downloadable archive of all findings
 |-- DISCLAIMER.md / CONTRIBUTING.md / LICENSE
 |
 |-- docs/
-|   |-- MTHFR_Definitive_Master_Document.docx   <-- Complete research document
+|   |-- MTHFR_Master_Document.md                 <-- Complete research document (v5.0)
 |   |-- RESEARCH_PAPER_DRAFT.md                  <-- Publication-quality paper draft
 |
 |-- sequences/                          <-- Verified UniProt P42898 sequences
