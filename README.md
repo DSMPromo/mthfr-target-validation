@@ -66,7 +66,7 @@ As of March 2026, we did not identify a registered interventional clinical trial
 | Structural data only recently available | First human MTHFR crystal structure 2018 (PDB 6FCX), cryo-EM 2024 (PDB 8QA5, 8QA6) |
 | Gene editing precedent emerging | Human base-editing programs show that precise in vivo correction strategies are feasible for selected targets, though target biology, delivery, benefit-risk, and regulatory path remain highly target-specific |
 
-**What has changed:** Recent advances in structure prediction, human base-editing programs for other targets, scalable nucleic acid delivery systems, and new human MTHFR structural data make experimental assessment of MTHFR correction more technically discussable than before. They do not establish MTHFR as a therapeutic target. This project asks whether these conditions warrant a bounded experimental investigation.
+**Why this question is now technically more testable:** Recent advances in structure prediction, human base-editing programs for other targets, scalable nucleic acid delivery systems, and new human MTHFR structural data make experimental assessment of MTHFR correction more technically discussable than before. They do not establish MTHFR as a therapeutic target. This project asks whether these conditions warrant a bounded experimental investigation.
 
 ---
 
@@ -99,7 +99,7 @@ As of March 2026, we did not identify a registered interventional clinical trial
 |------|---------|------|----------|----------------|-----------|
 | **MTHFR** | **C677T (A222V)** | rs1801133 | **Hetero (AG)** | Clinically Significant | Catalytic-domain variant with literature support for altered enzyme stability and reduced activity in some contexts |
 | **MTHFR** | **A1298C (E429A)** | rs1801131 | **Hetero (TG)** | Conflicting/Uncertain | Regulatory-domain variant discussed in relation to one-carbon and neurotransmitter-relevant pathways, with mixed clinical interpretation across sources |
-| **MTRR** | **I22M (c.66A>G)** | rs1801394 | **Hetero (AG)** | Likely Pathogenic | B12 metabolism cofactor -- may place additive pressure on one-carbon metabolism. |
+| **MTRR** | **I22M (c.66A>G)** | rs1801394 | **Hetero (AG)** | Likely Pathogenic | Variant in downstream B12-related metabolism that could be relevant to one-carbon pathway context, pending phenotype-specific interpretation. |
 
 > **Voluntary Disclosure:** I am sharing my genetic variant data voluntarily because I believe transparency strengthens this research. This is my personal decision. You should never feel pressured to share your genetic information publicly. If you want to contribute your own data to this project, you can do so anonymously.
 
