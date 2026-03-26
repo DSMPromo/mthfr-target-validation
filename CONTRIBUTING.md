@@ -1,4 +1,4 @@
-# Contributing to the MTHFR Gene Therapy Platform Project
+# Contributing to the MTHFR Target Validation Project
 
 Thank you for your interest in contributing! This is an open research project and we welcome collaborators from all backgrounds.
 

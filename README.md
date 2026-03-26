@@ -38,7 +38,7 @@ My name is Igor Mihaljko. I'm a cybersecurity specialist, cloud solution archite
 
 I'm just a guy who thinks outside the box. I looked at my genetic test results, started asking questions that crossed the boundaries between medical specialties, and used AI tools to organize what I found. This project exists because I believe the next generation deserves better -- and sometimes it takes someone from outside a field to see what the people inside it can't.
 
-**This project started with my own DNA.** I discovered I carry compound heterozygous MTHFR mutations (C677T + A1298C). When I started researching what this means, I found that the same broken enzyme is connected to seven major disease categories -- and nobody had put the full picture together in one place.
+**This project started with my own DNA.** I discovered I carry compound heterozygous MTHFR mutations (C677T + A1298C). When I started researching what this means, I found that the same variant enzyme is connected to seven disease categories explored in the literature -- and nobody had put the full picture together in one place.
 
 I built this project to hand it to the real scientists. Everything is here -- the sequences, the protocols, the analysis pipeline. Take it. Build on it. Prove me wrong or prove me right.
 
@@ -54,7 +54,7 @@ I built this project to hand it to the real scientists. Everything is here -- th
 
 Modern medicine is organized by organ system. Ophthalmologists treat eyes. Psychiatrists treat anxiety. Neurologists study autism. Cardiologists manage heart disease. Nutritionists advise on B-vitamins.
 
-**Nobody steps back to see that the same broken enzyme -- MTHFR -- feeds all seven problems.**
+**Nobody steps back to see that MTHFR dysfunction is implicated across all seven disease pathways.**
 
 Thousands of papers have been published on individual aspects of MTHFR. But no single document connects all seven disease pathways to one genetic root cause and proposes a unified correction strategy using modern structural biology tools. That's what this project does.
 
@@ -65,7 +65,7 @@ As of March 2026, among ~250 active CRISPR clinical trials worldwide, **zero tar
 | Reason It Was Ignored | Why That's Wrong |
 |----------------------|------------------|
 | "It's just a polymorphism" | 40% prevalence ≠ benign. 1.5-2 billion people affected across 7 pathways |
-| "Supplements work fine" | Lifelong, imperfect, addresses symptoms not root cause. The enzyme is still broken in every cell |
+| "Supplements work fine" | Lifelong, imperfect, addresses downstream effects not the genetic variant. The enzyme carries variant alleles in every cell |
 | Specialists stay in lanes | 7 diseases = 7 specialties. No one sees the full picture |
 | Structural data didn't exist | First crystal structure 2018, cryo-EM 2024, AlphaFold 3 2024 |
 | Gene therapy targets rare diseases | PCSK9 editing (VERVE-102, YOLT-101) proves common-variant correction is viable |
@@ -247,7 +247,7 @@ We used [AlphaFold 3 Server](https://alphafoldserver.com) to predict structures 
 
 The 2024 cryo-EM structures (PDB 8QA5, 8QA6) revealed for the first time how SAM-mediated allosteric inhibition works through **dual SAM binding** that reorients the catalytic domain and blocks substrate access. This provides critical structural context for understanding the A1298C (E429A) variant, which sits in the regulatory domain near the SAM-binding pocket.
 
-The 2006 structural perturbation study (Pejchal et al.) showed that the C677T (A222V) variant displaces **helix alpha-5**, which carries three FAD-interacting residues (Asn168, Arg171, Lys172). This explains the thermolability -- the variant enzyme loses its FAD cofactor more easily, especially at body temperature.
+The 2006 structural perturbation study (Pejchal et al.) showed that the C677T (A222V) variant displaces **helix alpha-5**, which carries three FAD-interacting residues (Asn168, Arg171, Lys172). This is consistent with the observed thermolability -- the variant enzyme may have reduced FAD cofactor stability at physiological temperature.
 
 ### The MTRR Compounding Effect
 
@@ -278,7 +278,7 @@ Any gene therapy must answer this question. We propose a multi-layered safety ap
 | **4. CRISPRoff reversible option** | Epigenetic silencing as a reversible "test run" before permanent editing; reversed with TET1 demethylase | Moving to clinical (2025) |
 | **5. Post-treatment monitoring** | Homocysteine, methylation panels, retinal OCT, off-target sequencing at defined timepoints | Clinical protocol |
 
-**Key point:** The C677T correction restores the exact protein that billions of healthy people naturally carry. We are not creating anything new -- we are fixing what is broken.
+**Key point:** The C677T correction restores the ancestral wild-type protein sequence. We are not creating a novel protein -- we are restoring the reference allele.
 
 See the [full research paper](docs/RESEARCH_PAPER_DRAFT.md#47-safety-architecture-built-in-safeguards-and-emergency-off-switches) for complete safety analysis.
 

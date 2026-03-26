@@ -239,7 +239,7 @@ def make_report(R,out):
     b2_results = [r for r in R if "thf" in r["name"] or "sam" in r["name"]]
 
     h=f"""<!DOCTYPE html><html><head><meta charset="UTF-8">
-<title>MTHFR Gene Therapy Platform — Analysis Report</title>
+<title>MTHFR Target Validation Program — Analysis Report</title>
 <style>
 body{{font-family:'Segoe UI',Arial,sans-serif;max-width:1200px;margin:0 auto;padding:30px;color:#333;line-height:1.6}}
 h1{{color:#1B3A5C;border-bottom:3px solid #2E75B6;padding-bottom:12px;font-size:28px}}
@@ -395,7 +395,7 @@ a{{color:#2E75B6}}
 </ol>
 
 <div class="footer">
-<p><b>MTHFR Gene Therapy Platform</b> | Igor Mihaljko | <a href="https://github.com/DSMPromo/mthfr-gene-therapy-project">GitHub</a> | <a href="https://orcid.org/0009-0000-1408-1065">ORCID</a> | CC BY-NC-SA 4.0</p>
+<p><b>MTHFR Target Validation Program</b> | Igor Mihaljko | <a href="https://github.com/DSMPromo/mthfr-gene-therapy-project">GitHub</a> | <a href="https://orcid.org/0009-0000-1408-1065">ORCID</a> | CC BY-NC-SA 4.0</p>
 <p>Computational predictions — not experimental structures. For research and educational purposes only.</p>
 </div>
 </body></html>"""

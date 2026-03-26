@@ -272,7 +272,7 @@ def plot_summary_dashboard(filename):
     ax.set_xticks(x)
     ax.set_xticklabels(labels_p)
     ax.set_ylabel('ipTM')
-    ax.set_title('Monomer vs Dimer\n(Dimer reveals the real damage)', fontweight='bold')
+    ax.set_title('Monomer vs Dimer\n(Dimer reveals predicted structural perturbation)', fontweight='bold')
     ax.set_ylim(0.5, 1.05)
     ax.legend(fontsize=9)
     for b, v in zip(bars2, dimer_vals):
@@ -280,7 +280,7 @@ def plot_summary_dashboard(filename):
 
     # Add footnote
     fig.text(0.5, 0.01,
-             'MTHFR Gene Therapy Platform | Igor Mihaljko | github.com/DSMPromo/mthfr-gene-therapy-project | CC BY-NC-SA 4.0\n'
+             'MTHFR Target Validation Program | Igor Mihaljko | github.com/DSMPromo/mthfr-gene-therapy-project | CC BY-NC-SA 4.0\n'
              'Computational predictions -- not experimental structures. For research and educational purposes only.',
              ha='center', fontsize=9, style='italic', color='gray')
 
@@ -355,7 +355,7 @@ def main():
     ax.axis('off')
 
     # Title
-    ax.text(5, 9.5, 'MTHFR Gene Therapy Platform', fontsize=20, fontweight='bold',
+    ax.text(5, 9.5, 'MTHFR Target Validation Program', fontsize=20, fontweight='bold',
             ha='center', color='#1B3A5C')
     ax.text(5, 9.0, 'Two Primary Clinical Targets', fontsize=14, ha='center', color='#2E75B6')
 
