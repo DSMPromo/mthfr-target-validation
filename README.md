@@ -268,7 +268,7 @@ The C677T variant (T>C at DNA level) is a candidate for **adenine base editing (
 
 ## Safety Architecture: What If Something Goes Wrong?
 
-Any gene therapy must answer this question. We propose a multi-layered safety approach:
+Any gene editing program must address safety. Should MTHFR correction advance to experimental testing, we outline a multi-layered safety approach:
 
 | Layer | Mechanism | Status |
 |-------|-----------|--------|
@@ -346,9 +346,11 @@ From computational observations to experimental validation -- here's the path fo
 ```
 mthfr-target-validation/
 |-- README.md                           <-- You are here
-|-- analyze.py                          <-- Automated analysis pipeline
+|-- analyze.py                          <-- Automated analysis pipeline (AlphaFold 3 + Boltz-2)
+|-- generate_figures.py                 <-- Publication figure generator
 |-- requirements.txt                    <-- Python dependencies
 |-- MTHFR_AlphaFold_Analyzer.ipynb      <-- Google Colab notebook
+|-- MTHFR-Research-Findings.zip         <-- Downloadable archive of all findings
 |-- DISCLAIMER.md / CONTRIBUTING.md / LICENSE
 |
 |-- docs/
@@ -365,12 +367,18 @@ mthfr-target-validation/
 |   |-- jobs/
 |   |   |-- submission_plan.md          <-- 16 jobs, step-by-step
 |   |   |-- json/                       <-- Upload-ready JSON files for AlphaFold Server
-|   |-- results/                        <-- Downloaded AlphaFold results (gitignored)
+|   |-- results/                        <-- Jobs 1-12 (AlphaFold Server) + Jobs 13-16 (Boltz-2)
 |
 |-- analysis/
 |   |-- analysis_workflow.md            <-- PyMOL commands, analysis steps
 |   |-- metrics_template.csv            <-- Recording template
-|   |-- outputs/                        <-- Generated charts, PAE plots, HTML report
+|   |-- outputs/
+|       |-- metrics.csv                 <-- All 16 jobs: pTM, ipTM, pLDDT, ligand scores
+|       |-- report.html                 <-- Interactive HTML report
+|       |-- charts/                     <-- ipTM and pTM comparison bar charts
+|       |-- pae_plots/                  <-- 16 PAE heatmaps (AlphaFold + Boltz-2)
+|       |-- figures/                    <-- 3D structures, dashboard, pLDDT comparison
+|       |-- pymol_scripts/              <-- Ready-to-use PyMOL analysis scripts
 |
 |-- outreach/
 |   |-- target_researchers.md           <-- Collaboration targets
