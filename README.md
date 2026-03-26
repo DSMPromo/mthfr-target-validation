@@ -44,7 +44,7 @@ See [FOUNDERS_NOTE.md](FOUNDERS_NOTE.md) for the full story behind this project.
 
 ## Disclaimer
 
-**This project is for research and educational purposes only.** Nothing here is medical advice. All therapeutic concepts are speculative and would need years of validation by qualified researchers. The author is not a medical professional. See [DISCLAIMER.md](DISCLAIMER.md) for full details.
+**This project is for research and educational purposes only.** Nothing in this document constitutes medical advice. All therapeutic concepts are speculative and would need years of validation by qualified researchers. The author is not a medical professional. See [DISCLAIMER.md](DISCLAIMER.md) for full details.
 
 ---
 
@@ -89,7 +89,7 @@ As of March 2026, we did not identify a registered interventional clinical trial
 | **C677T (A222V)** | [rs1801133](https://www.ncbi.nlm.nih.gov/clinvar/?term=rs1801133) | 222 (catalytic) | FAD-binding TIM-barrel | Displaces helix alpha-5, disrupting FAD-interacting residues Asn168, Arg171, Lys172. Creates thermolabile enzyme. ~35% activity loss per allele. | 24-50% (varies by ethnicity) |
 | **A1298C (E429A)** | [rs1801131](https://www.ncbi.nlm.nih.gov/clinvar/?term=rs1801131) | 429 (regulatory) | SAM-binding domain | Has been discussed in relation to BH4-related pathways and lies near the regulatory region implicated by 2024 cryo-EM structures. Reported activity reduction in some studies, with interpretation varying across study design and context. | ~25% European |
 
-**Compound heterozygosity** has been reported to reduce overall enzyme activity relative to wild-type in prior literature, with effects that may involve both catalytic and regulatory context.
+**Compound heterozygosity** has been reported in prior literature to associate with lower overall enzyme activity relative to wild-type, with possible contributions from both catalytic and regulatory context.
 
 ---
 
@@ -137,7 +137,7 @@ Because folate cycle dysfunction may influence BH4-dependent neurotransmitter pa
 
 ## Additional Disease Pathways
 
-MTHFR dysfunction has been associated with additional disease-relevant pathways in the literature. If future biochemical and in vivo studies support a causal contribution of selected MTHFR states, genetic correction could be evaluated as one possible upstream intervention strategy. These pathways are documented here for completeness.
+MTHFR dysfunction has been associated with additional disease-relevant pathways in the literature. If future biochemical and in vivo studies support a causal contribution of selected MTHFR states, sequence correction strategies could be evaluated as one possible upstream intervention concept. These pathways are documented here for completeness.
 
 Published literature has also reported MTHFR associations with autism/cerebral folate deficiency (Pu et al., 2020; Frye et al., 2018), B-vitamin processing failure (McNulty et al., 2006), cardiovascular disease via homocysteine elevation, transgenerational epigenetic effects in mouse models (Karahan et al., 2021), and adverse pregnancy outcomes including preeclampsia (Xia et al., 2013) and recurrent pregnancy loss (Kumar et al., 2024). These are documented in the [full research paper](docs/RESEARCH_PAPER_DRAFT.md) but are not the primary focus of this computational study.
 
@@ -189,7 +189,7 @@ We used [AlphaFold 3 Server](https://alphafoldserver.com) to predict structures 
 | 08 | **WT dimer rep** | 0.76 | 0.72 | 0.54 | 97.2 | 95.8 |
 | 04 | **C677T dimer** | 0.77 | 0.75 | 0.57 | 97.0 | 96.0 |
 | 10 | **C677T dimer rep** | 0.80 | 0.78 | 0.58 | 97.1 | 95.9 |
-| 06 | **Compound dimer (AUTHOR'S GENOTYPE)** | **0.73** | **0.70** | **0.53** | **96.6** | **95.0** |
+| 06 | **Compound dimer (author genotype context)** | **0.73** | **0.70** | **0.53** | **96.6** | **95.0** |
 | 12 | **Compound dimer rep** | **0.76** | **0.73** | **0.55** | **96.4** | **95.3** |
 
 #### Summary: Averaged Across Replicates
@@ -202,10 +202,10 @@ We used [AlphaFold 3 Server](https://alphafoldserver.com) to predict structures 
 
 **Key observations (replicated across independent seeds):**
 - **Monomer predictions show preserved overall folding confidence** (ipTM 0.97-0.98) -- the tested monomer predictions do not suggest large-scale loss of overall fold confidence
-- **Dimer predictions reveal inter-chain effects** -- FAD binding confidence drops from 0.97 (monomer) to 0.53-0.58 (dimer), consistent with known cooperativity in the homodimer
+- **Dimer predictions reveal comparative inter-chain differences** -- reported FAD-associated confidence values are lower in the tested dimer models than in the tested monomer models, consistent with the distinct interaction context of the homodimer
 - **The compound heterozygous dimer yielded the lowest reported interaction-confidence values** across the reported comparative metrics in both runs: pTM (0.73/0.76), ipTM (0.70/0.73), FAD binding (0.53/0.55), pLDDT@429 (95.0/95.3)
 - **Compound heterozygous dimers averaged lower than the tested comparators** -- ipTM 0.715 vs WT 0.740 and C677T 0.765, consistent with a possible combined destabilizing effect at the dimer level
-- **Results replicate** -- independent random seeds produce consistent trends, supporting the reproducibility of these observations
+- **Consistent directional trends** -- independent random seeds produced consistent directional trends across the tested configurations, supporting limited internal reproducibility within this modeling setup
 - **Position 429 showed the largest confidence decrease** among the reported local metrics in compound dimers -- pLDDT 95.0-95.3 vs 95.8-96.2 in WT, consistent with possible regulatory-domain involvement at the dimer level
 
 > **The core scientific observation:** Monomer predictions show all variants fold correctly, but dimer predictions reveal inter-chain effects. This is the finding to build around.
@@ -226,7 +226,7 @@ The 2006 structural perturbation study (Pejchal et al.) showed that the C677T (A
 
 The author also carries MTRR I22M (rs1801394), which is involved in B12 regeneration, the enzyme immediately downstream of MTHFR. This combination could place additive pressure on one-carbon metabolism by affecting upstream folate handling and downstream B12-dependent recycling. Whether this co-occurrence contributes to phenotypic variability among compound heterozygous individuals warrants investigation.
 
-### Therapeutic Precedent: Base Editing Is Working in Humans
+### Translational Context: Human Base-Editing Programs in Other Targets
 
 | Program | Company | Target | Delivery | Status |
 |---------|---------|--------|----------|--------|
@@ -415,7 +415,7 @@ All references have been verified against PubMed and primary sources (March 2026
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed instructions.
 
-**If you're a scientist:** Our structural and literature synthesis supports a bounded experimental program centered on dimer-level effects, retinal biomarkers, and neuropsychiatric biochemistry. We are choosing to focus where the existing literature is most developed. [Open an issue](../../issues/new?template=collaboration.md) or email me.
+**If you're a scientist:** Our structural and literature synthesis identifies a bounded experimental agenda centered on dimer-level effects, retinal biomarkers, and neuropsychiatric biochemistry. We are choosing to focus where the existing literature is most developed. [Open an issue](../../issues/new?template=collaboration.md) or email me.
 
 **What we're looking for:**
 - **Ophthalmologists / Retinal researchers:** Existing Mthfr+/- mouse models provide one possible system for testing whether correction strategies alter retinal biomarkers. Delivery route, tissue targeting, and edit feasibility would need separate evaluation
