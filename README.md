@@ -1,6 +1,8 @@
-# MTHFR Gene Therapy Platform: Targeting Retinal Neurodegeneration and Neuropsychiatric Disorders Through Structural Biology
+# MTHFR Variant Target Validation Program
 
-> **An open computational research project using AlphaFold 3 and Boltz-2 to structurally characterize MTHFR variants (C677T/A1298C) and their impact on FAD cofactor and folate substrate binding -- focused on retinal neurodegeneration and anxiety/depression, with broader implications across additional disease pathways. Seeking collaboration with ophthalmologists, neuroscientists, structural biologists, and gene therapy researchers.**
+### Structural Analysis of Dimer Stability, Cofactor Binding, and Substrate Interaction in High-Risk MTHFR States
+
+> **This project presents a computational structural analysis of wild-type, single-variant, and compound heterozygous MTHFR states using AlphaFold 3 and Boltz-2. Across both platforms, the compound heterozygous dimer showed the weakest predicted interaction profile for dimer interface, FAD-associated binding, and THF-associated binding. These findings support a focused program of experimental validation. The present work is intended to prioritize experiments, define measurable hypotheses, and support collaboration with structural biology, metabolic disease, retinal, and neuropsychiatric researchers.**
 
 [![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 [![Status: Active Research](https://img.shields.io/badge/Status-Active%20Research-green.svg)]()
@@ -107,31 +109,33 @@ As of March 2026, among ~250 active CRISPR clinical trials worldwide, **zero tar
 
 ---
 
-## Primary Research Targets
+## Primary Experimental Indication Hypotheses
 
-While MTHFR dysfunction has implications across seven disease pathways, this project focuses on the two with the strongest structural evidence and clearest path to clinical intervention. Correcting MTHFR at the genetic level would address both primary targets simultaneously -- and may have beneficial effects across the additional pathways described below.
+The computational findings in this project generate specific, testable hypotheses rather than therapeutic claims. Two downstream systems are prioritized for experimental validation based on existing literature:
 
-### Primary Target 1: Retinal Neurodegeneration and Vision Loss
+### Hypothesis 1: Retinal Pathway
 
-**Why this target:** The strongest preclinical evidence of any MTHFR-linked disease. Animal models exist. Human case reversal documented. Genotype-specific treatment response proven. Intravitreal delivery is an established route for gene therapy (Luxturna precedent).
+Because MTHFR dysfunction has been linked in prior literature to homocysteine-related retinal injury, the retina is a candidate downstream system for validation. The current computational results do not establish efficacy in retinal disease, but they support testing whether high-risk MTHFR states are associated with measurable retinal biomarkers.
 
-Elevated homocysteine damages retinal ganglion cells through oxidative stress, independent of intraocular pressure. This is the same mechanism as glaucoma -- but driven by a correctable genetic cause rather than pressure.
-
-- **Mthfr+/- mice** (same genetic status as human carriers) show 2x retinal homocysteine, ~20% ganglion cell loss, thinner nerve fiber layer, and vascular leakage -- all without elevated IOP (Markand et al., 2015, *IOVS*)
-- **Complete blindness reversed** with betaine treatment in a 30-year-old woman with severe MTHFR deficiency. Vision recovered in 6 weeks (Hergert et al., 2022, *J Neurology*)
-- **Retinal perfusion improved** by MTHFR genotype-guided supplementation with Ocufolin; compound C677T/A1298C carriers showed the most significant improvement (Jiang et al., 2023, *Clin Ophthalmol*)
+**Supporting literature:**
+- **Mthfr+/- mice** show 2x retinal homocysteine, ~20% ganglion cell loss, thinner nerve fiber layer, and vascular leakage -- without elevated IOP (Markand et al., 2015, *IOVS*)
+- **Blindness reversed** with betaine treatment in severe MTHFR deficiency (Hergert et al., 2022, *J Neurology*)
+- **Retinal perfusion improved** by MTHFR genotype-guided supplementation; compound C677T/A1298C carriers showed significant improvement (Jiang et al., 2023, *Clin Ophthalmol*)
 - MTHFR modifies CRB1-related retinopathies, worsening rd8 retinal phenotype (Markand et al., 2015, *Exp Eye Res*)
-- **Affected population:** 2.2 billion people with vision impairment worldwide (WHO). Unknown fraction attributable to MTHFR, but with 40% carrier prevalence, the overlap is substantial.
 
-### Primary Target 2: Anxiety, Depression, and Neuropsychiatric Disorders
+**Proposed validation:** Correlate MTHFR genotype with retinal OCT measurements, homocysteine levels, and visual acuity in defined patient cohorts.
 
-**Why this target:** The A1298C variant specifically impairs BH4 recycling -- the rate-limiting cofactor for serotonin and dopamine synthesis. Compound heterozygous individuals (C677T + A1298C) experience a dual hit: reduced methylation (C677T) PLUS reduced neurotransmitter cofactor (A1298C). This creates treatment-resistant anxiety and depression that doesn't respond to standard SSRIs because the problem is upstream of serotonin reuptake.
+### Hypothesis 2: Neuropsychiatric Pathway
 
-- **Comprehensive review:** MTHFR polymorphism impacts schizophrenia, major depression, autism, bipolar disorder, and ADHD (Wan et al., 2018, *Transl Psychiatry*)
-- Compound heterozygous patients show treatment-responsive anxiety with SAMe and methylated B vitamins -- but only when the MTHFR status is identified (Levin & Varga, 2016)
-- **Stress amplification loop:** stress consumes methyl groups, depleting already-limited methylation, worsening anxiety, causing more stress. Gene correction would break this cycle permanently.
-- **The BH4 connection:** BH4 (tetrahydrobiopterin) is the cofactor for tryptophan hydroxylase (serotonin) and tyrosine hydroxylase (dopamine). The A1298C variant impairs BH4 recycling, directly reducing neurotransmitter synthesis capacity.
-- **Affected population:** 280 million with anxiety disorders worldwide (WHO). An estimated 100-200 million may have MTHFR-linked neuropsychiatric symptoms.
+Because folate cycle dysfunction may influence BH4-dependent neurotransmitter pathways, neuropsychiatric phenotypes are a second candidate area for validation. The current structural data do not establish causation or treatment effect, but they support testing whether selected high-risk MTHFR states correlate with measurable biochemical and clinical features.
+
+**Supporting literature:**
+- **MTHFR polymorphism** associated with schizophrenia, major depression, autism, bipolar disorder, and ADHD (Wan et al., 2018, *Transl Psychiatry*)
+- Compound heterozygous patients show treatment-responsive anxiety with SAMe and methylated B vitamins when MTHFR status is identified (Levin & Varga, 2016)
+- The A1298C variant impairs BH4 recycling -- the cofactor for tryptophan hydroxylase (serotonin) and tyrosine hydroxylase (dopamine)
+- This may be relevant in a subset of treatment-resistant presentations involving upstream one-carbon and BH4-related biology
+
+**Proposed validation:** Measure BH4, homocysteine, SAMe/SAH ratio, and neurotransmitter metabolites in compound heterozygous individuals vs. wild-type controls.
 
 ---
 
@@ -164,7 +168,7 @@ MTHFR variants are associated with multiple adverse pregnancy outcomes.
 - **Neural tube defects:** MTHFR is the key enzyme in the folate pathway that prevents NTDs; global folic acid fortification was designed partly because of MTHFR variant prevalence
 - VTE in pregnancy: 50% of compound heterozygous patients vs 28.6% wild-type (Liew & Gupta, 2015)
 
-**The thesis:** One CRISPR base editing correction of MTHFR could restore retinal neuroprotection and neurotransmitter synthesis capacity -- with additional benefits across five other disease pathways -- through a single genetic intervention.
+**Working hypothesis:** The compound heterozygous MTHFR dimer shows lower predicted confidence for cofactor-associated and substrate-associated interactions relative to wild-type. These results support experimental testing of whether selected high-risk MTHFR states contribute to measurable dysfunction in retinal and neuropsychiatric-relevant pathways, and whether genetic correction could restore normal enzyme function.
 
 ---
 
@@ -223,13 +227,15 @@ We used [AlphaFold 3 Server](https://alphafoldserver.com) to predict structures 
 | **C677T dimer** | 0.785 | 0.765 | 0.575 | 97.05 | 95.95 |
 | **Compound dimer** | **0.745** | **0.715** | **0.540** | **96.5** | **95.15** |
 
-**Key findings (replicated across independent seeds):**
-- **Monomers look identical** across all variants (ipTM 0.97-0.98) -- the mutations don't destroy the fold
-- **Dimers reveal the real damage** -- FAD binding drops from 0.97 (monomer) to 0.53-0.58 (dimer), showing inter-chain effects
-- **The compound heterozygous dimer consistently shows the LOWEST scores** across every metric in both runs: pTM (0.73/0.76), ipTM (0.70/0.73), FAD binding (0.53/0.55), pLDDT@429 (95.0/95.3)
-- **The dual hit is structurally worse** -- compound het averages ipTM 0.715 vs WT 0.740 and C677T 0.765
-- **Results replicate** -- independent random seeds produce consistent trends, confirming these are real structural effects, not noise
-- **Position 429 (A1298C site) is most affected in compound dimers** -- pLDDT drops to 95.0-95.3 vs 95.8-96.2 in WT, confirming regulatory domain disruption at the dimer level
+**Key observations (replicated across independent seeds):**
+- **Monomer predictions show all variants fold correctly** (ipTM 0.97-0.98) -- the mutations do not destroy the protein fold
+- **Dimer predictions reveal inter-chain effects** -- FAD binding confidence drops from 0.97 (monomer) to 0.53-0.58 (dimer), consistent with known cooperativity in the homodimer
+- **The compound heterozygous dimer shows the weakest predicted interaction profile** across every metric in both runs: pTM (0.73/0.76), ipTM (0.70/0.73), FAD binding (0.53/0.55), pLDDT@429 (95.0/95.3)
+- **Compound het dimer averages lower than either single variant** -- ipTM 0.715 vs WT 0.740 and C677T 0.765, suggesting synergistic destabilization
+- **Results replicate** -- independent random seeds produce consistent trends, supporting the reproducibility of these observations
+- **Position 429 (A1298C site) shows the largest confidence drop in compound dimers** -- pLDDT 95.0-95.3 vs 95.8-96.2 in WT, suggesting regulatory domain perturbation at the dimer level
+
+> **The core scientific observation:** Monomer predictions show all variants fold correctly, but dimer predictions reveal inter-chain effects. This is the finding to build around.
 
 > **Important:** These are computational predictions, not experimental structures. All confidence metrics should be interpreted as hypothesis generators, not proof of mechanism. See the [full research paper draft](docs/RESEARCH_PAPER_DRAFT.md) for complete methodology and limitations.
 
@@ -317,11 +323,11 @@ open analysis/outputs/report.html
 
 ## Development Roadmap
 
-From computational predictions to real therapy -- here's the path forward:
+From computational observations to experimental validation -- here's the path forward:
 
 | Phase | What | Timeline | Cost | Status |
 |-------|------|----------|------|--------|
-| **1** | Computational foundation -- AlphaFold predictions, 7-pathway thesis, safety architecture, open-source repo | **Done** | **$0** | ✅ **Complete** |
+| **1** | Computational target validation -- AlphaFold/Boltz-2 structural analysis, reproducible pipeline, open-source repo | **Done** | **$0** | ✅ **Complete** |
 | **2** | MD simulations, guide RNA design, bioRxiv preprint, researcher outreach | 1-3 months | ~$500 | Next |
 | **3** | Experimental validation -- express proteins, measure FAD binding, test ABE in cell lines | 6-18 months | $50K-200K | Needs lab partner |
 | **4** | Preclinical: retinal pathway (Mthfr+/- mice, intravitreal ABE, retinal OCT) + neuropsych endpoints | 12-24 months | $500K-2M | Needs institution |

@@ -264,8 +264,8 @@ a{{color:#2E75B6}}
 .footer{{margin-top:40px;padding-top:20px;border-top:2px solid #ddd;color:#666;font-size:13px;text-align:center}}
 </style></head><body>
 
-<h1>MTHFR Gene Therapy Platform</h1>
-<p style="font-size:18px;color:#666">Targeting Retinal Neurodegeneration and Neuropsychiatric Disorders Through Structural Biology</p>
+<h1>MTHFR Variant Target Validation Program</h1>
+<p style="font-size:18px;color:#666">Structural Analysis of Dimer Stability, Cofactor Binding, and Substrate Interaction in High-Risk MTHFR States</p>
 
 <p><b>Generated:</b> {datetime.now().strftime('%Y-%m-%d %H:%M')} |
 <b>Author:</b> Igor Mihaljko / <a href="https://dsm.promo">DSM.Promo</a> |
@@ -277,14 +277,14 @@ a{{color:#2E75B6}}
 
 <h2>Executive Summary</h2>
 <div class="finding">
-<b>Key Finding:</b> The compound heterozygous MTHFR dimer (C677T + A1298C — the author's actual genotype) consistently shows the lowest structural confidence scores across every metric:
+<b>Key Observation:</b> Relative to wild-type, the compound heterozygous MTHFR dimer shows the weakest predicted interaction profile across every metric:
 <ul>
 <li><b>FAD cofactor binding:</b> ipTM 0.53 (vs 0.57 WT) — AlphaFold Server</li>
-<li><b>THF substrate binding:</b> ligand ipTM 0.878 (vs 0.974 WT) — 10% reduction — Boltz-2</li>
-<li><b>Dimer interface:</b> ipTM 0.70 (vs 0.76 WT) — weakened protein-protein interaction</li>
-<li><b>Position 429 (A1298C site):</b> pLDDT 95.0 (vs 96.2 WT) — regulatory domain disruption</li>
+<li><b>THF substrate binding:</b> ligand ipTM 0.878 (vs 0.974 WT) — Boltz-2</li>
+<li><b>Dimer interface:</b> ipTM 0.70 (vs 0.76 WT) — reduced inter-chain confidence</li>
+<li><b>Position 429 (A1298C site):</b> pLDDT 95.0 (vs 96.2 WT) — regulatory domain perturbation</li>
 </ul>
-<b>Clinical implication:</b> Reduced FAD binding and folate substrate access in compound heterozygous MTHFR provides structural rationale for (1) retinal ganglion cell damage via elevated homocysteine and (2) impaired BH4-dependent neurotransmitter synthesis.
+<b>Working hypothesis:</b> These results support experimental testing of whether selected high-risk MTHFR states contribute to measurable dysfunction in retinal and neuropsychiatric-relevant pathways. The present work generates falsifiable hypotheses for orthogonal validation.
 </div>"""
 
     # Summary dashboard
@@ -376,13 +376,13 @@ a{{color:#2E75B6}}
 <p><b>AlphaFold 3 Server</b> (Jobs 1-12) provided the core FAD binding analysis. <b>Boltz-2</b> (Jobs 13-16) enabled THF substrate and SAM inhibitor modeling not possible through AlphaFold Server's interface. Both confirm the same trend: compound het = worst structural scores.</p>
 </div>
 
-<h2>Primary Clinical Targets</h2>
+<h2>Primary Experimental Indication Hypotheses</h2>
 <div class="info">
-<h3>Target 1: Retinal Neurodegeneration</h3>
-<p>Reduced MTHFR function → elevated homocysteine → retinal ganglion cell damage. Mouse models exist (Mthfr+/-). Human blindness reversed with betaine (Hergert 2022). Intravitreal gene therapy delivery is established (Luxturna precedent).</p>
-<h3>Target 2: Anxiety and Depression</h3>
-<p>A1298C variant → impaired BH4 recycling → reduced serotonin/dopamine synthesis. Explains treatment-resistant cases where SSRIs fail because the problem is upstream of serotonin reuptake. Compound heterozygous patients respond to SAMe + methylated B vitamins when identified.</p>
-<p><i>Additional implications across autism/CFD, B-vitamin metabolism, cardiovascular disease, epigenetics, and pregnancy complications are documented in the full research paper.</i></p>
+<h3>Retinal Pathway Hypothesis</h3>
+<p>Because MTHFR dysfunction has been linked in prior literature to homocysteine-related retinal injury, the retina is a candidate downstream system for validation. The current computational results do not establish efficacy in retinal disease, but they support testing whether high-risk MTHFR states are associated with measurable retinal biomarkers. Prior evidence: Mthfr+/- mice show ganglion cell loss (Markand 2015); blindness reversed with betaine (Hergert 2022).</p>
+<h3>Neuropsychiatric Pathway Hypothesis</h3>
+<p>Because folate cycle dysfunction may influence BH4-dependent neurotransmitter pathways, neuropsychiatric phenotypes are a second candidate area for validation. The current structural data do not establish causation or treatment effect, but they support testing whether selected high-risk MTHFR states correlate with measurable biochemical and clinical features. This may be relevant in a subset of treatment-resistant presentations involving upstream one-carbon and BH4-related biology.</p>
+<p><i>Additional downstream systems (autism/CFD, B-vitamin metabolism, cardiovascular, epigenetics, pregnancy) are documented in the full research paper as candidate areas for future investigation.</i></p>
 </div>
 
 <h2>Next Steps</h2>
