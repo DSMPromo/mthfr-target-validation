@@ -11,7 +11,7 @@
 
 ### Dr. Richard Frye — Phoenix Children's Hospital / Barrow Neurological Institute
 - **Why:** Leading researcher on folate metabolism and autism. Conducted clinical trials with folinic acid in ASD children with cerebral folate deficiency.
-- **Ask:** Validate the MTHFR-CFD-autism connection, collaborate on neurodevelopmental arm of the platform thesis.
+- **Ask:** Validate the MTHFR-CFD-autism connection, collaborate on neurodevelopmental arm of the research program.
 
 ## Priority 3: MTHFR Structural Biologist
 

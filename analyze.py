@@ -293,10 +293,10 @@ a{{color:#2E75B6}}
         h += '<h2>Summary Dashboard</h2>'
         h += '<img src="figures/summary_dashboard.png" alt="Summary Dashboard">'
 
-    # Clinical targets
+    # Candidate disease pathways
     if (fig_dir/"clinical_targets.png").exists():
         h += '<h2>Candidate Disease Pathways</h2>'
-        h += '<img src="figures/clinical_targets.png" alt="Clinical Targets">'
+        h += '<img src="figures/clinical_targets.png" alt="Candidate Pathways">'
 
     # Structure visualizations
     struct_figs = sorted(fig_dir.glob("structure_*.png")) if fig_dir.exists() else []
