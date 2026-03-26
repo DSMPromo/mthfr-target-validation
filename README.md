@@ -66,7 +66,7 @@ As of March 2026, we did not identify a registered interventional clinical trial
 | Structural data only recently available | First human MTHFR crystal structure 2018 (PDB 6FCX), cryo-EM 2024 (PDB 8QA5, 8QA6) |
 | Gene editing precedent emerging | Human base-editing programs show that precise in vivo correction strategies are feasible for selected targets, though target biology, delivery, benefit-risk, and regulatory path remain highly target-specific |
 
-**Why this question is now technically more testable:** Recent advances in structure prediction, human base-editing programs for other targets, scalable nucleic acid delivery systems, and new human MTHFR structural data make experimental assessment of MTHFR correction more technically discussable than before. They do not establish MTHFR as a therapeutic target. This project asks whether these conditions warrant a bounded experimental investigation.
+**Why this question is now technically more testable:** Recent advances in structure prediction, human base-editing programs for other targets, scalable nucleic acid delivery systems, and new human MTHFR structural data make experimental assessment of MTHFR correction more technically discussable than before. They do not establish MTHFR as a validated therapeutic target. This project asks whether these conditions warrant a bounded experimental investigation.
 
 ---
 
@@ -87,7 +87,7 @@ As of March 2026, we did not identify a registered interventional clinical trial
 | Variant | rsID | Position | Domain | Mechanism | Population Frequency |
 |---------|------|----------|--------|-----------|---------------------|
 | **C677T (A222V)** | [rs1801133](https://www.ncbi.nlm.nih.gov/clinvar/?term=rs1801133) | 222 (catalytic) | FAD-binding TIM-barrel | Displaces helix alpha-5, disrupting FAD-interacting residues Asn168, Arg171, Lys172. Creates thermolabile enzyme. ~35% activity loss per allele. | 24-50% (varies by ethnicity) |
-| **A1298C (E429A)** | [rs1801131](https://www.ncbi.nlm.nih.gov/clinvar/?term=rs1801131) | 429 (regulatory) | SAM-binding domain | Has been discussed in relation to BH4-related pathways and lies near the regulatory region implicated by 2024 cryo-EM structures. Reported ~30% activity reduction per allele. | ~25% European |
+| **A1298C (E429A)** | [rs1801131](https://www.ncbi.nlm.nih.gov/clinvar/?term=rs1801131) | 429 (regulatory) | SAM-binding domain | Has been discussed in relation to BH4-related pathways and lies near the regulatory region implicated by 2024 cryo-EM structures. Reported activity reduction in some studies, with interpretation varying across study design and context. | ~25% European |
 
 **Compound heterozygosity** has been reported to reduce overall enzyme activity relative to wild-type in prior literature, with effects that may involve both catalytic and regulatory context.
 
@@ -304,7 +304,7 @@ From computational observations to experimental validation -- here's the path fo
 | **2** | Structural validation against PDB 6FCX, molecular dynamics simulations, bioRxiv preprint, researcher outreach | 1-3 months | ~$500 | Next |
 | **3** | Biochemical validation -- express WT/variant proteins, dimer stability assays, FAD/THF cofactor binding assays | 6-12 months | $50K-150K | Needs lab partner |
 | **4** | Subgroup biomarker correlation -- homocysteine, methylation panels, retinal OCT, BH4 levels in defined compound het cohorts | 12-18 months | $100K-300K | Needs clinical collaborator |
-| **5** | If biochemical + biomarker data support: ABE guide RNA design, editing feasibility in cell lines | 18-24 months | $200K-500K | Needs gene editing lab |
+| **5** | If biochemical and biomarker data support continued development: guide design assessment, edit-window analysis, bystander-risk evaluation, and cell-based feasibility studies | 18-24 months | $200K-500K | Needs gene editing lab |
 | **6** | If editing feasibility confirmed: preclinical animal studies (Mthfr+/- mice, multi-organ endpoints) | 24-36 months | $500K-2M | Needs institution |
 | **7** | If preclinical success: IND filing, clinical trial design, regulatory pathway | 3-7+ years | $5M+ | Needs biotech/pharma |
 
@@ -455,7 +455,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed instructions.
 
 *I'm not a doctor. I'm not a biohacker. I'm a cybersecurity guy and cloud architect who looked at his DNA results, started asking questions, and used AI tools to organize what I found. I don't have a lab. I don't have a PhD. I built this project to hand it to the real scientists who can take it further.*
 
-*The structural predictions are reproducible, the references are verified, and the analysis pipeline is open source. I'm not qualified to say whether these computational differences are biologically meaningful -- but I've tried to make it as easy as possible for someone who is qualified to find out.*
+*The structural predictions are reproducible, the references are verified, and the analysis pipeline is open source. I am not qualified to determine whether these computational differences are biologically meaningful, but I have tried to make the question easier for qualified researchers to test.*
 
 *If you are a clinician or researcher, I hope this project helps define a tractable experimental path. If you are a patient or family member, this project should be read as a research document, not as medical guidance. Variant status needs clinical interpretation in context with symptoms, labs, and the broader medical picture.*
 
