@@ -34,7 +34,7 @@ ORCID: https://orcid.org/0009-0000-1408-1065
 ---
 
 ## Attachments to Include
-1. The Definitive Master Document (DOCX)
+1. The Master Document (available on GitHub)
 2. AlphaFold structural comparison figures (PNG)
 3. Link to GitHub repository
 4. 1-page executive summary (optional, for busy researchers)

@@ -10,7 +10,7 @@
 
 **Correspondence:** igor@dsm.promo
 
-**Keywords:** MTHFR, AlphaFold 3, Boltz-2, C677T, A1298C, FAD cofactor, folate substrate, protein structure prediction, retinal neurodegeneration, anxiety, depression, BH4, gene therapy, base editing, compound heterozygous
+**Keywords:** MTHFR, AlphaFold 3, Boltz-2, C677T, A1298C, FAD cofactor, folate substrate, protein structure prediction, retinal neurodegeneration, anxiety, depression, BH4, base editing, computational prioritization, compound heterozygous
 
 **License:** CC BY-NC-SA 4.0
 
@@ -454,7 +454,7 @@ Any gene-editing program must address the question: *what happens if something g
 
 **Layer 1: Inherent Safety of LNP-Delivered Base Editing**
 
-The proposed therapeutic approach has multiple built-in safety features that distinguish it from earlier gene therapy paradigms:
+If base-editing approaches were to advance for MTHFR, they would incorporate multiple safety layers discussed in the broader editing research literature:
 
 - **No double-strand DNA breaks:** Adenine base editors (ABEs) convert A-T to G-C without cutting the DNA backbone, eliminating the risk of chromosomal rearrangements, large deletions, and p53-mediated DNA damage response associated with nuclease-based CRISPR (Cas9)
 - **Transient editor expression:** LNP-delivered mRNA encoding the base editor degrades within 24-48 hours. Unlike AAV-delivered Cas9 (which can persist for months), the editing machinery is gone within days, limiting the window for off-target activity
@@ -553,9 +553,9 @@ This study has several important limitations:
 
 This study presents the first systematic AlphaFold 3 structural characterization of MTHFR variants (C677T, A1298C, and compound heterozygous) in complex with their functional ligands (FAD, THF, SAM). By connecting structural predictions to seven disease pathways, we provide a framework for understanding how single amino acid changes in one enzyme can have pleiotropic consequences in populations carrying these variants.
 
-The key contribution is not the computational predictions themselves -- which require experimental validation -- but the integration: connecting structural biology, clinical genetics, epigenetics, reproductive health, and gene therapy in a single, reproducible, open-source framework that any researcher can extend.
+The key contribution is not the computational predictions themselves -- which require experimental validation -- but the integration: connecting structural biology, clinical genetics, epigenetics, and reproductive health in a single, reproducible, open-source framework that any researcher can extend.
 
-We invite collaboration from structural biologists, gene therapy researchers, clinicians, and bioinformaticians to validate, correct, and build upon this work. All data, code, and analysis are freely available.
+We invite collaboration from structural biologists, gene-editing researchers, clinicians, and bioinformaticians to validate, correct, and build upon this work. All data, code, and analysis are freely available.
 
 ---
 
@@ -683,7 +683,7 @@ The author affirms that no individual should feel pressured to share their genet
 ### Computational Methods
 18. Abramson J, Adler J, Dunbar J, et al. (2024). Accurate structure prediction of biomolecular interactions with AlphaFold 3. *Nature*, 630:493-500.
 
-### Gene Therapy and Base Editing
+### Base-Editing Precedent
 19. YOLT-101 Phase 1 Clinical Data. (2025). YolTech Press Release, March 2025. https://www.yoltx.com/news/press-release/95
 
 20. LNP-mediated in vivo base editing of Agxt in a primary hyperoxaluria type 1 model. (2025). PubMed. PMID: 41275431

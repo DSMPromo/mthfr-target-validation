@@ -3,7 +3,7 @@
 ## Priority 1: Direct MTHFR-Retina Expert
 
 ### Dr. Sylvia Smith — Augusta University
-- **Why:** Published the definitive Mthfr+/- mouse retina papers (2015 IOVS, 2015 Exp Eye Res). THE world expert on MTHFR and retinal neurodegeneration.
+- **Why:** Published key Mthfr+/- mouse retina papers (2015 IOVS, 2015 Exp Eye Res). Leading expert on MTHFR and retinal neurodegeneration.
 - **Key papers:** "Retinal Ganglion Cell Loss and Mild Vasculopathy in Mthfr-Deficient Mice" (IOVS 2015); "Mthfr as modifier of rd8 retinal phenotype" (Exp Eye Res 2015)
 - **Ask:** Validate AlphaFold structural predictions, collaborate on base editor design for retinal application, access to Mthfr+/- mouse model for preclinical testing.
 
@@ -34,5 +34,5 @@
 ### Bascom Palmer Eye Institute (University of Miami)
 ### Wilmer Eye Institute (Johns Hopkins)
 ### NEI (National Eye Institute, NIH)
-- **Why:** Top ophthalmology research centers with expertise in retinal degeneration and gene therapy.
+- **Why:** Top ophthalmology research centers with expertise in retinal degeneration and genetic approaches.
 - **Ask:** Clinical perspective on MTHFR-related retinal pathology, potential clinical trial design.
