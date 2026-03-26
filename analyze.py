@@ -63,46 +63,56 @@ def get_plddt_from_pdb(pdb_file, resnum, chain="A"):
     return None
 
 def load_boltz2_metrics(d):
-    """Extract metrics from Boltz-2 output (PDB files + optional JSON scores)."""
+    """Extract metrics from Boltz-2 output (confidence JSON + PDB + PAE npz)."""
     d = Path(d)
     result = {"ptm": None, "iptm": None, "rank": None, "fad_iptm": None,
               "p222": None, "p429": None, "pae": None, "clash": False}
 
-    # Look for confidence/scores JSON files
-    for pattern in ["*confidence*.json", "*scores*.json", "*metrics*.json", "*ranking*.json"]:
-        jsons = sorted(d.rglob(pattern))
-        if jsons:
-            data = json.load(open(jsons[0]))
-            for key in ["ptm", "pTM"]:
-                if key in data: result["ptm"] = float(data[key])
-            for key in ["iptm", "ipTM", "interface_ptm"]:
-                if key in data: result["iptm"] = float(data[key])
-            for key in ["ranking_score", "ranking_confidence", "complex_plddt"]:
-                if key in data: result["rank"] = float(data[key])
-            if "pae" in data:
-                result["pae"] = np.array(data["pae"])
-            break
+    # Load confidence JSON (Boltz-2 format: confidence_result_model_0.json)
+    jsons = sorted(d.rglob("confidence_result_model_0.json"))
+    if not jsons:
+        jsons = sorted(d.rglob("*confidence*.json"))
+    if jsons:
+        data = json.load(open(jsons[0]))
+        result["ptm"] = data.get("ptm")
+        result["iptm"] = data.get("iptm")
+        result["rank"] = data.get("confidence_score")
+        result["fad_iptm"] = data.get("ligand_iptm")
 
-    # Extract pLDDT from best PDB file
-    pdbs = sorted(d.rglob("*rank_0*.pdb")) or sorted(d.rglob("*model_0*.pdb")) or sorted(d.rglob("*.pdb"))
-    if pdbs:
-        best_pdb = pdbs[0]
-        result["p222"] = get_plddt_from_pdb(best_pdb, 222)
-        result["p429"] = get_plddt_from_pdb(best_pdb, 429)
+    # Load PAE from npz file
+    pae_files = sorted(d.rglob("pae_result_model_0.npz"))
+    if pae_files:
+        try:
+            pae_data = np.load(pae_files[0])
+            # npz files have arrays stored by key
+            for key in pae_data.files:
+                arr = pae_data[key]
+                if arr.ndim == 2:
+                    result["pae"] = arr
+                    break
+        except Exception:
+            pass
 
-        # If no JSON scores, compute average pLDDT from PDB as proxy
-        if result["ptm"] is None:
-            plddts = []
-            with open(best_pdb) as f:
-                for line in f:
-                    if line.startswith("ATOM") and line[12:16].strip() == "CA":
-                        try:
-                            plddts.append(float(line[60:66].strip()))
-                        except (ValueError, IndexError):
-                            pass
-            if plddts:
-                avg_plddt = np.mean(plddts)
-                result["ptm"] = round(avg_plddt / 100, 4)  # Approximate pTM from avg pLDDT
+    # Load per-residue pLDDT from npz file
+    plddt_files = sorted(d.rglob("plddt_result_model_0.npz"))
+    if plddt_files:
+        try:
+            plddt_data = np.load(plddt_files[0])
+            for key in plddt_data.files:
+                arr = plddt_data[key]
+                if arr.ndim == 1 and len(arr) > 429:
+                    result["p222"] = float(arr[221]) * 100  # Convert 0-1 to 0-100
+                    result["p429"] = float(arr[428]) * 100
+                    break
+        except Exception:
+            pass
+
+    # Fallback: extract pLDDT from PDB B-factor if npz not available
+    if result["p222"] is None:
+        pdbs = sorted(d.rglob("*model_0*.pdb")) or sorted(d.rglob("*.pdb"))
+        if pdbs:
+            result["p222"] = get_plddt_from_pdb(pdbs[0], 222)
+            result["p429"] = get_plddt_from_pdb(pdbs[0], 429)
 
     return result
 
@@ -115,7 +125,13 @@ def find_jobs(d):
             with zipfile.ZipFile(z,'r') as zf: zf.extractall(ed)
         dirs.append(ed)
     for x in sorted(d.iterdir()):
-        if x.is_dir() and x not in dirs and list(x.rglob("*summary_confidences*.json")): dirs.append(x)
+        if x.is_dir() and x not in dirs:
+            # Detect AlphaFold Server results
+            if list(x.rglob("*summary_confidences*.json")):
+                dirs.append(x)
+            # Detect Boltz-2 results
+            elif list(x.rglob("confidence_result_model_*.json")):
+                dirs.append(x)
     return dirs
 
 def load_json(d,pattern):
