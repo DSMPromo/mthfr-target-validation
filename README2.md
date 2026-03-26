@@ -16,11 +16,11 @@
 
 ## Table of Contents
 
-- [Who I Am](#who-i-am-and-who-i-am-not)
-- [The Problem](#the-problem-nobody-connected)
-- [The Science](#the-mthfr-enzyme)
-- [Primary Targets](#primary-research-targets)
-- [Additional Pathways](#additional-disease-pathways)
+- [About the Author](#about-the-author)
+- [Cross-Specialty Context](#a-cross-specialty-problem-that-may-be-underintegrated-in-current-research)
+- [The Enzyme](#the-mthfr-enzyme)
+- [Primary Follow-Up Contexts](#primary-experimental-follow-up-contexts)
+- [Additional Literature Context](#additional-literature-context)
 - [AlphaFold 3 Results](#alphafold-3-structural-predictions)
 - [Study Limits](#what-this-study-does-not-show)
 - [Alternative Explanations](#alternative-explanations)
@@ -28,7 +28,7 @@
 - [Next Three Experiments](#next-three-experiments)
 - [Why Test This](#why-this-project-is-worth-experimental-follow-up)
 - [Structural Context](#structural-and-literature-context)
-- [Safety Architecture](#safety-architecture-what-if-something-goes-wrong)
+- [Safety Concepts](#safety-concepts-for-future-experimental-programs)
 - [Quick Start: Replicate This](#quick-start-replicate-this-research)
 - [Development Roadmap](#development-roadmap)
 - [Project Structure](#project-structure)
@@ -59,7 +59,7 @@ MTHFR dysfunction has been studied extensively within individual medical special
 
 This project attempts to bring the structural biology perspective into that conversation. We do not claim to have connected dots that others missed; we are synthesizing published literature and adding computational structural data to support experimental prioritization.
 
-### Possible Reasons MTHFR Has Not Yet Advanced as a Gene-Editing Research Program
+### Why MTHFR Has Seen Limited Translational Development
 
 As of March 2026, we did not identify a registered interventional clinical trial focused on MTHFR gene-editing in ClinicalTrials.gov searches. This absence should not be interpreted as evidence of scientific disinterest or target invalidity. Several factors may contribute:
 
@@ -146,7 +146,7 @@ MTHFR dysfunction has been associated with additional disease-relevant pathways 
 
 Published literature has also reported MTHFR associations with autism/cerebral folate deficiency (Pu et al., 2020; Frye et al., 2018), B-vitamin processing failure (McNulty et al., 2006), cardiovascular disease via homocysteine elevation, transgenerational epigenetic effects in mouse models (Karahan et al., 2021), and adverse pregnancy outcomes including preeclampsia (Xia et al., 2013) and recurrent pregnancy loss (Kumar et al., 2024). These are documented in the [full research paper](docs/RESEARCH_PAPER_DRAFT.md) but are not the primary focus of this computational study.
 
-**Working hypothesis:** The compound heterozygous MTHFR dimer shows lower predicted confidence for cofactor-associated and substrate-associated interactions relative to wild-type. These comparative computational results support experimental testing of whether selected MTHFR variant states are associated with measurable differences in retinal and neuropsychiatric-relevant biomarkers or pathway readouts, and whether sequence correction strategies could theoretically alter enzyme behavior relative to wild-type, subject to extensive experimental validation.
+**Working hypothesis:** The compound heterozygous MTHFR dimer shows lower predicted confidence for cofactor-associated and substrate-associated interactions relative to wild-type. These comparative computational results support experimental testing of whether selected MTHFR variant states are associated with measurable differences in retinal and neuropsychiatric-relevant biomarkers or pathway readouts. Sequence correction remains a separate downstream question that would require independent validation of target biology, editing feasibility, delivery, and safety.
 
 ---
 
@@ -337,21 +337,11 @@ At the sequence level, C677T appears theoretically compatible with **adenine bas
 
 ---
 
-## Safety Architecture: What If Something Goes Wrong?
+## Safety Concepts for Future Experimental Programs
 
-Any future gene-editing program would need to address safety. The following are examples of safety layers used or discussed in broader editing research that could be relevant to MTHFR correction if it advances to experimental testing. Each would require target-specific validation.
+Sequence correction is discussed only as a long-range downstream possibility. The present study does not establish MTHFR as a therapeutic editing target. Any editing concept would require separate validation of target biology, guide design, delivery, safety, and functional rescue.
 
-| Layer | Concept | Precedent |
-|-------|---------|-----------|
-| **1. Inherent design** | Base editing avoids DNA double-strand breaks; LNP-delivered mRNA degrades within 48 hours | Used in VERVE-102, BEAM-101 |
-| **2. Off-target screening** | Cas-OFFinder, GUIDE-seq, whole-genome sequencing before any intervention | Standard in current editing programs |
-| **3. Anti-CRISPR proteins** | Emergency neutralization of residual editor activity (e.g., AcrIIA4) | Demonstrated in preclinical models |
-| **4. Reversible epigenetic editing** | CRISPRoff as a non-permanent first step before committing to base editing | In early translational development |
-| **5. Post-intervention monitoring** | Biomarker panels, off-target sequencing at defined timepoints | Standard clinical protocol design |
-
-**Key point:** At the target base, a candidate correction strategy would aim to restore the reference allele sequence rather than introduce a novel coding change.
-
-See the [full research paper](docs/RESEARCH_PAPER_DRAFT.md#47-safety-architecture-built-in-safeguards-and-emergency-off-switches) for complete safety analysis.
+If correction strategies were to advance, established safety frameworks from current base-editing programs (e.g., off-target screening via GUIDE-seq, anti-CRISPR emergency neutralization, reversible epigenetic editing as a non-permanent first step) would need target-specific adaptation and validation. See the [full research paper](docs/RESEARCH_PAPER_DRAFT.md#47-safety-architecture-built-in-safeguards-and-emergency-off-switches) for detailed safety discussion.
 
 ---
 
@@ -554,10 +544,6 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed instructions.
 
 ---
 
-*I'm not a doctor. I'm not a biohacker. I'm a cybersecurity guy and cloud architect who looked at his DNA results, started asking questions, and used AI tools to organize what I found. I don't have a lab. I don't have a PhD. I built this project to hand it to the real scientists who can take it further.*
-
-*The structural workflow is reproducible within the documented pipeline, the cited references have been checked against primary or database sources, and the analysis pipeline is open source. I am not qualified to determine whether these computational differences are biologically meaningful, but I have tried to make the question easier for qualified researchers to test.*
+*I built this project as an open computational starting point for qualified researchers to evaluate experimentally. The workflow is reproducible, the references are source-checked, and the conclusions are intentionally bounded by the current evidence.*
 
 *If you are a clinician or researcher, I hope this project helps clarify a tractable experimental path. If you are a patient or family member, this project should be read as a research document, not as medical guidance. Variant status needs clinical interpretation in context with symptoms, labs, and the broader medical picture.*
-
-*My goal is to help move a testable research question into the hands of qualified scientists who can evaluate it rigorously.*
