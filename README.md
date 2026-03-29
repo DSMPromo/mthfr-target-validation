@@ -281,7 +281,7 @@ cd mthfr-target-validation
 python3 -m venv .venv && source .venv/bin/activate
 pip install matplotlib numpy
 
-# Drop your AlphaFold ZIP results into alphafold/results/
+# Drop your AlphaFold results into alphafold/results_all/
 
 # Run the analysis
 python analyze.py
@@ -328,7 +328,8 @@ mthfr-target-validation/
 |-- DISCLAIMER.md / CONTRIBUTING.md / LICENSE
 |
 |-- docs/
-|   |-- MTHFR_Master_Document.md                 <-- Complete research document (v5.0)
+|   |-- MTHFR_Master_Document.md                 <-- Complete research document (v6.0)
+|   |-- MTHFR_Research_Paper.pdf                 <-- Publication-ready PDF with figures
 |   |-- RESEARCH_PAPER_DRAFT.md                  <-- Publication-quality paper draft
 |
 |-- sequences/                          <-- Verified UniProt P42898 sequences
@@ -339,18 +340,29 @@ mthfr-target-validation/
 |
 |-- alphafold/
 |   |-- jobs/
-|   |   |-- submission_plan.md          <-- 16 jobs, step-by-step
-|   |   |-- json/                       <-- Upload-ready JSON files for AlphaFold Server
-|   |-- results/                        <-- Jobs 1-12 (AlphaFold Server) + Jobs 13-16 (Boltz-2)
+|   |   |-- submission_plan.md          <-- 34 jobs, step-by-step
+|   |   |-- json/                       <-- Original 12 job JSONs
+|   |   |-- json_all/                   <-- All 30 AlphaFold Server JSONs + ALL_34_JOBS.json
+|   |-- results_all/                    <-- All 34 results (unified folder)
+|       |-- wt_mono_run1..5/            <-- WT monomer, 5 seeds
+|       |-- wt_dimer_run1..5/           <-- WT dimer, 5 seeds
+|       |-- c677t_mono_run1..5/         <-- C677T monomer, 5 seeds
+|       |-- c677t_dimer_run1..5/        <-- C677T dimer, 5 seeds
+|       |-- a1298c_mono_run1..5/        <-- A1298C monomer, 5 seeds
+|       |-- compound_dimer_run1..5/     <-- Compound dimer, 5 seeds
+|       |-- wt_dimer_thf/              <-- WT + THF (Boltz-2)
+|       |-- c677t_dimer_thf/           <-- C677T + THF (Boltz-2)
+|       |-- compound_dimer_thf/        <-- Compound + THF (Boltz-2)
+|       |-- wt_dimer_sam/              <-- WT + SAM (Boltz-2)
 |
 |-- analysis/
 |   |-- analysis_workflow.md            <-- PyMOL commands, analysis steps
 |   |-- metrics_template.csv            <-- Recording template
 |   |-- outputs/
-|       |-- metrics.csv                 <-- All 16 jobs: pTM, ipTM, pLDDT, ligand scores
+|       |-- metrics.csv                 <-- All 34 jobs: pTM, ipTM, pLDDT, ligand scores
 |       |-- report.html                 <-- Interactive HTML report
 |       |-- charts/                     <-- ipTM and pTM comparison bar charts
-|       |-- pae_plots/                  <-- 16 PAE heatmaps (AlphaFold + Boltz-2)
+|       |-- pae_plots/                  <-- 34 PAE heatmaps
 |       |-- figures/                    <-- 3D structures, dashboard, pLDDT comparison
 |       |-- pymol_scripts/              <-- Ready-to-use PyMOL analysis scripts
 |

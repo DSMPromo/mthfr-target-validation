@@ -27,33 +27,37 @@ OUTPUT_DIR = Path("analysis/outputs")
 C677T_POS, A1298C_POS = 222, 429
 
 JOBS = {
-    # AlphaFold Server jobs (1-12)
-    "job01_wt_mono_fad":"WT mono+FAD", "job02_wt_dimer_fad":"WT dimer+FAD",
-    "job03_c677t_mono_fad":"C677T mono+FAD", "job04_c677t_dimer_fad":"C677T dimer+FAD",
-    "job05_a1298c_mono_fad":"A1298C mono+FAD", "job06_compound_dimer_fad":"Compound dimer+FAD",
-    "job07_wt_mono_rep":"WT mono rep", "job08_wt_dimer_rep":"WT dimer rep",
-    "job09_c677t_mono_rep":"C677T mono rep", "job10_c677t_dimer_rep":"C677T dimer rep",
-    "job11_a1298c_mono_rep":"A1298C mono rep", "job12_compound_rep":"Compound dimer rep",
-    # Boltz-2 / Tamarind Bio jobs (13-16) -- substrate/inhibitor binding
-    "job13_wt_dimer_fad_thf":"WT dimer+FAD+THF", "job14_c677t_dimer_fad_thf":"C677T dimer+FAD+THF",
-    "job15_compound_dimer_fad_thf":"Compound dimer+FAD+THF", "job16_wt_dimer_fad_sam":"WT dimer+FAD+SAM",
-    # v1.2 additional seeds (17-34)
-    "job17_wt_mono_seed3":"WT mono seed3", "job18_wt_mono_seed4":"WT mono seed4", "job19_wt_mono_seed5":"WT mono seed5",
-    "job20_wt_dimer_seed3":"WT dimer seed3", "job21_wt_dimer_seed4":"WT dimer seed4", "job22_wt_dimer_seed5":"WT dimer seed5",
-    "job23_c677t_mono_seed3":"C677T mono seed3", "job24_c677t_mono_seed4":"C677T mono seed4", "job25_c677t_mono_seed5":"C677T mono seed5",
-    "job26_c677t_dimer_seed3":"C677T dimer seed3", "job27_c677t_dimer_seed4":"C677T dimer seed4", "job28_c677t_dimer_seed5":"C677T dimer seed5",
-    "job29_a1298c_mono_seed3":"A1298C mono seed3", "job30_a1298c_mono_seed4":"A1298C mono seed4", "job31_a1298c_mono_seed5":"A1298C mono seed5",
-    "job32_compound_dimer_seed3":"Compound dimer seed3", "job33_compound_dimer_seed4":"Compound dimer seed4", "job34_compound_dimer_seed5":"Compound dimer seed5",
+    # AlphaFold Server -- WT monomer (5 seeds)
+    "wt_mono_run1":"WT mono run1", "wt_mono_run2":"WT mono run2",
+    "wt_mono_run3":"WT mono run3", "wt_mono_run4":"WT mono run4", "wt_mono_run5":"WT mono run5",
+    # AlphaFold Server -- WT dimer (5 seeds)
+    "wt_dimer_run1":"WT dimer run1", "wt_dimer_run2":"WT dimer run2",
+    "wt_dimer_run3":"WT dimer run3", "wt_dimer_run4":"WT dimer run4", "wt_dimer_run5":"WT dimer run5",
+    # AlphaFold Server -- C677T monomer (5 seeds)
+    "c677t_mono_run1":"C677T mono run1", "c677t_mono_run2":"C677T mono run2",
+    "c677t_mono_run3":"C677T mono run3", "c677t_mono_run4":"C677T mono run4", "c677t_mono_run5":"C677T mono run5",
+    # AlphaFold Server -- C677T dimer (5 seeds)
+    "c677t_dimer_run1":"C677T dimer run1", "c677t_dimer_run2":"C677T dimer run2",
+    "c677t_dimer_run3":"C677T dimer run3", "c677t_dimer_run4":"C677T dimer run4", "c677t_dimer_run5":"C677T dimer run5",
+    # AlphaFold Server -- A1298C monomer (5 seeds)
+    "a1298c_mono_run1":"A1298C mono run1", "a1298c_mono_run2":"A1298C mono run2",
+    "a1298c_mono_run3":"A1298C mono run3", "a1298c_mono_run4":"A1298C mono run4", "a1298c_mono_run5":"A1298C mono run5",
+    # AlphaFold Server -- Compound dimer (5 seeds)
+    "compound_dimer_run1":"Compound dimer run1", "compound_dimer_run2":"Compound dimer run2",
+    "compound_dimer_run3":"Compound dimer run3", "compound_dimer_run4":"Compound dimer run4", "compound_dimer_run5":"Compound dimer run5",
+    # Boltz-2 -- substrate/inhibitor binding
+    "wt_dimer_thf":"WT dimer+FAD+THF", "c677t_dimer_thf":"C677T dimer+FAD+THF",
+    "compound_dimer_thf":"Compound dimer+FAD+THF", "wt_dimer_sam":"WT dimer+FAD+SAM",
 }
 
 # Grouping for 5-seed statistics
 SEED_GROUPS = {
-    "WT mono": ["job01_wt_mono_fad","job07_wt_mono_rep","job17_wt_mono_seed3","job18_wt_mono_seed4","job19_wt_mono_seed5"],
-    "WT dimer": ["job02_wt_dimer_fad","job08_wt_dimer_rep","job20_wt_dimer_seed3","job21_wt_dimer_seed4","job22_wt_dimer_seed5"],
-    "C677T mono": ["job03_c677t_mono_fad","job09_c677t_mono_rep","job23_c677t_mono_seed3","job24_c677t_mono_seed4","job25_c677t_mono_seed5"],
-    "C677T dimer": ["job04_c677t_dimer_fad","job10_c677t_dimer_rep","job26_c677t_dimer_seed3","job27_c677t_dimer_seed4","job28_c677t_dimer_seed5"],
-    "A1298C mono": ["job05_a1298c_mono_fad","job11_a1298c_mono_rep","job29_a1298c_mono_seed3","job30_a1298c_mono_seed4","job31_a1298c_mono_seed5"],
-    "Compound dimer": ["job06_compound_dimer_fad","job12_compound_rep","job32_compound_dimer_seed3","job33_compound_dimer_seed4","job34_compound_dimer_seed5"],
+    "WT mono": ["wt_mono_run1","wt_mono_run2","wt_mono_run3","wt_mono_run4","wt_mono_run5"],
+    "WT dimer": ["wt_dimer_run1","wt_dimer_run2","wt_dimer_run3","wt_dimer_run4","wt_dimer_run5"],
+    "C677T mono": ["c677t_mono_run1","c677t_mono_run2","c677t_mono_run3","c677t_mono_run4","c677t_mono_run5"],
+    "C677T dimer": ["c677t_dimer_run1","c677t_dimer_run2","c677t_dimer_run3","c677t_dimer_run4","c677t_dimer_run5"],
+    "A1298C mono": ["a1298c_mono_run1","a1298c_mono_run2","a1298c_mono_run3","a1298c_mono_run4","a1298c_mono_run5"],
+    "Compound dimer": ["compound_dimer_run1","compound_dimer_run2","compound_dimer_run3","compound_dimer_run4","compound_dimer_run5"],
 }
 
 def detect_source(d):
@@ -134,14 +138,15 @@ def load_boltz2_metrics(d):
 
 def find_jobs(d):
     d=Path(d); d.mkdir(parents=True,exist_ok=True); dirs=[]
+    known = set(JOBS.keys())
     # Collect all valid result directories, including nested subdirectories
     for x in sorted(d.rglob("*")):
-        if x.is_dir() and x.name.startswith("job"):
+        if x.is_dir() and x.name in known:
             if list(x.rglob("*summary_confidences*.json")) or list(x.rglob("confidence_result_model_*.json")):
                 dirs.append(x)
-    # Also check direct children (v1.0 format)
+    # Also check direct children
     for x in sorted(d.iterdir()):
-        if x.is_dir() and x.name.startswith("job"):
+        if x.is_dir() and x.name in known:
             if x not in dirs and (list(x.rglob("*summary_confidences*.json")) or list(x.rglob("confidence_result_model_*.json"))):
                 dirs.append(x)
     return sorted(set(dirs), key=lambda p: p.name)
