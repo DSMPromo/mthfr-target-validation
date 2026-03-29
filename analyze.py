@@ -239,7 +239,7 @@ def make_report(R,out):
     b2_results = [r for r in R if "thf" in r["name"] or "sam" in r["name"]]
 
     h=f"""<!DOCTYPE html><html><head><meta charset="UTF-8">
-<title>MTHFR Target Validation Program — Analysis Report</title>
+<title>MTHFR Variant Hypothesis Prioritization Program — Analysis Report</title>
 <style>
 body{{font-family:'Segoe UI',Arial,sans-serif;max-width:1200px;margin:0 auto;padding:30px;color:#333;line-height:1.6}}
 h1{{color:#1B3A5C;border-bottom:3px solid #2E75B6;padding-bottom:12px;font-size:28px}}
@@ -264,7 +264,7 @@ a{{color:#2E75B6}}
 .footer{{margin-top:40px;padding-top:20px;border-top:2px solid #ddd;color:#666;font-size:13px;text-align:center}}
 </style></head><body>
 
-<h1>MTHFR Variant Target Validation Program</h1>
+<h1>MTHFR Variant Hypothesis Prioritization Program</h1>
 <p style="font-size:18px;color:#666">Computational Structural Comparison of Dimer Interface Confidence, Cofactor Binding, and Substrate Interaction in Selected MTHFR Variant States</p>
 
 <p><b>Generated:</b> {datetime.now().strftime('%Y-%m-%d %H:%M')} |
