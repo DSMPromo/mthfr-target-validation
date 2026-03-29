@@ -320,6 +320,8 @@ Jobs 13-16 (THF substrate and SAM inhibitor binding) will be submitted manually 
 
 ## 4. Discussion
 
+The present study is a computational hypothesis-prioritization analysis. Its purpose is not to establish mechanism or disease relevance, but to define bounded follow-up questions based on comparative structural outputs across tested MTHFR variant states.
+
 ### 4.1 Structural Interpretation of Monomer Results
 
 The monomer results show that all three MTHFR variants (C677T, A1298C, compound) maintain high-confidence folds with strong FAD binding predictions. This is biologically consistent: MTHFR variants are not loss-of-function mutations that prevent folding. Rather, they create subtle structural perturbations that manifest as:
@@ -332,76 +334,46 @@ The monomer results show that all three MTHFR variants (C677T, A1298C, compound)
 
 The subtle pLDDT reduction at position 222 in C677T predictions (0.4-0.5 points) is small but consistent across seeds, suggesting that AlphaFold detects some degree of local structural uncertainty at the mutation site.
 
-### 4.2 Why Dimers Matter More Than Monomers
+### 4.2 Why the Dimer Context Matters
 
-MTHFR functions exclusively as a homodimer in vivo. The dimer interface contributes to:
-- FAD binding cooperativity between subunits
-- Allosteric communication from the regulatory domain of one subunit to the catalytic domain of the other
-- Thermal stability through inter-chain contacts
+MTHFR functions as a homodimer in vivo, making the dimer context more relevant than the monomer context for evaluating potential inter-chain and ligand-associated effects. The dimer interface may contribute to FAD-associated interactions, allosteric communication between regulatory and catalytic regions, and overall structural stability.
 
-The compound heterozygous dimer (Job 06: one chain with A222V, one with E429A) represents the author's actual genotype and is the most biologically relevant prediction. This asymmetric dimer has never been structurally characterized experimentally.
+Within the tested model set, the heterozygous dimer configuration, modeled as one chain carrying A222V and one chain carrying E429A, yielded the lowest reported interaction-confidence values across the assessed dimer-level metrics. This makes the heterozygous dimer a reasonable priority for experimental follow-up. It does not establish that this configuration is functionally impaired in vivo, but it provides a focused structural question for biochemical and structural testing.
 
 ### 4.3 Primary and Secondary Follow-Up Contexts
 
-This study focuses on two primary follow-up contexts derived from the broader MTHFR literature:
+This study focuses on two follow-up contexts derived from the broader MTHFR literature.
 
-| Context | Mechanism | Reported Associations (Literature) |
-|---------|-----------|-------------------|
-| Retinal (primary) | Homocysteine-associated retinal neurodegeneration | 2.2 billion with vision impairment (WHO) |
-| Neuropsychiatric (secondary) | SAMe/BH4 depletion, cerebral folate deficiency | Associations reported across ASD, anxiety, and related domains |
+**Primary follow-up context: Retinal biomarkers**
+Prior animal, case-based, and supplementation literature supports retinal follow-up as a testable downstream context for experimental work. In the present study, the retinal context is used as a candidate biomarker domain for follow-up rather than as an outcome established by the computational results.
 
-Broader literature across cardiovascular, nutritional, epigenetic, and reproductive domains exists but is outside the scope of the present computational study.
+**Secondary exploratory context: Neuropsychiatric-relevant biochemistry**
+Because one-carbon pathway disruption has been discussed in relation to BH4-relevant neurotransmitter biology and related metabolic pathways, neuropsychiatric-relevant biochemical follow-up is retained here as a secondary exploratory context. In the present study, this context is treated as exploratory and does not constitute a disease-focused conclusion.
 
-### 4.4 The MTRR Compounding Factor
+Broader literature across cardiovascular, nutritional, epigenetic, and reproductive domains exists but remains outside the scope of the present computational analysis.
 
-The co-occurrence of MTRR I22M with compound MTHFR variants represents co-occurring variants in MTHFR and MTRR that may be relevant to one-carbon pathway context:
-- Hit 1 (MTHFR C677T): Less 5-MTHF produced (reduced substrate)
-- Hit 2 (MTHFR A1298C): Discussed in relation to allosteric regulation and BH4-relevant pathways, with mechanism remaining incompletely defined
-- Hit 3 (MTRR I22M): Less efficient B12 regeneration for methionine synthase
+| Context | Role in present study | Basis in literature |
+|---------|----------------------|---------------------|
+| Retinal biomarkers | Primary follow-up context | Animal, case-based, and supplementation literature support retinal follow-up as a testable downstream context |
+| Neuropsychiatric-relevant biochemistry | Secondary exploratory context | Literature discusses one-carbon and BH4-relevant biochemical pathways, supporting exploratory follow-up |
 
-This triple-hit genotype may explain why some compound heterozygous individuals are more severely affected than others with the same MTHFR genotype but wild-type MTRR. Future studies should stratify compound MTHFR carriers by MTRR status.
+### 4.4 MTRR Co-occurrence as a Contextual Factor
+
+Co-occurring variation in MTRR may be relevant to one-carbon pathway context when present alongside compound MTHFR variants. Because MTRR supports regeneration of the active vitamin B12 cofactor required by methionine synthase, co-occurrence of MTHFR and MTRR variants could contribute additional pathway stress in some individuals.
+
+In the present study, this co-occurrence is included as contextual background rather than as a modeled result. The computational analysis does not determine the functional contribution of MTRR I22M, and it does not establish that co-occurring MTRR variation explains phenotype severity. However, this genotype combination may be relevant to variability among compound heterozygous individuals and may warrant stratified follow-up in future studies.
 
 ### 4.5 The Riboflavin-FAD-C677T Structural Connection
 
-The finding that riboflavin supplementation specifically rescues C677T function (McNulty et al., 2006) has direct structural implications:
+Prior literature reports that riboflavin supplementation can lower homocysteine in selected C677T genotype contexts, and structural studies have shown that the A222V substitution perturbs the region surrounding FAD-associated interactions. Together, these observations provide useful context for interpreting the present computational results.
 
-1. C677T (A222V) displaces helix alpha-5, reducing FAD binding affinity
-2. Increased cellular FAD concentration (from riboflavin) shifts the binding equilibrium, partially compensating for reduced affinity
-3. Folate binding additionally protects FAD from dissociation (Pejchal et al., 2006)
-4. Riboflavin supplementation alters global and gene-specific DNA methylation in 677TT individuals (Pentieva et al., 2020)
+In this framework, increased cellular FAD availability offers one possible explanation for previously reported genotype-specific supplementation findings in the literature. The present computational study does not test nutritional intervention, does not measure rescue, and does not establish treatment effect. Instead, it provides structural context that may help frame future biochemical follow-up.
 
-This creates a structural rationale for genotype-guided nutritional intervention: 677TT individuals may benefit from higher riboflavin intake specifically because their FAD binding is weakened. Our AlphaFold predictions, while not capturing thermolability directly, provide the structural context for understanding this mechanism.
+### 4.6 Sequence Correction as a Downstream Translational Question
 
-### 4.6 Therapeutic Implications: CRISPR Base Editing
+Sequence correction remains a downstream translational question rather than a conclusion of the present study. Because C677T is a single-nucleotide variant, it is reasonable to note that base-editing logic could be discussed in principle. However, the present work does not establish MTHFR as a therapeutic editing target and does not address guide design, edit-window fit, bystander edits, delivery, rescue, or safety.
 
-The C677T variant (T>C at the DNA level) is a candidate for adenine base editing (ABE), which converts A-T base pairs to G-C base pairs. The therapeutic landscape for in vivo base editing has advanced rapidly:
-
-**Active Clinical Programs (as of 2025-2026):**
-
-| Program | Company | Target | Delivery | Status | Relevance to MTHFR |
-|---------|---------|--------|----------|--------|-------------------|
-| VERVE-102 | Verve Therapeutics | PCSK9 (ABE) | IV LNP | Phase 1b | Same ABE mechanism, liver delivery |
-| YOLT-101 | YolTech | PCSK9 (ABE) | IV LNP | Phase 1 | Next-gen ABE (hpABE5), good safety, no SAEs (March 2025) |
-| Beam-101 | Beam Therapeutics | Sickle cell (ABE) | Ex vivo | Phase I/II | ABE efficacy demonstrated |
-| Casgevy | Vertex/CRISPR | Sickle cell / beta-thal | Ex vivo | **FDA Approved (2023)** | Gene editing safety precedent |
-| Custom ABE | Various | CPS1 deficiency | IV LNP | Case report | Neonatal ABE delivery within 6 months of birth |
-
-**Preclinical milestones:**
-- LNP-delivered ABE corrected Agxt gene with high efficiency in primary hyperoxaluria type 1, normalizing urinary oxalate levels (2025)
-- ABE8e-YA achieved 45% base editing efficiency in mouse liver at 2 mg/kg LNP dose
-
-**Delivery routes for different MTHFR disease targets:**
-
-| Route | Target Tissue | Disease Targets | Precedent | Technical Readiness |
-|-------|---------------|-----------------|-----------|-------------------|
-| IV LNP (hepatic) | Liver | CVD, B-vitamins, methylation | VERVE-102, YOLT-101 | High -- Phase 1 |
-| Intravitreal | Retina | Vision loss | Luxturna (AAV), EDIT-101 | Moderate |
-| CNS-targeted LNP | Brain | Autism/CFD, anxiety | Emerging | Low -- requires BBB-crossing LNP |
-| Systemic (multi-tissue) | Multiple | Additional contexts | Not yet achieved | Aspirational |
-
-The A1298C variant (C>A at the DNA level, resulting in E429A) would require a cytosine base editor (CBE) or prime editing strategy. For compound heterozygous individuals, correction of the C677T variant alone might provide substantial clinical benefit by restoring catalytic domain function, even if the regulatory domain variant persists.
-
-**Critical consideration:** MTHFR is expressed in virtually all tissues. Liver-targeted correction would address cardiovascular risk and systemic methylation, but would not directly correct the enzyme in retinal or brain tissue. A comprehensive correction strategy might require multiple tissue-targeted deliveries or development of systemic delivery systems.
+Current editing programs for other targets show that precise sequence correction is technically discussable in modern translational research. In the context of this paper, that observation serves only as background. Any serious consideration of sequence correction for MTHFR would require supportive evidence from prior stages, including biochemical validation, structural confirmation, cell-based studies, and target-specific safety assessment.
 
 ### 4.7 Translational Note: Sequence Correction as a Downstream Question
 
