@@ -88,6 +88,7 @@ All sequences derive from canonical human MTHFR (UniProt P42898, 656 amino acids
 
 ## How to Reproduce
 
+### AlphaFold Analysis (any machine)
 ```bash
 git clone https://github.com/DSMPromo/mthfr-target-validation.git
 cd mthfr-target-validation
@@ -99,3 +100,91 @@ python generate_figures.py
 python generate_pdf.py
 open analysis/outputs/report.html
 ```
+
+### Molecular Dynamics -- Option A: Linux with NVIDIA GPU (Fastest)
+
+**Recommended hardware:** RTX 4090 (16GB), RTX 3090 (24GB), or any CUDA-capable GPU.
+
+**Estimated speed:** RTX 4090 = ~150-200 ns/day. Both 100ns simulations in ~24-32 hours.
+
+```bash
+# 1. Install conda (if not already installed)
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+bash Miniconda3-latest-Linux-x86_64.sh
+
+# 2. Create environment with CUDA-enabled OpenMM
+conda create -n md python=3.11 openmm cudatoolkit pdbfixer mdtraj matplotlib numpy scipy -c conda-forge -y
+conda activate md
+
+# 3. Verify CUDA is available
+python -c "import openmm; print([openmm.Platform.getPlatform(i).getName() for i in range(openmm.Platform.getNumPlatforms())])"
+# Should show: ['Reference', 'CPU', 'OpenCL', 'CUDA']
+
+# 4. Clone repo and run
+git clone https://github.com/DSMPromo/mthfr-target-validation.git
+cd mthfr-target-validation
+
+# 5. Run 100ns MD (both WT and compound dimers)
+python run_md.py --length 100 --platform CUDA
+
+# 6. Results will be in analysis/md_results/
+#    - wt_dimer_trajectory.dcd
+#    - compound_dimer_trajectory.dcd
+#    - RMSD/RMSF comparison plots
+```
+
+### Molecular Dynamics -- Option B: Google Colab (No Hardware Required)
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/DSMPromo/mthfr-target-validation/blob/main/MTHFR_MD_Simulation.ipynb)
+
+- **Free tier (T4 GPU):** ~47 ns/day, 5-hour session limit. Set `SIM_LENGTH_NS = 5`.
+- **Colab Pro (A100 GPU):** ~47 ns/day via OpenCL, 24-hour sessions. Set `SIM_LENGTH_NS = 10`.
+- Results save to Google Drive automatically.
+
+### Molecular Dynamics -- Option C: Apple Silicon Mac (M1/M2/M3/M4)
+
+```bash
+# 1. Create environment
+conda create -n md python=3.11 openmm pdbfixer mdtraj matplotlib numpy scipy -c conda-forge -y
+conda activate md
+
+# 2. Clone repo and run (uses OpenCL)
+git clone https://github.com/DSMPromo/mthfr-target-validation.git
+cd mthfr-target-validation
+python run_md.py --length 10 --platform OpenCL
+
+# Speed: ~10 ns/day on M1 Max. 10ns takes ~1 day.
+```
+
+### Molecular Dynamics -- Option D: Cloud GPU (Vast.ai, RunPod, Lambda)
+
+For fastest results at lowest cost:
+
+| Provider | GPU | Price/hr | Speed | 200ns Total Cost |
+|----------|-----|----------|-------|-----------------|
+| Vast.ai | RTX 4090 | $0.29/hr | ~150 ns/day | ~$9 |
+| RunPod | RTX 4090 | $0.39/hr | ~150 ns/day | ~$12 |
+| Lambda Labs | H100 | $2.49/hr | ~400 ns/day | ~$30 |
+
+```bash
+# On any cloud GPU instance:
+conda create -n md python=3.11 openmm cudatoolkit pdbfixer mdtraj matplotlib numpy scipy -c conda-forge -y
+conda activate md
+git clone https://github.com/DSMPromo/mthfr-target-validation.git
+cd mthfr-target-validation
+python run_md.py --length 100 --platform CUDA
+```
+
+### MD Simulation Parameters
+
+| Parameter | Value |
+|-----------|-------|
+| Force field | Amber14 + TIP3P-FB water |
+| Temperature | 300 K (Langevin thermostat) |
+| Timestep | 2 fs |
+| Nonbonded cutoff | 1.0 nm (PME) |
+| Ionic strength | 150 mM NaCl |
+| Water padding | 1.0 nm |
+| Constraints | HBonds |
+| Ligands | Protein-only (FAD removed -- models apo state) |
+| Output | DCD trajectory + energy CSV every 10 ps |
