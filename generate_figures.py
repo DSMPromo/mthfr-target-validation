@@ -355,9 +355,9 @@ def main():
     ax.axis('off')
 
     # Title
-    ax.text(5, 9.5, 'MTHFR Target Validation Program', fontsize=20, fontweight='bold',
+    ax.text(5, 9.5, 'MTHFR Variant Hypothesis Prioritization Program', fontsize=20, fontweight='bold',
             ha='center', color='#1B3A5C')
-    ax.text(5, 9.0, 'Candidate Disease Pathways for Experimental Validation', fontsize=14, ha='center', color='#2E75B6')
+    ax.text(5, 9.0, 'Primary Experimental Follow-Up Contexts', fontsize=14, ha='center', color='#2E75B6')
 
     # Central enzyme box
     enzyme_box = plt.Rectangle((3.5, 5.5), 3, 1.5, facecolor='#FFE0B2',
@@ -398,14 +398,14 @@ def main():
     metric_box = plt.Rectangle((2.5, 0.5), 5, 1.5, facecolor='#FFF3E0',
                                 edgecolor='#E65100', linewidth=1.5)
     ax.add_patch(metric_box)
-    ax.text(5, 1.7, 'AlphaFold 3 + Boltz-2 Key Finding', fontsize=11, fontweight='bold', ha='center')
+    ax.text(5, 1.7, 'AlphaFold 3 + Boltz-2 Key Observation', fontsize=11, fontweight='bold', ha='center')
     ax.text(5, 1.2, 'Compound het dimer: ipTM 0.70 (vs 0.76 WT) | THF binding: 0.878 (vs 0.974 WT)',
             fontsize=10, ha='center')
-    ax.text(5, 0.7, 'Compound het dimer shows the weakest predicted interaction profile',
+    ax.text(5, 0.7, 'Compound het dimer yielded the lowest reported interaction-confidence values',
             fontsize=10, ha='center', style='italic', color='#CC3333')
 
     # Additional pathways (small, at bottom)
-    ax.text(5, 0.1, 'Additional implications: Autism/CFD | B-Vitamins | Cardiovascular | Epigenetics | Pregnancy',
+    ax.text(5, 0.1, 'Additional literature context: Autism/CFD | B-Vitamins | Cardiovascular | Epigenetics | Pregnancy',
             fontsize=8, ha='center', color='gray', style='italic')
 
     plt.savefig(FIGURES / "clinical_targets.png", dpi=200, bbox_inches='tight',

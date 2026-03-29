@@ -295,7 +295,7 @@ a{{color:#2E75B6}}
 
     # Candidate disease pathways
     if (fig_dir/"clinical_targets.png").exists():
-        h += '<h2>Candidate Disease Pathways</h2>'
+        h += '<h2>Primary Experimental Follow-Up Contexts</h2>'
         h += '<img src="figures/clinical_targets.png" alt="Candidate Pathways">'
 
     # Structure visualizations
