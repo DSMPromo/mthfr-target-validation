@@ -442,9 +442,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed instructions.
 | Use this work in commercial therapeutic or product development | ❌ Not without permission | Contact igor@dsm.promo for commercial licensing |
 | Take this work and make it closed/proprietary | ❌ No | ShareAlike requires derivative work to remain open |
 
-**For researchers:** This license is designed to maximize scientific collaboration while protecting the original work. Use it freely for research. Cite it. Build on it. Share your results.
-
-**For biotech/pharma:** If you are interested in commercial development based on this work, contact us to discuss licensing.
+For academic and noncommercial use, this work can be shared and built upon under the terms of the CC BY-NC-SA 4.0 license. For any use outside that license, please contact the author.
 
 ---
 
