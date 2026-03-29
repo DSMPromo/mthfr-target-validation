@@ -27,37 +27,49 @@ OUTPUT_DIR = Path("analysis/outputs")
 C677T_POS, A1298C_POS = 222, 429
 
 JOBS = {
-    # AlphaFold Server -- WT monomer (5 seeds)
+    # AlphaFold Server -- WT monomer (10 seeds)
     "wt_mono_run1":"WT mono run1", "wt_mono_run2":"WT mono run2",
     "wt_mono_run3":"WT mono run3", "wt_mono_run4":"WT mono run4", "wt_mono_run5":"WT mono run5",
-    # AlphaFold Server -- WT dimer (5 seeds)
+    "wt_mono_run6":"WT mono run6", "wt_mono_run7":"WT mono run7",
+    "wt_mono_run8":"WT mono run8", "wt_mono_run9":"WT mono run9", "wt_mono_run10":"WT mono run10",
+    # AlphaFold Server -- WT dimer (10 seeds)
     "wt_dimer_run1":"WT dimer run1", "wt_dimer_run2":"WT dimer run2",
     "wt_dimer_run3":"WT dimer run3", "wt_dimer_run4":"WT dimer run4", "wt_dimer_run5":"WT dimer run5",
-    # AlphaFold Server -- C677T monomer (5 seeds)
+    "wt_dimer_run6":"WT dimer run6", "wt_dimer_run7":"WT dimer run7",
+    "wt_dimer_run8":"WT dimer run8", "wt_dimer_run9":"WT dimer run9", "wt_dimer_run10":"WT dimer run10",
+    # AlphaFold Server -- C677T monomer (10 seeds)
     "c677t_mono_run1":"C677T mono run1", "c677t_mono_run2":"C677T mono run2",
     "c677t_mono_run3":"C677T mono run3", "c677t_mono_run4":"C677T mono run4", "c677t_mono_run5":"C677T mono run5",
-    # AlphaFold Server -- C677T dimer (5 seeds)
+    "c677t_mono_run6":"C677T mono run6", "c677t_mono_run7":"C677T mono run7",
+    "c677t_mono_run8":"C677T mono run8", "c677t_mono_run9":"C677T mono run9", "c677t_mono_run10":"C677T mono run10",
+    # AlphaFold Server -- C677T dimer (10 seeds)
     "c677t_dimer_run1":"C677T dimer run1", "c677t_dimer_run2":"C677T dimer run2",
     "c677t_dimer_run3":"C677T dimer run3", "c677t_dimer_run4":"C677T dimer run4", "c677t_dimer_run5":"C677T dimer run5",
-    # AlphaFold Server -- A1298C monomer (5 seeds)
+    "c677t_dimer_run6":"C677T dimer run6", "c677t_dimer_run7":"C677T dimer run7",
+    "c677t_dimer_run8":"C677T dimer run8", "c677t_dimer_run9":"C677T dimer run9", "c677t_dimer_run10":"C677T dimer run10",
+    # AlphaFold Server -- A1298C monomer (10 seeds)
     "a1298c_mono_run1":"A1298C mono run1", "a1298c_mono_run2":"A1298C mono run2",
     "a1298c_mono_run3":"A1298C mono run3", "a1298c_mono_run4":"A1298C mono run4", "a1298c_mono_run5":"A1298C mono run5",
-    # AlphaFold Server -- Compound dimer (5 seeds)
+    "a1298c_mono_run6":"A1298C mono run6", "a1298c_mono_run7":"A1298C mono run7",
+    "a1298c_mono_run8":"A1298C mono run8", "a1298c_mono_run9":"A1298C mono run9", "a1298c_mono_run10":"A1298C mono run10",
+    # AlphaFold Server -- Compound dimer (10 seeds)
     "compound_dimer_run1":"Compound dimer run1", "compound_dimer_run2":"Compound dimer run2",
     "compound_dimer_run3":"Compound dimer run3", "compound_dimer_run4":"Compound dimer run4", "compound_dimer_run5":"Compound dimer run5",
+    "compound_dimer_run6":"Compound dimer run6", "compound_dimer_run7":"Compound dimer run7",
+    "compound_dimer_run8":"Compound dimer run8", "compound_dimer_run9":"Compound dimer run9", "compound_dimer_run10":"Compound dimer run10",
     # Boltz-2 -- substrate/inhibitor binding
     "wt_dimer_thf":"WT dimer+FAD+THF", "c677t_dimer_thf":"C677T dimer+FAD+THF",
     "compound_dimer_thf":"Compound dimer+FAD+THF", "wt_dimer_sam":"WT dimer+FAD+SAM",
 }
 
-# Grouping for 5-seed statistics
+# Grouping for 10-seed statistics
 SEED_GROUPS = {
-    "WT mono": ["wt_mono_run1","wt_mono_run2","wt_mono_run3","wt_mono_run4","wt_mono_run5"],
-    "WT dimer": ["wt_dimer_run1","wt_dimer_run2","wt_dimer_run3","wt_dimer_run4","wt_dimer_run5"],
-    "C677T mono": ["c677t_mono_run1","c677t_mono_run2","c677t_mono_run3","c677t_mono_run4","c677t_mono_run5"],
-    "C677T dimer": ["c677t_dimer_run1","c677t_dimer_run2","c677t_dimer_run3","c677t_dimer_run4","c677t_dimer_run5"],
-    "A1298C mono": ["a1298c_mono_run1","a1298c_mono_run2","a1298c_mono_run3","a1298c_mono_run4","a1298c_mono_run5"],
-    "Compound dimer": ["compound_dimer_run1","compound_dimer_run2","compound_dimer_run3","compound_dimer_run4","compound_dimer_run5"],
+    "WT mono": ["wt_mono_run1","wt_mono_run2","wt_mono_run3","wt_mono_run4","wt_mono_run5","wt_mono_run6","wt_mono_run7","wt_mono_run8","wt_mono_run9","wt_mono_run10"],
+    "WT dimer": ["wt_dimer_run1","wt_dimer_run2","wt_dimer_run3","wt_dimer_run4","wt_dimer_run5","wt_dimer_run6","wt_dimer_run7","wt_dimer_run8","wt_dimer_run9","wt_dimer_run10"],
+    "C677T mono": ["c677t_mono_run1","c677t_mono_run2","c677t_mono_run3","c677t_mono_run4","c677t_mono_run5","c677t_mono_run6","c677t_mono_run7","c677t_mono_run8","c677t_mono_run9","c677t_mono_run10"],
+    "C677T dimer": ["c677t_dimer_run1","c677t_dimer_run2","c677t_dimer_run3","c677t_dimer_run4","c677t_dimer_run5","c677t_dimer_run6","c677t_dimer_run7","c677t_dimer_run8","c677t_dimer_run9","c677t_dimer_run10"],
+    "A1298C mono": ["a1298c_mono_run1","a1298c_mono_run2","a1298c_mono_run3","a1298c_mono_run4","a1298c_mono_run5","a1298c_mono_run6","a1298c_mono_run7","a1298c_mono_run8","a1298c_mono_run9","a1298c_mono_run10"],
+    "Compound dimer": ["compound_dimer_run1","compound_dimer_run2","compound_dimer_run3","compound_dimer_run4","compound_dimer_run5","compound_dimer_run6","compound_dimer_run7","compound_dimer_run8","compound_dimer_run9","compound_dimer_run10"],
 }
 
 def detect_source(d):

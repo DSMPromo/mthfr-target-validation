@@ -1,35 +1,65 @@
 Job,Config,pTM,ipTM,Rank,FAD_iptm,pLDDT@222,pLDDT@429,Clash
 a1298c_mono_run1,A1298C mono run1,0.8100,0.9700,0.9700,0.9700,98.5,97.5,0.0
+a1298c_mono_run10,A1298C mono run10,0.8200,0.9700,0.9700,0.9700,98.5,97.6,0.0
 a1298c_mono_run2,A1298C mono run2,0.8100,0.9700,0.9700,0.9700,98.4,97.5,0.0
 a1298c_mono_run3,A1298C mono run3,0.8200,0.9700,0.9800,0.9700,98.5,97.7,0.0
 a1298c_mono_run4,A1298C mono run4,0.8000,0.9700,0.9700,0.9700,98.5,97.7,0.0
 a1298c_mono_run5,A1298C mono run5,0.7900,0.9800,0.9700,0.9800,98.6,97.6,0.0
+a1298c_mono_run6,A1298C mono run6,0.8000,0.9800,0.9700,0.9800,98.5,97.4,0.0
+a1298c_mono_run7,A1298C mono run7,0.8100,0.9700,0.9700,0.9700,98.6,97.6,0.0
+a1298c_mono_run8,A1298C mono run8,0.8000,0.9700,0.9700,0.9700,98.4,97.5,0.0
+a1298c_mono_run9,A1298C mono run9,0.8100,0.9700,0.9700,0.9700,98.5,97.5,0.0
 c677t_dimer_run1,C677T dimer run1,0.7700,0.7500,0.7800,0.5700,97.0,96.0,0.0
+c677t_dimer_run10,C677T dimer run10,0.7800,0.7500,0.7800,0.5500,96.9,96.0,0.0
 c677t_dimer_run2,C677T dimer run2,0.8000,0.7800,0.8200,0.5800,97.1,95.9,0.0
 c677t_dimer_run3,C677T dimer run3,0.7800,0.7500,0.7900,0.5700,97.1,96.0,0.0
 c677t_dimer_run4,C677T dimer run4,0.8000,0.7700,0.8100,0.5800,97.2,96.3,0.0
 c677t_dimer_run5,C677T dimer run5,0.7500,0.7200,0.7600,0.5300,96.8,95.7,0.0
+c677t_dimer_run6,C677T dimer run6,0.7700,0.7400,0.7800,0.5500,97.0,96.2,0.0
+c677t_dimer_run7,C677T dimer run7,0.7800,0.7500,0.7900,0.5700,97.1,95.9,0.0
+c677t_dimer_run8,C677T dimer run8,0.7900,0.7700,0.8100,0.5900,97.2,96.2,0.0
+c677t_dimer_run9,C677T dimer run9,0.7300,0.6900,0.7300,0.5300,96.9,95.6,0.0
 c677t_dimer_thf,C677T dimer+FAD+THF,0.8914,0.8746,0.8694,0.9691,97.6,94.6,False
 c677t_mono_run1,C677T mono run1,0.8100,0.9700,0.9700,0.9700,98.1,97.8,0.0
+c677t_mono_run10,C677T mono run10,0.8000,0.9700,0.9700,0.9700,98.0,97.8,0.0
 c677t_mono_run2,C677T mono run2,0.8200,0.9700,0.9700,0.9700,98.0,97.6,0.0
 c677t_mono_run3,C677T mono run3,0.7900,0.9700,0.9700,0.9700,97.9,97.4,0.0
 c677t_mono_run4,C677T mono run4,0.8000,0.9700,0.9700,0.9700,98.0,97.7,0.0
 c677t_mono_run5,C677T mono run5,0.8200,0.9700,0.9700,0.9700,98.0,97.7,0.0
+c677t_mono_run6,C677T mono run6,0.8000,0.9700,0.9700,0.9700,98.0,97.6,0.0
+c677t_mono_run7,C677T mono run7,0.8000,0.9700,0.9700,0.9700,98.0,97.8,0.0
+c677t_mono_run8,C677T mono run8,0.8200,0.9700,0.9700,0.9700,98.1,97.8,0.0
+c677t_mono_run9,C677T mono run9,0.8000,0.9700,0.9700,0.9700,97.9,97.5,0.0
 compound_dimer_run1,Compound dimer run1,0.7300,0.7000,0.7300,0.5300,96.6,95.0,0.0
+compound_dimer_run10,Compound dimer run10,0.7500,0.7100,0.7500,0.5400,96.6,95.4,0.0
 compound_dimer_run2,Compound dimer run2,0.7600,0.7300,0.7700,0.5500,96.4,95.3,0.0
 compound_dimer_run3,Compound dimer run3,0.7900,0.7600,0.8000,0.5800,96.8,95.6,0.0
 compound_dimer_run4,Compound dimer run4,0.7300,0.6900,0.7300,0.5200,96.3,95.2,0.0
 compound_dimer_run5,Compound dimer run5,0.7100,0.6700,0.7100,0.5100,96.4,94.9,0.0
+compound_dimer_run6,Compound dimer run6,0.7300,0.7000,0.7400,0.5300,96.6,95.4,0.0
+compound_dimer_run7,Compound dimer run7,0.7500,0.7100,0.7500,0.5500,96.5,95.3,0.0
+compound_dimer_run8,Compound dimer run8,0.7600,0.7300,0.7700,0.5500,96.4,95.3,0.0
+compound_dimer_run9,Compound dimer run9,0.7700,0.7400,0.7700,0.5600,96.7,95.5,0.0
 compound_dimer_thf,Compound dimer+FAD+THF,0.8482,0.8191,0.8538,0.8775,97.5,94.5,False
 wt_dimer_run1,WT dimer run1,0.7900,0.7600,0.8000,0.5700,97.4,96.2,0.0
+wt_dimer_run10,WT dimer run10,0.7700,0.7500,0.7800,0.5500,97.5,95.8,0.0
 wt_dimer_run2,WT dimer run2,0.7600,0.7200,0.7600,0.5400,97.2,95.8,0.0
 wt_dimer_run3,WT dimer run3,0.7900,0.7700,0.8000,0.5700,97.5,96.1,0.0
 wt_dimer_run4,WT dimer run4,0.8100,0.7900,0.8300,0.5900,97.7,96.5,0.0
 wt_dimer_run5,WT dimer run5,0.7800,0.7600,0.7900,0.5700,97.6,96.2,0.0
+wt_dimer_run6,WT dimer run6,0.7900,0.7600,0.8000,0.5700,97.5,96.1,0.0
+wt_dimer_run7,WT dimer run7,0.7500,0.7100,0.7500,0.5500,97.4,95.9,0.0
+wt_dimer_run8,WT dimer run8,0.7800,0.7500,0.7900,0.5600,97.4,95.9,0.0
+wt_dimer_run9,WT dimer run9,0.7800,0.7500,0.7900,0.5600,97.5,95.9,0.0
 wt_dimer_sam,WT dimer+FAD+SAM,0.9111,0.8967,0.8772,0.9246,97.3,95.0,False
 wt_dimer_thf,WT dimer+FAD+THF,0.9063,0.8921,0.8686,0.9743,97.7,91.6,False
 wt_mono_run1,WT mono run1,0.8000,0.9700,0.9700,0.9700,98.5,97.5,0.0
+wt_mono_run10,WT mono run10,0.7900,0.9700,0.9700,0.9700,98.4,97.5,0.0
 wt_mono_run2,WT mono run2,0.8100,0.9800,0.9700,0.9800,98.5,97.5,0.0
 wt_mono_run3,WT mono run3,0.8000,0.9700,0.9700,0.9700,98.4,97.7,0.0
 wt_mono_run4,WT mono run4,0.8100,0.9800,0.9700,0.9800,98.5,97.7,0.0
 wt_mono_run5,WT mono run5,0.8100,0.9800,0.9700,0.9800,98.5,97.7,0.0
+wt_mono_run6,WT mono run6,0.8100,0.9700,0.9700,0.9700,98.5,97.6,0.0
+wt_mono_run7,WT mono run7,0.8000,0.9700,0.9700,0.9700,98.4,97.7,0.0
+wt_mono_run8,WT mono run8,0.8000,0.9700,0.9700,0.9700,98.5,97.7,0.0
+wt_mono_run9,WT mono run9,0.8000,0.9700,0.9700,0.9700,98.4,97.5,0.0
