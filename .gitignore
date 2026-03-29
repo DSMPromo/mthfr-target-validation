@@ -1,23 +1,5 @@
-# Python
+.venv/
 __pycache__/
 *.pyc
-*.pyo
-.venv/
-venv/
-*.egg-info/
-
-# AlphaFold results (too large for git)
-alphafold/results/*.zip
-alphafold/results/*/
-
-# Analysis outputs are tracked in git (supplementary materials S6-S9)
-# To regenerate: python analyze.py
-
-# OS files
 .DS_Store
-Thumbs.db
-
-# IDE
-.vscode/
-.idea/
-.venv/
+*.egg-info/
