@@ -26,10 +26,15 @@ try:
     import numpy as np
     import matplotlib; matplotlib.use('Agg')
     import matplotlib.pyplot as plt
+    from openmmforcefields.generators import GAFFTemplateGenerator
+    from openff.toolkit.topology import Molecule
 except ImportError as e:
     print(f"Missing dependency: {e}")
     print("Run: conda activate md")
     sys.exit(1)
+
+# FAD (flavin adenine dinucleotide) — required cofactor in MTHFR structures
+FAD_SMILES = "CC1=CC2=C(C=C1C)N(C3=NC(=O)NC(=O)C3=N2)C[C@@H](O)[C@@H](O)[C@@H](O)COP(=O)(O)OP(=O)(O)OC[C@@H]4OC([C@H](O)[C@@H]4O)N5C=NC6=C5N=CN=C6N"
 
 RESULTS = Path("alphafold/results_all")
 MD_OUTPUT = Path("analysis/md_results")
@@ -81,8 +86,12 @@ def run_simulation(topology, positions, name, length_ns=10, platform_name="OpenC
     """Run MD simulation with OpenMM."""
     print(f"\n  Running {length_ns}ns MD for {name} on {platform_name}...")
 
-    # Force field
+    # Force field with GAFF template generator for FAD cofactor
+    fad_mol = Molecule.from_smiles(FAD_SMILES, allow_undefined_stereo=True)
+    gaff = GAFFTemplateGenerator(molecules=[fad_mol], forcefield='gaff-2.11')
+
     forcefield = app.ForceField('amber14-all.xml', 'amber14/tip3pfb.xml')
+    forcefield.registerTemplateGenerator(gaff.generator)
 
     # Create system
     system = forcefield.createSystem(
