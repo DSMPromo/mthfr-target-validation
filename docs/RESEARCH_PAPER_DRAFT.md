@@ -50,9 +50,9 @@ Two common MTHFR polymorphisms have substantial clinical significance:
 
 ### 1.3 The MTRR Compounding Effect
 
-The functional consequences of MTHFR variants are amplified when co-occurring with variants in other methylation cycle genes. Methionine synthase reductase (MTRR, rs1801394, I22M) is particularly relevant because it regenerates the active form of vitamin B12 (methylcobalamin), which is the essential cofactor for methionine synthase -- the enzyme immediately downstream of MTHFR in the methylation cycle.
+The functional consequences of MTHFR variants may be modified when co-occurring with variants in other methylation cycle genes. Methionine synthase reductase (MTRR, rs1801394, I22M) is particularly relevant because it regenerates the active form of vitamin B12 (methylcobalamin), which is the essential cofactor for methionine synthase -- the enzyme immediately downstream of MTHFR in the methylation cycle.
 
-When MTHFR produces less 5-MTHF (due to C677T/A1298C variants) AND MTRR is less efficient at regenerating B12 (due to I22M), the methylation cycle shows reduced capacity at two sequential steps. This could create additional one-carbon pathway stress if the co-occurrence is supported as functionally relevant:
+When MTHFR produces less 5-MTHF (due to C677T/A1298C variants) AND MTRR is less efficient at regenerating B12 (due to I22M), the methylation cycle shows reduced capacity at two sequential steps. This could contribute additional one-carbon pathway stress if the co-occurrence is supported as functionally relevant:
 - Less substrate (5-MTHF) is produced by MTHFR
 - The enzyme that uses that substrate (methionine synthase) has a less-functional cofactor (due to reduced MTRR-mediated regeneration)
 - Homocysteine accumulates from both upstream and downstream blocks
@@ -142,7 +142,7 @@ All predictions were performed using AlphaFold Server (alphafoldserver.com, Abra
 | 03 | C677T | 1 | FAD x1 | Variant monomer |
 | 04 | C677T | 2 | FAD x2 | Homozygous TT dimer |
 | 05 | A1298C | 1 | FAD x1 | Variant monomer |
-| 06 | Compound + WT | 1+1 | FAD x2 | Heterozygous dimer (author's genotype) |
+| 06 | Compound + WT | 1+1 | FAD x2 | Heterozygous dimer |
 | 07-12 | Replication | Same as 01-06 | Same | Independent seed validation |
 | 13 | Wild-type | 2 | FAD x2, THF x2 | Substrate binding |
 | 14 | C677T | 2 | FAD x2, THF x2 | Variant substrate binding |
@@ -239,7 +239,7 @@ The tested dimer models showed comparative differences that were less apparent i
 
 **Comparative observations within the tested model set:**
 
-1. **Lower ligand-associated confidence is observed in the tested dimer models than in the tested monomer models:** FAD binding confidence (chain_iptm) drops from 0.97 in monomers to 0.53-0.57 in dimers -- a substantial reduction that is consistent with the dimer interface being critical for FAD binding and that AlphaFold detects reduced confidence in the protein-cofactor interaction at the biologically relevant quaternary structure level.
+1. **Lower ligand-associated confidence is observed in the tested dimer models than in the tested monomer models:** FAD binding confidence (chain_iptm) drops from 0.97 in monomers to 0.53-0.57 in dimers. Within this model set, that marked reduction is directionally compatible with the importance of quaternary context for cofactor-associated interactions, but it does not establish binding mechanism.
 
 2. **The compound heterozygous dimer consistently shows the lowest scores across every metric in both independent runs:** Job 06 (pTM 0.73, ipTM 0.70, FAD binding 0.53, pLDDT@429 95.0) and Job 12 (pTM 0.76, ipTM 0.73, FAD binding 0.55, pLDDT@429 95.3). In the tested heterozygous dimer configuration, one chain carried A222V and one chain carried E429A. Within this model set, that configuration yielded the lowest reported confidence values across the assessed dimer-level metrics in both runs.
 
@@ -328,7 +328,7 @@ The present computational results are consistent with preserved overall folding 
 
 1. **Thermolability** (C677T): The enzyme folds and binds FAD normally at low temperatures but loses FAD more rapidly at physiological temperature (37C). AlphaFold predicts equilibrium structures and therefore would not capture this dynamic property in static predictions.
 
-2. **Regulatory dysfunction** (A1298C): The E429A substitution near the SAM-binding pocket may alter allosteric regulation without dramatically changing the fold. The 2024 cryo-EM structures show that SAM-mediated inhibition requires precise positioning of dual SAM molecules; even subtle changes at position 429 could alter this mechanism.
+2. **Regulatory dysfunction** (A1298C): The E429A substitution near the SAM-binding pocket may alter allosteric regulation without dramatically changing the fold. The 2024 cryo-EM structures show that SAM-mediated inhibition requires precise positioning of dual SAM molecules, so subtle changes at position 429 are a reasonable hypothesis for future testing.
 
 3. **Compound effects**: The dimer predictions are the most relevant part of the present model set for asking whether the two mutations could contribute to combined perturbation at the dimer interface.
 
@@ -401,13 +401,13 @@ This study has several important limitations:
 
 ### 4.9 Future Directions
 
-1. **Experimental structure determination:** Cryo-EM of purified C677T and A1298C variant MTHFR in complex with FAD, with and without folate substrate. The compound heterozygous dimer (one A222V chain + one E429A chain) has never been structurally characterized.
+1. **Experimental structure determination:** Cryo-EM of purified C677T and A1298C variant MTHFR in complex with FAD, with and without folate substrate. To our knowledge, the compound heterozygous dimer (one A222V chain + one E429A chain) has not been structurally characterized experimentally.
 
 2. **Thermal shift assays:** Differential scanning fluorimetry (DSF) to quantify FAD binding affinity and thermal stability of WT vs variant MTHFR, with and without riboflavin supplementation.
 
 3. **Molecular dynamics simulations:** Extended (>1 microsecond) MD simulations of WT, C677T, A1298C, and compound MTHFR to capture FAD dissociation kinetics, allosteric communication, and dynamic differences not visible in static predictions.
 
-4. **Base editor guide RNA design:** Computational design of ABE guide RNAs targeting the C677T locus, with off-target analysis and in vitro testing in cell lines heterozygous for C677T.
+4. **Cell-based follow-up after biochemical validation:** Once biochemical and structural follow-up supports continued investigation, computational guide design and initial cell-based feasibility testing could be used to assess whether sequence correction is technically plausible in a controlled setting.
 
 5. **Clinical correlation study:** Prospective study of compound heterozygous MTHFR individuals stratified by MTRR status, focusing on retinal OCT, plasma homocysteine, and neuropsychiatric-relevant biomarkers.
 
@@ -419,11 +419,11 @@ This study has several important limitations:
 
 ## 5. Conclusion
 
-This study presents the first systematic AlphaFold 3 structural characterization of MTHFR variants (C677T, A1298C, and compound heterozygous) in complex with their functional ligands (FAD, THF, SAM). By connecting structural predictions to retinal and neuropsychiatric-relevant follow-up contexts, we provide a framework for prioritizing bounded experimental questions arising from the modeled dimer-level differences.
+This study presents an AlphaFold 3 and Boltz-2 based comparative characterization of selected MTHFR variant states in modeled monomer, dimer, and ligand-associated contexts. By connecting these computational outputs to retinal and neuropsychiatric-relevant follow-up contexts, it provides a framework for prioritizing bounded experimental questions arising from the modeled dimer-level differences.
 
-The key contribution is not the computational predictions themselves -- which require experimental validation -- but the framework: a reproducible, open-source structural prioritization workflow that links modeled dimer-level differences to bounded experimental follow-up questions.
+The key contribution is not the computational predictions themselves, which require experimental validation, but the framework: a reproducible, open-source structural prioritization workflow that links modeled dimer-level differences to bounded experimental follow-up questions.
 
-We invite collaboration from structural biologists, clinicians, and bioinformaticians to validate, refine, and build upon this work. All data, code, and analysis are freely available.
+We invite collaboration from structural biologists, clinicians, and bioinformaticians to validate, refine, and extend this work. All data, code, and analysis are openly available.
 
 ---
 
@@ -446,11 +446,9 @@ From computational prioritization to staged experimental follow-up:
 ### What Phase 1 Produced
 
 This project represents a complete Phase 1 deliverable:
-- Computational structural comparison showing the compound heterozygous dimer yielded the lowest predicted interaction-confidence values among the tested states
-- Literature synthesis across multiple disease-relevant pathways associated with MTHFR variant states
-- Safety concepts framework for potential future experimental programs
-- A fully replicable, open-source pipeline that any researcher can verify
-- All produced for $0 using freely available tools (AlphaFold Server, Boltz-2, Python, GitHub)
+- Computational structural comparison showing that the compound heterozygous dimer yielded the lowest reported interaction-confidence values among the tested states
+- Literature synthesis supporting bounded retinal and neuropsychiatric-relevant follow-up contexts
+- A fully replicable, open-source pipeline that independent researchers can verify
 
 ### Phase 2 Next Steps
 
@@ -471,11 +469,10 @@ Everything from Phase 3 onward requires a laboratory partner. The purpose of Pha
 This is an open research project seeking collaboration with:
 
 - **Structural biologists:** To validate AlphaFold predictions with experimental cryo-EM or X-ray structures of C677T and A1298C variants
-- **Gene therapy researchers:** To design and test ABE guide RNAs targeting C677T
-- **Clinical researchers:** To establish clinical correlations in retinal and neuropsychiatric-relevant contexts, particularly stratified by MTRR status
+- **Gene editing researchers:** To assess whether sequence correction becomes technically plausible after prior biochemical and structural validation
+- **Clinical researchers:** To establish phenotype correlations in retinal and neuropsychiatric-relevant contexts, particularly when stratified by MTRR status and other confounders
 - **Bioinformaticians:** To independently replicate, extend, and improve the computational analysis
 - **Epigeneticists:** To profile genome-wide methylation consequences of compound heterozygous MTHFR
-- **Reproductive medicine specialists:** To investigate MTHFR-guided management of pregnancies in defined MTHFR variant cohorts
 
 All data, code, and results are freely available under CC BY-NC-SA 4.0.
 
@@ -497,9 +494,9 @@ The author declares no financial conflicts of interest. The author is a compound
 
 ## 10. Ethics Statement
 
-The genetic data presented in this study represents voluntary self-disclosure by the author. No other human subjects data was collected. The author's genetic variants were identified through consumer genetic testing (Genetic Genie / GenVue Discovery) and are shared voluntarily to demonstrate transparency and reproducibility. No institutional review board (IRB) approval was required for self-experimentation disclosure.
+The genetic data presented in this study represents voluntary self-disclosure by the author. No other human subjects data was collected. The author's genetic variants were identified through consumer genetic testing (Genetic Genie / GenVue Discovery) and are shared voluntarily to demonstrate transparency and reproducibility. No institutional review board (IRB) approval was required for self-disclosure of the author's own data in this document.
 
-The author affirms that no individual should feel pressured to share their genetic information publicly. Anonymous contribution pathways are available through the project GitHub.
+The author affirms that no individual should feel pressured to share their genetic information publicly. Any future collection of outside participant data would require appropriate ethical and regulatory review.
 
 ---
 
