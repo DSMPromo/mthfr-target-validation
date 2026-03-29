@@ -11,6 +11,7 @@
 [![AlphaFold 3](https://img.shields.io/badge/AlphaFold-3%20Server-blue.svg)](https://alphafoldserver.com)
 [![Sequences: UniProt P42898](https://img.shields.io/badge/UniProt-P42898-teal.svg)](https://www.uniprot.org/uniprotkb/P42898/entry)
 [![Structure: PDB 6FCX](https://img.shields.io/badge/PDB-6FCX-purple.svg)](https://www.rcsb.org/structure/6FCX)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19318627.svg)](https://doi.org/10.5281/zenodo.19318627)
 
 ---
 
@@ -326,7 +327,7 @@ From computational prioritization to staged experimental follow-up:
 |-------|-------|----------|------|--------|
 | **1** | Computational hypothesis prioritization: AlphaFold 3 (64 predictions, 10 seeds) + Boltz-2 (4 substrate/inhibitor), RMSD validation vs PDB 6FCX, statistical analysis | **Done** | **$0** | ✅ **Complete** |
 | **2a** | Molecular dynamics simulations: OpenMM/Amber14, WT dimer vs compound dimer, RMSD/RMSF/flexibility analysis | **In progress** | **$0** | 🔄 **Running** |
-| **2b** | Preprint (bioRxiv submitted), researcher outreach, extended structural benchmarking | 1-3 months | ~$500 | In progress |
+| **2b** | Preprint published ([Zenodo DOI: 10.5281/zenodo.19318627](https://doi.org/10.5281/zenodo.19318627)), researcher outreach, extended structural benchmarking | 1-3 months | ~$500 | In progress |
 | **3** | Biochemical validation: expression of wild-type and selected variant proteins, dimer stability assays, FAD and THF interaction assays | 6-12 months | $50K-150K | Requires lab partner |
 | **4** | Exploratory biomarker correlation studies, including homocysteine, methylation panels, retinal OCT, and BH4-related readouts in well-defined compound heterozygous cohorts | 12-18 months | $100K-300K | Requires clinical collaborator |
 | **5** | If biochemical and biomarker findings support continued investigation: sequence-level guide assessment, edit-window analysis, bystander-risk assessment, and cell-based feasibility studies | 18-24 months | $200K-500K | Requires gene-editing partner |
