@@ -395,7 +395,7 @@ def main():
                 arrowprops=dict(arrowstyle='->', color='#7B1FA2', lw=2))
 
     # Key metric box
-    metric_box = plt.Rectangle((2.5, 0.5), 5, 1.5, facecolor='#FFF3E0',
+    metric_box = plt.Rectangle((1.5, 0.3), 7, 1.9, facecolor='#FFF3E0',
                                 edgecolor='#E65100', linewidth=1.5)
     ax.add_patch(metric_box)
     ax.text(5, 1.7, 'AlphaFold 3 + Boltz-2 Key Observation', fontsize=11, fontweight='bold', ha='center')
