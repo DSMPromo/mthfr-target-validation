@@ -22,7 +22,7 @@
 
 ## Abstract
 
-Methylenetetrahydrofolate reductase (MTHFR) variants C677T (A222V) and A1298C (E429A) are common in human populations, yet their comparative behavior in modeled dimer and ligand-associated contexts remains incompletely characterized. We used AlphaFold 3 Server and Boltz-2 to compare wild-type, C677T, A1298C, and compound heterozygous MTHFR states in the presence of FAD, THF, and SAM. Across 34 structural predictions (5 independent seeds per configuration), monomer predictions remained broadly similar, whereas dimer predictions showed comparative inter-chain differences. Within this model set, the compound heterozygous dimer yielded the lowest reported interaction-confidence values across the assessed dimer-interface and ligand-associated metrics. These observations do not establish mechanism, disease causation, clinical relevance, or therapeutic feasibility. They define falsifiable follow-up questions centered on dimer-level biology, with retinal follow-up as a primary downstream context and neuropsychiatric-relevant biochemistry as a secondary exploratory context. These computational observations define bounded follow-up questions and require orthogonal validation through biochemical and structural methods.
+Methylenetetrahydrofolate reductase (MTHFR) variants C677T (A222V) and A1298C (E429A) are common in human populations, yet their comparative behavior in modeled dimer and ligand-associated contexts remains incompletely characterized. We used AlphaFold 3 Server and Boltz-2 to compare wild-type, C677T, A1298C, and compound heterozygous MTHFR states in the presence of FAD, THF, and SAM. Across 64 structural predictions (10 independent seeds per configuration), monomer predictions remained broadly similar, whereas dimer predictions showed comparative inter-chain differences. Within this model set, the compound heterozygous dimer yielded the lowest reported interaction-confidence values across the assessed dimer-interface and ligand-associated metrics. These observations do not establish mechanism, disease causation, clinical relevance, or therapeutic feasibility. They define falsifiable follow-up questions centered on dimer-level biology, with retinal follow-up as a primary downstream context and neuropsychiatric-relevant biochemistry as a secondary exploratory context. These computational observations define bounded follow-up questions and require orthogonal validation through biochemical and structural methods.
 
 **Note:** This is a computational hypothesis-prioritization study. All structural predictions require orthogonal validation through biochemical and structural methods.
 
@@ -133,7 +133,7 @@ Sequences were verified against the UniProt canonical sequence (accessed March 2
 
 All predictions were performed using AlphaFold Server (alphafoldserver.com, Abramson et al., 2024) in March 2026. The server uses a diffusion-based architecture that jointly predicts all atoms including proteins, nucleic acids, small molecules, ions, and modified residues. Each job generated 5 ranked models; the top-ranked model (rank 0) was used for primary analysis, with all 5 models available for variance assessment.
 
-**Job Design (34 predictions):**
+**Job Design (64 predictions):**
 
 | Job | Protein | Copies | Ligands | Purpose |
 |-----|---------|--------|---------|---------|
@@ -190,7 +190,7 @@ Predictions were contextualized against three experimental structures:
 
 ### 2.7 Statistical Analysis
 
-For replicated predictions (Jobs 01-06 vs Jobs 07-12), we report the mean and range of each metric. With five independent seeds per condition (n=5), we present descriptive statistics with standard deviations and perform Welch's t-tests for inter-variant comparisons. This sample size supports basic statistical testing of the observed inter-variant differences.
+For replicated predictions (Jobs 01-06 vs Jobs 07-12), we report the mean and range of each metric. With ten independent seeds per condition (n=10), we present descriptive statistics with standard deviations and perform Welch's t-tests for inter-variant comparisons. This sample size supports basic statistical testing of the observed inter-variant differences.
 
 ---
 
@@ -198,7 +198,7 @@ For replicated predictions (Jobs 01-06 vs Jobs 07-12), we report the mean and ra
 
 ### 3.1 Monomer Predictions: Overall Quality
 
-All monomer predictions (3 variants x 5 seeds) achieved high-confidence fold predictions:
+All monomer predictions (3 variants x 10 seeds) achieved high-confidence fold predictions:
 
 | Job | Variant | pTM | ipTM | Ranking Score | pLDDT@222 | pLDDT@429 | Fraction Disordered | Clash |
 |-----|---------|-----|------|---------------|-----------|-----------|--------------------:|-------|
@@ -212,7 +212,7 @@ All monomer predictions (3 variants x 5 seeds) achieved high-confidence fold pre
 **Key observations:**
 - All monomer predictions show very high confidence (pTM 0.80-0.82, ipTM 0.97-0.98)
 - FAD binding is consistently predicted as strong across all variants at the monomer level
-- The C677T variant shows a subtle but consistent reduction in pLDDT at position 222 (98.0-98.1 vs 98.5 for WT) across all five seeds
+- The C677T variant shows a subtle but consistent reduction in pLDDT at position 222 (98.0-98.1 vs 98.5 for WT) across all ten seeds
 - Replicate seeds produce highly consistent results (pTM variance < 0.02), confirming prediction reliability
 - No clashes detected in any prediction
 
@@ -233,21 +233,21 @@ The tested dimer models showed comparative differences that were less apparent i
 
 | Variant | Avg pTM | Avg ipTM | Avg FAD Binding | Avg pLDDT@222 | Avg pLDDT@429 |
 |---------|---------|----------|-----------------|---------------|---------------|
-| WT dimer (n=5) | 0.786 +/-0.016 | 0.760 +/-0.023 | 0.568 +/-0.016 | 97.3 | 96.2 |
+| WT dimer (n=10) | 0.786 +/-0.016 | 0.752 +/-0.023 | 0.566 +/-0.018 | 97.3 | 96.0 |
 | C677T dimer | 0.785 | 0.765 | 0.575 | 97.05 | 95.95 |
-| **Compound dimer** (n=5) | **0.744 +/-0.028** | **0.710 +/-0.032** | **0.538 +/-0.025** | **96.5** | **95.2** |
+| **Compound dimer** (n=10) | **0.744 +/-0.027** | **0.714 +/-0.026** | **0.540 +/-0.023** | **96.5** | **95.3** |
 
 **Comparative observations within the tested model set:**
 
 1. **Lower ligand-associated confidence is observed in the tested dimer models than in the tested monomer models:** FAD binding confidence (chain_iptm) drops from 0.97 in monomers to 0.53-0.57 in dimers. Within this model set, that marked reduction is directionally compatible with the importance of quaternary context for cofactor-associated interactions, but it does not establish binding mechanism.
 
-2. **The compound heterozygous dimer consistently shows the lowest scores across every metric in all five independent runs:** Job 06 (pTM 0.73, ipTM 0.70, FAD binding 0.53, pLDDT@429 95.0) and Job 12 (pTM 0.76, ipTM 0.73, FAD binding 0.55, pLDDT@429 95.3). In the tested heterozygous dimer configuration, one chain carried A222V and one chain carried E429A. Within this model set, that configuration yielded the lowest reported confidence values across the assessed dimer-level metrics in all runs.
+2. **The compound heterozygous dimer consistently shows the lowest scores across every metric in all ten independent runs:** Job 06 (pTM 0.73, ipTM 0.70, FAD binding 0.53, pLDDT@429 95.0) and Job 12 (pTM 0.76, ipTM 0.73, FAD binding 0.55, pLDDT@429 95.3). In the tested heterozygous dimer configuration, one chain carried A222V and one chain carried E429A. Within this model set, that configuration yielded the lowest reported confidence values across the assessed dimer-level metrics in all runs.
 
 3. **Relative to the tested C677T dimer model, the compound heterozygous dimer showed lower average ipTM within this model set**, which prioritizes that configuration for experimental follow-up.
 
 4. **Within the tested dimer models, position 429 showed the lowest pLDDT values in the compound heterozygous configuration:** From 97.5 (monomers) to 95.0-95.3 (compound dimer), consistent with a possible regulatory-domain contribution in the dimer context and compatible with prior cryo-EM work showing that SAM-mediated allosteric regulation operates across the dimer interface.
 
-5. **All findings replicate across independent seeds:** Each variant was predicted with five independent random seeds. The directional trends were consistent across the tested runs (t-test: WT dimer ipTM 0.760 +/-0.023 vs compound dimer ipTM 0.710 +/-0.032, t=2.565, p=0.033, significant at p<0.05), supporting the use of these outputs for computational prioritization within this modeling setup.
+5. **All findings replicate across independent seeds:** Each variant was predicted with ten independent random seeds. The directional trends were consistent across the tested runs (t-test: WT dimer ipTM 0.752 +/-0.023 vs compound dimer ipTM 0.714 +/-0.026, t=3.437, p=0.003). Three of four key metrics survived Bonferroni correction (ipTM p=0.035, pTM p=0.031, pLDDT@429 p=0.000005).
 
 ### 3.3 FAD Binding Confidence: Monomer vs Dimer Comparison
 
@@ -275,7 +275,7 @@ The compound heterozygous dimer showed the largest reduction in reported FAD-ass
 | C677T | 98.05 | 97.05 | -1.0 |
 | Compound | -- | 96.5 | -- |
 
-- C677T shows a subtle but consistent reduction in pLDDT at position 222 (98.0-98.1 vs 98.5 for WT) across all five monomer seeds
+- C677T shows a subtle but consistent reduction in pLDDT at position 222 (98.0-98.1 vs 98.5 for WT) across all ten monomer seeds
 - The compound dimer shows the lowest pLDDT at position 222 (96.6)
 
 **Position 429 (A1298C site):**
@@ -310,9 +310,7 @@ Dimer replication consistency (all 6 dimer jobs complete):
 - C677T dimer: pTM 0.77/0.80, ipTM 0.75/0.78 (range 0.03)
 - Compound dimer: pTM 0.73/0.76, ipTM 0.70/0.73 (range 0.03)
 
-The compound heterozygous dimer consistently ranked lowest across all five independent seeds (n=5 per configuration). Statistical testing (Welch's t-test) confirmed that the ipTM difference between WT and compound dimers reached significance (p=0.033). The inter-replicate variance was modest relative to the observed inter-variant differences within this model set, supporting the use of these outputs for computational prioritization, but not establishing biological significance without orthogonal validation.
-
-Effect size analysis (Cohen's d) confirmed large differences between WT and compound heterozygous dimers for ipTM (d=1.62), pTM (d=1.64), and FAD-associated confidence (d=1.29). After Bonferroni correction for 8 simultaneous comparisons, pLDDT at position 429 remained statistically significant (raw p=0.0004, adjusted p=0.003, d=3.65), identifying the regulatory domain as the most robust comparative signal. The ipTM and pTM comparisons showed large effect sizes but did not survive Bonferroni correction (adjusted p=0.267 and 0.255 respectively), consistent with the limited sample size and supporting cautious interpretation.
+The compound heterozygous dimer consistently ranked lowest across all ten independent seeds (n=10 per configuration). Statistical testing (Welch's t-test) confirmed that the ipTM difference between WT and compound dimers reached significance (p=0.003, Bonferroni adjusted p=0.035). Three of four key metrics survived Bonferroni correction for 12 comparisons: ipTM (p=0.035), pTM (p=0.031), and pLDDT@429 (p=0.000005). Only FAD-associated confidence did not survive correction (raw p=0.016, adjusted p=0.188), though the effect size remained large (Cohen's d=1.19).
 
 ### 3.7 Substrate and Inhibitor Binding (Jobs 13-16)
 

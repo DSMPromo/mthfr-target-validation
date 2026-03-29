@@ -153,7 +153,7 @@ We used [AlphaFold 3 Server](https://alphafoldserver.com) to predict structures 
 
 - **Sequences:** All derived from canonical [UniProt P42898](https://www.uniprot.org/uniprotkb/P42898/entry) (656 amino acids) with verified mutations at positions 222 and 429
 - **Predictions:** 16 jobs total (monomers, homodimers, heterodimers, with FAD, THF, and SAM)
-- **Replication:** 5 independent seeds per configuration (34 total predictions) enabling statistical comparison (t-test)
+- **Replication:** 10 independent seeds per configuration (64 total predictions) enabling statistical comparison (t-test)
 - **Upload-ready JSON files** included in `alphafold/jobs/json/` for one-click replication
 
 ### Job Design
@@ -196,16 +196,16 @@ We used [AlphaFold 3 Server](https://alphafoldserver.com) to predict structures 
 
 | Variant | Avg pTM | Avg ipTM | Avg FAD Binding | Avg pLDDT@222 | Avg pLDDT@429 |
 |---------|---------|----------|-----------------|---------------|---------------|
-| **WT dimer** (n=5) | 0.786 +/-0.016 | 0.760 +/-0.023 | 0.568 +/-0.016 | 97.3 | 96.2 |
+| **WT dimer** (n=10) | 0.786 +/-0.016 | 0.752 +/-0.023 | 0.566 +/-0.018 | 97.3 | 96.0 |
 | **C677T dimer** | 0.785 | 0.765 | 0.575 | 97.05 | 95.95 |
-| **Compound dimer** (n=5) | **0.744 +/-0.028** | **0.710 +/-0.032** | **0.538 +/-0.025** | **96.5** | **95.2** |
+| **Compound dimer** (n=10) | **0.744 +/-0.027** | **0.714 +/-0.026** | **0.540 +/-0.023** | **96.5** | **95.3** |
 
 **Key observations (replicated across independent seeds):**
 - **Monomer predictions showed preserved overall folding confidence** (ipTM 0.97-0.98) -- the tested monomer predictions do not suggest large-scale loss of overall fold confidence
 - **Dimer predictions reveal comparative inter-chain differences** -- reported FAD-associated confidence values are lower in the tested dimer models than in the tested monomer models, consistent with the distinct interaction context of the homodimer
 - **The compound heterozygous dimer yielded the lowest reported interaction-confidence values** across the reported comparative metrics in both runs: pTM (0.73/0.76), ipTM (0.70/0.73), FAD binding (0.53/0.55), pLDDT@429 (95.0/95.3)
-- **Compound heterozygous dimers averaged lower than the tested comparators** -- ipTM 0.710 +/-0.032 vs WT 0.760 +/-0.023 (t-test: t=2.565, **p=0.033**, significant at p<0.05), consistent with a possible combined dimer-level perturbation in this modeling setup
-- **5-seed replication** -- independent random seeds produced consistent directional trends across the tested configurations, with inter-replicate variance smaller than inter-variant differences, supporting limited internal reproducibility within this modeling setup
+- **Compound heterozygous dimers averaged lower than the tested comparators** -- ipTM 0.714 +/-0.026 vs WT 0.752 +/-0.023 (t-test: t=3.437, **p=0.003**), pTM p=0.003, pLDDT@429 p<0.000001. Three of four metrics now survive Bonferroni correction for 12 comparisons, consistent with a robust combined dimer-level perturbation in this modeling setup
+- **10-seed replication** -- independent random seeds produced consistent directional trends across the tested configurations, with 3 of 4 key metrics surviving Bonferroni correction (ipTM p=0.035, pTM p=0.031, pLDDT@429 p=0.000005)
 - **Position 429 showed the largest confidence decrease** among the reported local metrics in compound dimers -- pLDDT 95.0-95.3 vs 95.8-96.2 in WT, consistent with possible regulatory-domain involvement at the dimer level
 
 > **The core computational observation:** Monomer predictions showed preserved overall folding confidence, whereas dimer predictions showed comparative inter-chain differences. This is the central computational finding around which the experimental agenda is organized.
@@ -214,16 +214,16 @@ We used [AlphaFold 3 Server](https://alphafoldserver.com) to predict structures 
 
 **RMSD against experimental structure:** The wild-type monomer prediction was compared to the experimentally determined crystal structure (PDB: 6FCX, Froese et al., 2018) using gemmi-based superposition. The resulting RMSD of 1.42 A over 596 matched CA atoms classifies the prediction as high accuracy (RMSD <= 2.0 A), supporting the use of AlphaFold 3 predictions for comparative analysis within this protein system.
 
-**Effect sizes (Cohen's d, WT dimer vs compound dimer, n=5 each):**
+**Effect sizes (Cohen's d, WT dimer vs compound dimer, n=10 each):**
 
-| Metric | WT Dimer (n=5) | Compound Dimer (n=5) | Cohen's d | Raw p | Bonferroni p |
+| Metric | WT Dimer (n=10) | Compound Dimer (n=10) | Cohen's d | Raw p | Bonferroni p |
 |--------|---------------|---------------------|-----------|-------|-------------|
-| ipTM | 0.760 +/-0.023 | 0.710 +/-0.032 | 1.62 (large) | 0.033 | 0.267 |
-| pTM | 0.786 +/-0.016 | 0.744 +/-0.028 | 1.64 (large) | 0.032 | 0.255 |
-| FAD binding | 0.568 +/-0.016 | 0.538 +/-0.025 | 1.29 (large) | 0.077 | 0.613 |
-| pLDDT@429 | 96.16 +/-0.22 | 95.20 +/-0.24 | 3.65 (very large) | 0.0004 | **0.003** |
+| ipTM | 0.752 +/-0.023 | 0.714 +/-0.026 | 1.54 (large) | 0.003 | **0.035** |
+| pTM | 0.786 +/-0.016 | 0.744 +/-0.027 | 1.56 (large) | 0.003 | **0.031** |
+| FAD binding | 0.566 +/-0.018 | 0.540 +/-0.023 | 1.19 (large) | 0.016 | 0.188 |
+| pLDDT@429 | 96.04 +/-0.22 | 95.29 +/-0.21 | 3.45 (very large) | <0.000001 | **0.000005** |
 
-After Bonferroni correction for 8 comparisons, pLDDT at position 429 remains statistically significant (adjusted p=0.003), identifying the regulatory domain as the most robust comparative signal in this modeling setup. The ipTM and pTM differences show large effect sizes (Cohen's d > 1.5) but do not survive Bonferroni correction, consistent with the limited sample size (n=5).
+After Bonferroni correction for 12 comparisons, three metrics remain statistically significant: ipTM (adjusted p=0.035), pTM (adjusted p=0.031), and pLDDT@429 (adjusted p=0.000005). This identifies both the dimer interface and the regulatory domain as robust comparative signals in this modeling setup.
 
 **Per-residue pLDDT comparison:** A full-chain pLDDT comparison across all 656 residues was generated for WT, C677T, and compound heterozygous states (see analysis/outputs/figures/plddt_full_chain.png).
 
@@ -360,13 +360,13 @@ mthfr-target-validation/
 |   |   |-- submission_plan.md          <-- 34 jobs, step-by-step
 |   |   |-- json/                       <-- Original 12 job JSONs
 |   |   |-- json_all/                   <-- All 30 AlphaFold Server JSONs + ALL_34_JOBS.json
-|   |-- results_all/                    <-- All 34 results (unified folder)
-|       |-- wt_mono_run1..5/            <-- WT monomer, 5 seeds
-|       |-- wt_dimer_run1..5/           <-- WT dimer, 5 seeds
-|       |-- c677t_mono_run1..5/         <-- C677T monomer, 5 seeds
-|       |-- c677t_dimer_run1..5/        <-- C677T dimer, 5 seeds
-|       |-- a1298c_mono_run1..5/        <-- A1298C monomer, 5 seeds
-|       |-- compound_dimer_run1..5/     <-- Compound dimer, 5 seeds
+|   |-- results_all/                    <-- All 64 results (unified folder)
+|       |-- wt_mono_run1..10/            <-- WT monomer, 10 seeds
+|       |-- wt_dimer_run1..10/           <-- WT dimer, 10 seeds
+|       |-- c677t_mono_run1..10/         <-- C677T monomer, 10 seeds
+|       |-- c677t_dimer_run1..10/        <-- C677T dimer, 10 seeds
+|       |-- a1298c_mono_run1..10/        <-- A1298C monomer, 10 seeds
+|       |-- compound_dimer_run1..10/     <-- Compound dimer, 10 seeds
 |       |-- wt_dimer_thf/              <-- WT + THF (Boltz-2)
 |       |-- c677t_dimer_thf/           <-- C677T + THF (Boltz-2)
 |       |-- compound_dimer_thf/        <-- Compound + THF (Boltz-2)
@@ -376,10 +376,10 @@ mthfr-target-validation/
 |   |-- analysis_workflow.md            <-- PyMOL commands, analysis steps
 |   |-- metrics_template.csv            <-- Recording template
 |   |-- outputs/
-|       |-- metrics.csv                 <-- All 34 jobs: pTM, ipTM, pLDDT, ligand scores
+|       |-- metrics.csv                 <-- All 64 jobs: pTM, ipTM, pLDDT, ligand scores
 |       |-- report.html                 <-- Interactive HTML report
 |       |-- charts/                     <-- ipTM and pTM comparison bar charts
-|       |-- pae_plots/                  <-- 34 PAE heatmaps
+|       |-- pae_plots/                  <-- 64 PAE heatmaps
 |       |-- figures/                    <-- 3D structures, dashboard, pLDDT comparison
 |       |-- pymol_scripts/              <-- Ready-to-use PyMOL analysis scripts
 |
