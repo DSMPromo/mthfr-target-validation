@@ -22,7 +22,7 @@ try:
 except ImportError:
     print("Install: pip install matplotlib numpy"); sys.exit(1)
 
-RESULTS_DIR = Path("alphafold/results")
+RESULTS_DIRS = [Path("alphafold/results"), Path("v1.2/results")]
 OUTPUT_DIR = Path("analysis/outputs")
 C677T_POS, A1298C_POS = 222, 429
 
@@ -37,6 +37,23 @@ JOBS = {
     # Boltz-2 / Tamarind Bio jobs (13-16) -- substrate/inhibitor binding
     "job13_wt_dimer_fad_thf":"WT dimer+FAD+THF", "job14_c677t_dimer_fad_thf":"C677T dimer+FAD+THF",
     "job15_compound_dimer_fad_thf":"Compound dimer+FAD+THF", "job16_wt_dimer_fad_sam":"WT dimer+FAD+SAM",
+    # v1.2 additional seeds (17-34)
+    "job17_wt_mono_seed3":"WT mono seed3", "job18_wt_mono_seed4":"WT mono seed4", "job19_wt_mono_seed5":"WT mono seed5",
+    "job20_wt_dimer_seed3":"WT dimer seed3", "job21_wt_dimer_seed4":"WT dimer seed4", "job22_wt_dimer_seed5":"WT dimer seed5",
+    "job23_c677t_mono_seed3":"C677T mono seed3", "job24_c677t_mono_seed4":"C677T mono seed4", "job25_c677t_mono_seed5":"C677T mono seed5",
+    "job26_c677t_dimer_seed3":"C677T dimer seed3", "job27_c677t_dimer_seed4":"C677T dimer seed4", "job28_c677t_dimer_seed5":"C677T dimer seed5",
+    "job29_a1298c_mono_seed3":"A1298C mono seed3", "job30_a1298c_mono_seed4":"A1298C mono seed4", "job31_a1298c_mono_seed5":"A1298C mono seed5",
+    "job32_compound_dimer_seed3":"Compound dimer seed3", "job33_compound_dimer_seed4":"Compound dimer seed4", "job34_compound_dimer_seed5":"Compound dimer seed5",
+}
+
+# Grouping for 5-seed statistics
+SEED_GROUPS = {
+    "WT mono": ["job01_wt_mono_fad","job07_wt_mono_rep","job17_wt_mono_seed3","job18_wt_mono_seed4","job19_wt_mono_seed5"],
+    "WT dimer": ["job02_wt_dimer_fad","job08_wt_dimer_rep","job20_wt_dimer_seed3","job21_wt_dimer_seed4","job22_wt_dimer_seed5"],
+    "C677T mono": ["job03_c677t_mono_fad","job09_c677t_mono_rep","job23_c677t_mono_seed3","job24_c677t_mono_seed4","job25_c677t_mono_seed5"],
+    "C677T dimer": ["job04_c677t_dimer_fad","job10_c677t_dimer_rep","job26_c677t_dimer_seed3","job27_c677t_dimer_seed4","job28_c677t_dimer_seed5"],
+    "A1298C mono": ["job05_a1298c_mono_fad","job11_a1298c_mono_rep","job29_a1298c_mono_seed3","job30_a1298c_mono_seed4","job31_a1298c_mono_seed5"],
+    "Compound dimer": ["job06_compound_dimer_fad","job12_compound_rep","job32_compound_dimer_seed3","job33_compound_dimer_seed4","job34_compound_dimer_seed5"],
 }
 
 def detect_source(d):
@@ -117,12 +134,25 @@ def load_boltz2_metrics(d):
 
 def find_jobs(d):
     d=Path(d); d.mkdir(parents=True,exist_ok=True); dirs=[]
-    # Collect all valid result directories (skip ZIPs if folder already exists)
-    for x in sorted(d.iterdir()):
-        if x.is_dir():
+    # Collect all valid result directories, including nested subdirectories
+    for x in sorted(d.rglob("*")):
+        if x.is_dir() and x.name.startswith("job"):
             if list(x.rglob("*summary_confidences*.json")) or list(x.rglob("confidence_result_model_*.json")):
                 dirs.append(x)
-    return dirs
+    # Also check direct children (v1.0 format)
+    for x in sorted(d.iterdir()):
+        if x.is_dir() and x.name.startswith("job"):
+            if x not in dirs and (list(x.rglob("*summary_confidences*.json")) or list(x.rglob("confidence_result_model_*.json"))):
+                dirs.append(x)
+    return sorted(set(dirs), key=lambda p: p.name)
+
+def find_all_jobs():
+    """Search all result directories."""
+    all_dirs = []
+    for rd in RESULTS_DIRS:
+        if rd.exists():
+            all_dirs.extend(find_jobs(rd))
+    return all_dirs
 
 def load_json(d,pattern):
     c=sorted(Path(d).rglob(pattern))
@@ -434,12 +464,13 @@ def main():
     print()
     
     print("[1/6] Searching for results...")
-    dirs=find_jobs(RESULTS_DIR)
+    dirs=find_all_jobs()
     if not dirs:
-        RESULTS_DIR.mkdir(parents=True,exist_ok=True)
+        for rd in RESULTS_DIRS:
+            rd.mkdir(parents=True,exist_ok=True)
         OUTPUT_DIR.mkdir(parents=True,exist_ok=True)
         make_pymol(OUTPUT_DIR)
-        print(f"\n  No results yet. Drop AlphaFold ZIP files in {RESULTS_DIR}/")
+        print(f"\n  No results yet. Drop AlphaFold ZIP files in alphafold/results/")
         print(f"  Then run: python analyze.py")
         print(f"\n  PyMOL script template ready in {OUTPUT_DIR}/pymol_scripts/")
         return

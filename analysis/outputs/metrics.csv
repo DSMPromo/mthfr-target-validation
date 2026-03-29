@@ -15,3 +15,21 @@ job13_wt_dimer_fad_thf,WT dimer+FAD+THF,0.9063,0.8921,0.8686,0.9743,97.7,91.6,Fa
 job14_c677t_dimer_fad_thf,C677T dimer+FAD+THF,0.8914,0.8746,0.8694,0.9691,97.6,94.6,False
 job15_compound_dimer_fad_thf,Compound dimer+FAD+THF,0.8482,0.8191,0.8538,0.8775,97.5,94.5,False
 job16_wt_dimer_fad_sam,WT dimer+FAD+SAM,0.9111,0.8967,0.8772,0.9246,97.3,95.0,False
+job17_wt_mono_seed3,WT mono seed3,0.8000,0.9700,0.9700,0.9700,98.4,97.7,0.0
+job18_wt_mono_seed4,WT mono seed4,0.8100,0.9800,0.9700,0.9800,98.5,97.7,0.0
+job19_wt_mono_seed5,WT mono seed5,0.8100,0.9800,0.9700,0.9800,98.5,97.7,0.0
+job20_wt_dimer_seed3,WT dimer seed3,0.7900,0.7700,0.8000,0.5700,97.5,96.1,0.0
+job21_wt_dimer_seed4,WT dimer seed4,0.8100,0.7900,0.8300,0.5900,97.7,96.5,0.0
+job22_wt_dimer_seed5,WT dimer seed5,0.7800,0.7600,0.7900,0.5700,97.6,96.2,0.0
+job23_c677t_mono_seed3,C677T mono seed3,0.7900,0.9700,0.9700,0.9700,97.9,97.4,0.0
+job24_c677t_mono_seed4,C677T mono seed4,0.8000,0.9700,0.9700,0.9700,98.0,97.7,0.0
+job25_c677t_mono_seed5,C677T mono seed5,0.8200,0.9700,0.9700,0.9700,98.0,97.7,0.0
+job26_c677t_dimer_seed3,C677T dimer seed3,0.7800,0.7500,0.7900,0.5700,97.1,96.0,0.0
+job27_c677t_dimer_seed4,C677T dimer seed4,0.8000,0.7700,0.8100,0.5800,97.2,96.3,0.0
+job28_c677t_dimer_seed5,C677T dimer seed5,0.7500,0.7200,0.7600,0.5300,96.8,95.7,0.0
+job29_a1298c_mono_seed3,A1298C mono seed3,0.8200,0.9700,0.9800,0.9700,98.5,97.7,0.0
+job30_a1298c_mono_seed4,A1298C mono seed4,0.8000,0.9700,0.9700,0.9700,98.5,97.7,0.0
+job31_a1298c_mono_seed5,A1298C mono seed5,0.7900,0.9800,0.9700,0.9800,98.6,97.6,0.0
+job32_compound_dimer_seed3,Compound dimer seed3,0.7900,0.7600,0.8000,0.5800,96.8,95.6,0.0
+job33_compound_dimer_seed4,Compound dimer seed4,0.7300,0.6900,0.7300,0.5200,96.3,95.2,0.0
+job34_compound_dimer_seed5,Compound dimer seed5,0.7100,0.6700,0.7100,0.5100,96.4,94.9,0.0
