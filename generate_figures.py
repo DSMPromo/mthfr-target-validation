@@ -199,38 +199,44 @@ def plot_plddt_comparison(jobs_data, filename):
 
 
 def plot_summary_dashboard(filename):
-    """Create a summary dashboard with all key metrics."""
-    fig, axes = plt.subplots(2, 3, figsize=(18, 11))
-    fig.suptitle('MTHFR AlphaFold 3 + Boltz-2 Analysis Dashboard\n'
-                 'Compound Heterozygous MTHFR: Structural Impact on FAD and Folate Binding',
-                 fontsize=16, fontweight='bold', y=0.98)
-
-    # 1. ipTM comparison (AlphaFold dimers)
-    ax = axes[0, 0]
+    """Create individual dashboard figures (smaller, no session crashes)."""
     labels = ['WT\ndimer', 'C677T\ndimer', 'Compound\ndimer']
-    values = [0.740, 0.765, 0.715]
+    labels_p = ['WT', 'C677T', 'Compound']
     colors = ['#2E75B6', '#CC3333', '#6B3FA0']
+    footer = 'MTHFR Hypothesis Prioritization | Igor Mihaljko | github.com/DSMPromo/mthfr-target-validation'
+
+    # 1. ipTM comparison
+    fig, ax = plt.subplots(figsize=(7, 5))
+    values = [0.752, 0.747, 0.714]
     bars = ax.bar(labels, values, color=colors, edgecolor='black', linewidth=0.5)
-    ax.set_ylabel('Average ipTM')
-    ax.set_title('Dimer Interface Confidence\n(AlphaFold Server, averaged)', fontweight='bold')
+    ax.set_ylabel('Average ipTM (n=10)')
+    ax.set_title('Dimer Interface Confidence\n(AlphaFold Server)', fontweight='bold')
     ax.set_ylim(0.65, 0.85)
     ax.axhline(y=0.8, color='green', ls='--', alpha=0.5, label='High confidence')
     for b, v in zip(bars, values):
         ax.text(b.get_x() + b.get_width()/2, v + 0.005, f'{v:.3f}', ha='center', fontsize=11)
     ax.legend(fontsize=8)
+    plt.tight_layout()
+    plt.savefig(FIGURES / "dashboard_iptm.png", dpi=150, bbox_inches='tight', facecolor='white')
+    plt.close()
+    print("  Saved dashboard_iptm.png")
 
-    # 2. FAD binding comparison
-    ax = axes[0, 1]
-    values = [0.555, 0.575, 0.540]
+    # 2. FAD binding
+    fig, ax = plt.subplots(figsize=(7, 5))
+    values = [0.566, 0.564, 0.540]
     bars = ax.bar(labels, values, color=colors, edgecolor='black', linewidth=0.5)
-    ax.set_ylabel('Average FAD ipTM')
-    ax.set_title('FAD Cofactor Binding\n(AlphaFold Server, averaged)', fontweight='bold')
+    ax.set_ylabel('Average FAD ipTM (n=10)')
+    ax.set_title('FAD Cofactor Binding\n(AlphaFold Server)', fontweight='bold')
     ax.set_ylim(0.45, 0.65)
     for b, v in zip(bars, values):
         ax.text(b.get_x() + b.get_width()/2, v + 0.005, f'{v:.3f}', ha='center', fontsize=11)
+    plt.tight_layout()
+    plt.savefig(FIGURES / "dashboard_fad.png", dpi=150, bbox_inches='tight', facecolor='white')
+    plt.close()
+    print("  Saved dashboard_fad.png")
 
     # 3. THF substrate binding (Boltz-2)
-    ax = axes[0, 2]
+    fig, ax = plt.subplots(figsize=(7, 5))
     labels_thf = ['WT\n+THF', 'C677T\n+THF', 'Compound\n+THF']
     values_thf = [0.974, 0.969, 0.878]
     bars = ax.bar(labels_thf, values_thf, color=colors, edgecolor='black', linewidth=0.5)
@@ -239,34 +245,37 @@ def plot_summary_dashboard(filename):
     ax.set_ylim(0.8, 1.0)
     for b, v in zip(bars, values_thf):
         ax.text(b.get_x() + b.get_width()/2, v + 0.003, f'{v:.3f}', ha='center', fontsize=11)
+    plt.tight_layout()
+    plt.savefig(FIGURES / "dashboard_thf.png", dpi=150, bbox_inches='tight', facecolor='white')
+    plt.close()
+    print("  Saved dashboard_thf.png")
 
-    # 4. pLDDT at position 222
-    ax = axes[1, 0]
-    labels_p = ['WT', 'C677T', 'Compound']
-    vals_222 = [97.3, 97.05, 96.5]
-    bars = ax.bar(labels_p, vals_222, color=colors, edgecolor='black', linewidth=0.5)
-    ax.set_ylabel('pLDDT')
-    ax.set_title('Confidence at Position 222\n(C677T mutation site)', fontweight='bold')
-    ax.set_ylim(95, 99)
-    for b, v in zip(bars, vals_222):
-        ax.text(b.get_x() + b.get_width()/2, v + 0.05, f'{v:.1f}', ha='center', fontsize=11)
-
-    # 5. pLDDT at position 429
-    ax = axes[1, 1]
-    vals_429 = [96.0, 95.95, 95.15]
-    bars = ax.bar(labels_p, vals_429, color=colors, edgecolor='black', linewidth=0.5)
-    ax.set_ylabel('pLDDT')
-    ax.set_title('Confidence at Position 429\n(A1298C mutation site)', fontweight='bold')
-    ax.set_ylim(94, 97)
-    for b, v in zip(bars, vals_429):
-        ax.text(b.get_x() + b.get_width()/2, v + 0.05, f'{v:.1f}', ha='center', fontsize=11)
-
-    # 6. Monomer vs Dimer comparison
-    ax = axes[1, 2]
+    # 4. pLDDT at positions 222 and 429
+    fig, ax = plt.subplots(figsize=(7, 5))
     x = np.arange(3)
     w = 0.35
-    mono_vals = [0.97, 0.97, 0.97]  # All same for monomers
-    dimer_vals = [0.740, 0.765, 0.715]
+    vals_222 = [97.3, 97.05, 96.5]
+    vals_429 = [96.04, 95.98, 95.29]
+    bars1 = ax.bar(x - w/2, vals_222, w, label='pLDDT@222', color='#2196F3', edgecolor='black', lw=0.5)
+    bars2 = ax.bar(x + w/2, vals_429, w, label='pLDDT@429', color='#F44336', edgecolor='black', lw=0.5)
+    ax.set_xticks(x); ax.set_xticklabels(labels_p)
+    ax.set_ylabel('pLDDT (n=10)')
+    ax.set_title('Confidence at Mutation Sites\n(pos 222 = C677T, pos 429 = A1298C)', fontweight='bold')
+    ax.set_ylim(94, 99)
+    ax.legend()
+    for b, v in zip(bars2, vals_429):
+        ax.text(b.get_x() + b.get_width()/2, v + 0.05, f'{v:.1f}', ha='center', fontsize=9)
+    plt.tight_layout()
+    plt.savefig(FIGURES / "dashboard_plddt.png", dpi=150, bbox_inches='tight', facecolor='white')
+    plt.close()
+    print("  Saved dashboard_plddt.png")
+
+    # 5. Monomer vs Dimer comparison
+    fig, ax = plt.subplots(figsize=(7, 5))
+    x = np.arange(3)
+    w = 0.35
+    mono_vals = [0.97, 0.97, 0.97]
+    dimer_vals = [0.752, 0.747, 0.714]
     bars1 = ax.bar(x - w/2, mono_vals, w, label='Monomer ipTM', color='lightblue', edgecolor='black', lw=0.5)
     bars2 = ax.bar(x + w/2, dimer_vals, w, label='Dimer ipTM', color=colors, edgecolor='black', lw=0.5)
     ax.set_xticks(x)
@@ -278,17 +287,11 @@ def plot_summary_dashboard(filename):
     for b, v in zip(bars2, dimer_vals):
         ax.text(b.get_x() + b.get_width()/2, v + 0.01, f'{v:.3f}', ha='center', fontsize=9)
 
-    # Add footnote
-    fig.text(0.5, 0.01,
-             'MTHFR Target Validation Program | Igor Mihaljko | github.com/DSMPromo/mthfr-target-validation | CC BY-NC-SA 4.0\n'
-             'Computational predictions -- not experimental structures. For research and educational purposes only.',
-             ha='center', fontsize=9, style='italic', color='gray')
-
-    plt.tight_layout(rect=[0, 0.04, 1, 0.95])
-    plt.savefig(FIGURES / filename, dpi=200, bbox_inches='tight',
+    plt.tight_layout()
+    plt.savefig(FIGURES / "dashboard_mono_vs_dimer.png", dpi=150, bbox_inches='tight',
                 facecolor='white', edgecolor='none')
     plt.close()
-    print(f"  Saved {filename}")
+    print("  Saved dashboard_mono_vs_dimer.png")
 
 
 def main():
