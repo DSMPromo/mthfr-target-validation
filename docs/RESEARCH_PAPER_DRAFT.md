@@ -389,7 +389,15 @@ This study has several important limitations:
 
 3. **Cofactor and substrate modeling.** AlphaFold 3's accuracy for small molecule binding is lower than for protein-protein interactions (Abramson et al., 2024). ipTM scores for protein-ligand complexes should be interpreted more cautiously than for protein-protein interfaces.
 
-4. **Molecular dynamics in progress.** MD simulations (OpenMM, Amber14 force field) comparing WT and compound heterozygous dimer dynamics are currently running. These will reveal dynamic differences that static predictions cannot capture, including RMSD stability, per-residue flexibility (RMSF), and dimer interface behavior over time.
+4. **Molecular dynamics completed (10ns).** MD simulations (OpenMM, Amber14/TIP3P-FB force field, 300K, Google Colab A100 GPU) comparing WT and compound heterozygous dimer dynamics have been completed. Results show significantly higher structural drift in the compound dimer (mean RMSD 7.34 +/- 7.40 A vs 5.29 +/- 1.18 A for WT, p = 1.05e-17) and dramatically increased per-residue flexibility at both mutation sites (RMSF 6.6x higher at position 222, 4.3x higher at position 429). These dynamic observations are directionally consistent with the static AlphaFold predictions but require orthogonal experimental validation. Extended simulations (100ns+) are planned as follow-up.
+
+| Metric | WT Dimer | Compound Dimer | Ratio |
+|--------|----------|---------------|-------|
+| Mean RMSD | 5.29 +/- 1.18 A | 7.34 +/- 7.40 A | 1.4x higher |
+| RMSD variance | 1.18 A | 7.40 A | 6.3x more variable |
+| RMSF @ pos 222 | 1.47 A | 9.76 A | 6.6x more flexible |
+| RMSF @ pos 429 | 1.61 A | 6.96 A | 4.3x more flexible |
+| t-test (RMSD) | | p = 1.05e-17 | Highly significant |
 
 5. **Clinical extrapolation.** The connection between structural predictions and clinical phenotypes involves many biological layers (protein folding kinetics, cellular environment, tissue-specific expression, compensatory mechanisms, microbiome effects) that computational modeling cannot capture.
 
@@ -405,7 +413,7 @@ This study has several important limitations:
 
 2. **Thermal shift assays:** Differential scanning fluorimetry (DSF) to quantify FAD binding affinity and thermal stability of WT vs variant MTHFR, with and without riboflavin supplementation.
 
-3. **Molecular dynamics simulations (in progress):** Initial 10ns MD simulations of WT and compound heterozygous MTHFR dimers are running (OpenMM, Amber14/TIP3P-FB, 300K, OpenCL acceleration). Extended simulations (100ns+) planned as follow-up to capture FAD dissociation kinetics and allosteric communication dynamics.
+3. **Molecular dynamics simulations (10ns complete):** Initial 10ns MD simulations of WT and compound heterozygous MTHFR dimers have been completed (OpenMM, Amber14/TIP3P-FB, 300K, Google Colab A100 GPU). The compound dimer showed significantly higher RMSD (7.34 +/- 7.40 A vs 5.29 +/- 1.18 A, p = 1.05e-17), 6.3x greater RMSD variance, and dramatically increased RMSF at both mutation sites (6.6x at position 222, 4.3x at position 429). Extended simulations (100ns+) are planned as follow-up to capture FAD dissociation kinetics and allosteric communication dynamics.
 
 4. **Cell-based follow-up after biochemical validation:** Once biochemical and structural follow-up supports continued investigation, computational guide design and initial cell-based feasibility testing could be used to assess whether sequence correction is technically plausible in a controlled setting.
 
@@ -434,7 +442,7 @@ From computational prioritization to staged experimental follow-up:
 | Phase | Focus | Timeline | Cost | Status |
 |-------|-------|----------|------|--------|
 | **1** | Computational hypothesis prioritization: AlphaFold 3 and Boltz-2 structural comparison, reproducible pipeline, open repository | **Done** | **$0** | **Complete** |
-| **2a** | Molecular dynamics simulations: OpenMM/Amber14, WT dimer vs compound dimer, RMSD/RMSF/flexibility analysis | In progress | $0 | Running |
+| **2a** | Molecular dynamics simulations: OpenMM/Amber14, WT dimer vs compound dimer, RMSD/RMSF/flexibility analysis | **Done** | **$0** | **Complete** |
 | **2b** | Preprint (bioRxiv submitted), researcher outreach, extended structural benchmarking | 1-3 months | ~$500 | In progress |
 | **3** | Biochemical validation: expression of wild-type and selected variant proteins, dimer stability assays, FAD and THF interaction assays | 6-12 months | $50K-150K | Requires lab partner |
 | **4** | Exploratory biomarker correlation studies, including homocysteine, methylation panels, retinal OCT, and BH4-related readouts in well-defined compound heterozygous cohorts | 12-18 months | $100K-300K | Requires clinical collaborator |
