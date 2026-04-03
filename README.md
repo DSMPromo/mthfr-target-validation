@@ -17,13 +17,13 @@
 
 ## Table of Contents
 
-- [Who I Am](#who-i-am-and-who-i-am-not)
-- [The Problem](#the-problem-nobody-connected)
-- [The Science](#the-mthfr-enzyme)
-- [Primary Targets](#primary-research-targets)
+- [About the Author](#about-the-author)
+- [The Problem](#a-cross-specialty-problem-that-may-be-underintegrated-in-current-research)
+- [The MTHFR Enzyme](#the-mthfr-enzyme)
+- [Primary Targets](#primary-experimental-indication-hypotheses)
 - [Additional Pathways](#additional-disease-pathways)
 - [AlphaFold 3 Results](#alphafold-3-structural-predictions)
-- [Research Findings](#what-the-research-shows)
+- [Structural Context](#structural-and-literature-context)
 - [Safety Architecture](#safety-architecture-what-if-something-goes-wrong)
 - [Quick Start: Replicate This](#quick-start-replicate-this-research)
 - [Development Roadmap](#development-roadmap)
@@ -39,7 +39,7 @@ My name is Igor Mihaljko. I come from outside biomedical research. I'm a cyberse
 
 When I started researching what this means, I found literature spanning multiple disease categories and built this project to synthesize that literature alongside structural predictions in one open framework. I built this as an open starting point for researchers who want to evaluate these questions experimentally. The sequences, protocols, and analysis pipeline are included for replication and critique.
 
-See [FOUNDERS_NOTE.md](FOUNDERS_NOTE.md) for the full story behind this project.
+See [About the Author](#about-the-author) for the full story behind this project.
 
 ---
 
@@ -155,7 +155,7 @@ We used [AlphaFold 3 Server](https://alphafoldserver.com) to predict structures 
 - **Sequences:** All derived from canonical [UniProt P42898](https://www.uniprot.org/uniprotkb/P42898/entry) (656 amino acids) with verified mutations at positions 222 and 429
 - **Predictions:** 64 total (6 configurations x 10 seeds = 60 AlphaFold 3 + 4 Boltz-2 substrate/inhibitor)
 - **Replication:** 10 independent seeds per configuration (64 total predictions) enabling statistical comparison (t-test)
-- **Upload-ready JSON files** included in `alphafold/jobs/json/` for one-click replication
+- **Upload-ready JSON files** included in `alphafold/jobs/json_all/` for one-click replication
 
 ### Job Design
 
@@ -182,7 +182,7 @@ We used [AlphaFold 3 Server](https://alphafoldserver.com) to predict structures 
 | 09 | **C677T rep** | 0.82 | 0.97 | 0.97 | 98.0 | 97.6 |
 | 11 | **A1298C rep** | 0.81 | 0.97 | 0.97 | 98.4 | 97.5 |
 
-#### Dimer Predictions (All 12 Jobs Complete, Replicated)
+#### Dimer Predictions (30 Total: 3 Variants x 10 Seeds, Representative Seeds Shown)
 
 | Job | Variant | pTM | ipTM | FAD Binding | pLDDT@222 | pLDDT@429 |
 |-----|---------|-----|------|-------------|-----------|-----------|
@@ -197,9 +197,9 @@ We used [AlphaFold 3 Server](https://alphafoldserver.com) to predict structures 
 
 | Variant | Avg pTM | Avg ipTM | Avg FAD Binding | Avg pLDDT@222 | Avg pLDDT@429 |
 |---------|---------|----------|-----------------|---------------|---------------|
-| **WT dimer** (n=10) | 0.786 +/-0.016 | 0.752 +/-0.023 | 0.566 +/-0.018 | 97.3 | 96.0 |
-| **C677T dimer** | 0.785 | 0.765 | 0.575 | 97.05 | 95.95 |
-| **Compound dimer** (n=10) | **0.744 +/-0.027** | **0.714 +/-0.026** | **0.540 +/-0.023** | **96.5** | **95.3** |
+| **WT dimer** (n=10) | 0.780 +/-0.017 | 0.752 +/-0.023 | 0.563 +/-0.014 | 97.47 | 96.04 |
+| **C677T dimer** (n=10) | 0.775 +/-0.022 | 0.747 +/-0.026 | 0.562 +/-0.021 | 97.03 | 95.98 |
+| **Compound dimer** (n=10) | **0.748 +/-0.023** | **0.714 +/-0.026** | **0.542 +/-0.020** | **96.53** | **95.29** |
 
 **Key observations (replicated across independent seeds):**
 - **Monomer predictions showed preserved overall folding confidence** (ipTM 0.97-0.98) -- the tested monomer predictions do not suggest large-scale loss of overall fold confidence
@@ -220,8 +220,8 @@ We used [AlphaFold 3 Server](https://alphafoldserver.com) to predict structures 
 | Metric | WT Dimer (n=10) | Compound Dimer (n=10) | Cohen's d | Raw p | Bonferroni p |
 |--------|---------------|---------------------|-----------|-------|-------------|
 | ipTM | 0.752 +/-0.023 | 0.714 +/-0.026 | 1.54 (large) | 0.003 | **0.035** |
-| pTM | 0.786 +/-0.016 | 0.744 +/-0.027 | 1.56 (large) | 0.003 | **0.031** |
-| FAD binding | 0.566 +/-0.018 | 0.540 +/-0.023 | 1.19 (large) | 0.016 | 0.188 |
+| pTM | 0.780 +/-0.017 | 0.748 +/-0.023 | 1.56 (large) | 0.003 | **0.031** |
+| FAD binding | 0.563 +/-0.014 | 0.542 +/-0.020 | 1.19 (large) | 0.016 | 0.188 |
 | pLDDT@429 | 96.04 +/-0.22 | 95.29 +/-0.21 | 3.45 (very large) | <0.000001 | **0.000005** |
 
 After Bonferroni correction for 12 comparisons, three metrics remain statistically significant: ipTM (adjusted p=0.035), pTM (adjusted p=0.031), and pLDDT@429 (adjusted p=0.000005). This identifies both the dimer interface and the regulatory domain as robust comparative signals in this modeling setup.
@@ -388,7 +388,6 @@ mthfr-target-validation/
 |-- alphafold/
 |   |-- jobs/
 |   |   |-- submission_plan.md          <-- 16 job configurations, step-by-step
-|   |   |-- json/                       <-- Original 12 job JSONs
 |   |   |-- json_all/                   <-- All 30 AlphaFold Server JSONs + ALL_30_JOBS.json
 |   |-- results_all/                    <-- All 64 results (unified folder)
 |       |-- wt_mono_run1..10/            <-- WT monomer, 10 seeds

@@ -16,7 +16,7 @@
 
 **Data Availability:** All sequences, analysis scripts, and AlphaFold results available at https://github.com/DSMPromo/mthfr-target-validation
 
-**AI Disclosure:** AI tools (Claude, Anthropic) were used for literature organization, analysis pipeline development, and manuscript preparation. All AI-generated content was reviewed for accuracy by the author. This disclosure follows emerging best practices in scientific publishing (Nature, 2023).
+**AI Disclosure:** AI tools (Claude, Anthropic) were used for literature organization, analysis pipeline development, and manuscript preparation. All AI-generated content was reviewed for accuracy by the author. This disclosure follows emerging best practices in scientific publishing.
 
 ---
 
@@ -80,7 +80,7 @@ Published literature discusses MTHFR across multiple clinical and biological dom
 
 ### 1.6 Knowledge Gap and Study Rationale
 
-While thousands of individual studies address MTHFR variants in specific disease contexts, no published work has:
+While thousands of individual studies address MTHFR variants in specific disease contexts, to our knowledge no published work has:
 
 1. Systematically characterized the structural consequences of C677T, A1298C, and compound heterozygous variants using AlphaFold 3's ability to predict protein-ligand complexes
 2. Connected selected downstream literature contexts to structural predictions in a single hypothesis-prioritization framework
@@ -241,9 +241,9 @@ The tested dimer models showed comparative differences that were less apparent i
 
 | Variant | Avg pTM | Avg ipTM | Avg FAD Binding | Avg pLDDT@222 | Avg pLDDT@429 |
 |---------|---------|----------|-----------------|---------------|---------------|
-| WT dimer (n=10) | 0.786 +/-0.016 | 0.752 +/-0.023 | 0.566 +/-0.018 | 97.3 | 96.0 |
-| C677T dimer | 0.785 | 0.765 | 0.575 | 97.05 | 95.95 |
-| **Compound dimer** (n=10) | **0.744 +/-0.027** | **0.714 +/-0.026** | **0.540 +/-0.023** | **96.5** | **95.3** |
+| WT dimer (n=10) | 0.780 +/-0.017 | 0.752 +/-0.023 | 0.563 +/-0.014 | 97.47 | 96.04 |
+| C677T dimer (n=10) | 0.775 +/-0.022 | 0.747 +/-0.026 | 0.562 +/-0.021 | 97.03 | 95.98 |
+| **Compound dimer** (n=10) | **0.748 +/-0.023** | **0.714 +/-0.026** | **0.542 +/-0.020** | **96.53** | **95.29** |
 
 **Comparative observations within the tested model set:**
 
@@ -255,7 +255,7 @@ The tested dimer models showed comparative differences that were less apparent i
 
 4. **Within the tested dimer models, position 429 showed the lowest pLDDT values in the compound heterozygous configuration:** From 97.5 (monomers) to 95.0-95.3 (compound dimer), consistent with a possible regulatory-domain contribution in the dimer context and compatible with prior cryo-EM work showing that SAM-mediated allosteric regulation operates across the dimer interface.
 
-5. **All findings replicate across independent seeds:** Each variant was predicted with ten independent random seeds. The directional trends were consistent across the tested runs (t-test: WT dimer ipTM 0.752 +/-0.023 vs compound dimer ipTM 0.714 +/-0.026, t=3.437, p=0.003). Three of four key metrics survived Bonferroni correction (ipTM p=0.035, pTM p=0.031, pLDDT@429 p=0.000005).
+5. **All findings replicate across independent seeds:** Each variant was predicted with ten independent random seeds. The directional trends were consistent across the tested runs (t-test: WT dimer ipTM 0.752 +/-0.023 vs compound dimer ipTM 0.714 +/-0.026, t=3.437, p=0.003). Three of four key metrics survived Bonferroni correction for 12 comparisons (ipTM adjusted p=0.035, pTM adjusted p=0.031, pLDDT@429 adjusted p=0.000005).
 
 ### 3.3 FAD Binding Confidence: Monomer vs Dimer Comparison
 
@@ -263,9 +263,9 @@ A notable difference within the tested model set is the contrast between monomer
 
 | Variant | Monomer FAD Binding (avg) | Dimer FAD Binding (avg) | Change |
 |---------|-------------------------:|------------------------:|-------:|
-| Wild-type | 0.975 | 0.566 | -0.41 |
-| C677T | 0.970 | 0.575 | -0.40 |
-| **Compound** | **0.970** | **0.540** | **-0.43** |
+| Wild-type | 0.975 | 0.563 | -0.41 |
+| C677T | 0.970 | 0.562 | -0.41 |
+| **Compound** | **0.970** | **0.542** | **-0.43** |
 
 At the monomer level, all tested states showed high FAD-associated confidence values. This is directionally compatible with prior literature indicating that the C677T enzyme can bind FAD, while experimental work has shown altered thermal stability. AlphaFold predicts static structures and therefore cannot capture thermolability directly, but the dimer predictions reveal interface-mediated effects on FAD binding that are invisible in monomers.
 
@@ -279,9 +279,9 @@ The compound heterozygous dimer showed the largest reduction in reported FAD-ass
 
 | Variant | Monomer pLDDT@222 (avg) | Dimer pLDDT@222 (avg) | Change |
 |---------|------------------------:|----------------------:|-------:|
-| WT | 98.5 | 97.3 | -1.2 |
-| C677T | 98.05 | 97.05 | -1.0 |
-| Compound | -- | 96.5 | -- |
+| WT | 98.5 | 97.47 | -1.03 |
+| C677T | 98.05 | 97.03 | -1.02 |
+| Compound | -- | 96.53 | -- |
 
 - C677T shows a subtle but consistent reduction in pLDDT at position 222 (98.0-98.1 vs 98.5 for WT) across all ten monomer seeds
 - The compound dimer shows the lowest pLDDT at position 222 (avg 96.5 across 10 seeds)
@@ -290,8 +290,8 @@ The compound heterozygous dimer showed the largest reduction in reported FAD-ass
 
 | Variant | Monomer pLDDT@429 (avg) | Dimer pLDDT@429 (avg) | Change |
 |---------|------------------------:|----------------------:|-------:|
-| WT | 97.5 | 96.0 | -1.5 |
-| C677T | 97.7 | 95.95 | -1.75 |
+| WT | 97.5 | 96.04 | -1.46 |
+| C677T | 97.7 | 95.98 | -1.72 |
 | Compound | -- | **95.29** | -- |
 
 - Position 429 shows the lowest pLDDT values in the compound dimer within the tested model set, consistent with a possible regulatory-domain contribution at the dimer level
@@ -315,14 +315,23 @@ For monomer predictions (Jobs 01, 03, 05 vs Jobs 07, 09, 11), replicate seeds sh
 
 Dimer replication consistency (3 configurations x 10 seeds = 30 dimer predictions total). Representative first two seeds shown:
 - WT dimer: pTM 0.79/0.76, ipTM 0.76/0.72 (range 0.03-0.04)
-- C677T dimer: pTM 0.77/0.80, ipTM 0.75/0.78 (range 0.03)
+- C677T dimer: pTM 0.73-0.80, ipTM 0.69-0.78 (10-seed range)
 - Compound dimer: pTM 0.73/0.76, ipTM 0.70/0.73 (range 0.03)
 
 The compound heterozygous dimer consistently ranked lowest across all ten independent seeds (n=10 per configuration). Statistical testing (Welch's t-test) confirmed that the ipTM difference between WT and compound dimers reached significance (p=0.003, Bonferroni adjusted p=0.035). Three of four key metrics survived Bonferroni correction for 12 comparisons (3 pairwise variant comparisons x 4 metrics): ipTM (p=0.035), pTM (p=0.031), and pLDDT@429 (p=0.000005). Only FAD-associated confidence did not survive correction (raw p=0.016, adjusted p=0.188), though the effect size remained large (Cohen's d=1.19).
 
 ### 3.7 Substrate and Inhibitor Binding (Jobs 13-16, Boltz-2)
 
-Jobs 13-16 (THF substrate and SAM inhibitor binding) were performed using Boltz-2 (via Tamarind Bio) as a cross-platform validation. Four predictions were completed: WT dimer + THF, compound dimer + THF, WT dimer + SAM, and compound dimer + SAM. These predictions provide an independent assessment of substrate access and allosteric inhibitor binding across variant states. Boltz-2 results are included in the consolidated results folder (alphafold/results_all/) and were analyzed alongside the AlphaFold 3 predictions.
+Jobs 13-16 (THF substrate and SAM inhibitor binding) were performed using Boltz-2 (via Tamarind Bio) as a cross-platform validation:
+
+| Job | Variant | pTM | ipTM | Ligand ipTM | Protein ipTM |
+|-----|---------|-----|------|-------------|-------------|
+| 13 | WT + FAD + THF | 0.906 | 0.892 | 0.974 | 0.900 |
+| 14 | C677T + FAD + THF | 0.891 | 0.875 | 0.969 | 0.883 |
+| 15 | Compound + FAD + THF | 0.848 | 0.819 | 0.878 | 0.836 |
+| 16 | WT + FAD + SAM | 0.911 | 0.897 | 0.925 | 0.899 |
+
+The compound heterozygous dimer + THF prediction (Job 15) showed the lowest confidence across all Boltz-2 metrics (pTM 0.848, ipTM 0.819, ligand ipTM 0.878), consistent with the directional trend observed in AlphaFold 3 predictions. The WT + SAM prediction (Job 16) showed the highest overall confidence, providing a reference for allosteric inhibitor binding.
 
 ### 3.8 Molecular Dynamics Simulations (100ns)
 
@@ -480,12 +489,12 @@ This project represents a complete Phase 1 deliverable:
 - Literature synthesis supporting bounded retinal and neuropsychiatric-relevant follow-up contexts
 - A fully replicable, open-source pipeline that independent researchers can verify
 
-### Phase 2 Next Steps
+### Phase 2 Completed Work
 
-Phase 2 is achievable by an independent researcher:
-1. Structural benchmarking of predictions against PDB 6FCX experimental structure
-2. Molecular dynamics simulations on compound heterozygous dimer
-3. Preprint preparation for bioRxiv to establish priority and make the work citable
+Phase 2 was completed by an independent researcher:
+1. Structural benchmarking against PDB 6FCX (RMSD 1.42 A, high accuracy)
+2. 100ns molecular dynamics simulations (WT vs compound dimer, 34-check verification)
+3. Preprint published (Zenodo DOI: 10.5281/zenodo.19318627, Preprints.org ID: 205673)
 4. Researcher outreach with the complete package
 
 ### The Phase 2 → Phase 3 Transition

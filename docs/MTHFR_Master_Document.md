@@ -46,7 +46,7 @@ MTHFR functions as a homodimer. The crystal structure (PDB: 6FCX, 2.5 A resoluti
 | Literature context | Altered enzyme stability, reduced FAD affinity, thermolabile behavior, elevated homocysteine in some contexts | Discussed in relation to regulatory behavior and BH4-relevant pathways, with mechanism and subgroup specificity remaining incompletely defined |
 | Reported activity effects | Literature reports reduced activity, with strongest evidence in TT homozygotes | Literature reports activity effects, with interpretation varying across study design and context |
 | Population frequency | Varies by population | Varies by population |
-| Compound heterozygous context | Literature reports reduced overall enzyme activity relative to wild-type, with possible contributions from both catalytic and regulatory context |
+| Compound heterozygous context | Literature reports reduced overall enzyme activity relative to wild-type | Possible contributions from both catalytic and regulatory context |
 
 Compound heterozygosity, one copy of each variant, has been reported in the literature to produce lower overall enzyme activity than wild-type, with effects that may involve both catalytic-domain and regulatory-domain context.
 
@@ -138,9 +138,9 @@ These predictions are used for hypothesis prioritization only. They do not estab
 
 | Variant, dimer averaged | Avg pTM | Avg ipTM | Avg FAD Binding | Avg pLDDT@222 | Avg pLDDT@429 |
 |-------------------------|---------|----------|-----------------|---------------|---------------|
-| Wild-type (n=10) | 0.786 +/-0.016 | 0.752 +/-0.023 | 0.566 +/-0.018 | 97.3 | 96.0 |
-| C677T | 0.785 | 0.765 | 0.575 | 97.05 | 95.95 |
-| Compound heterozygous (n=10) | 0.744 +/-0.027 | 0.714 +/-0.026 | 0.540 +/-0.023 | 96.5 | 95.29 |
+| Wild-type (n=10) | 0.780 +/-0.017 | 0.752 +/-0.023 | 0.563 +/-0.014 | 97.47 | 96.04 |
+| C677T (n=10) | 0.775 +/-0.022 | 0.747 +/-0.026 | 0.562 +/-0.021 | 97.03 | 95.98 |
+| Compound heterozygous (n=10) | 0.748 +/-0.023 | 0.714 +/-0.026 | 0.542 +/-0.020 | 96.53 | 95.29 |
 
 #### Boltz-2, Jobs 13 to 16
 
