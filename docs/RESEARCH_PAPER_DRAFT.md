@@ -44,9 +44,9 @@ Published reviews discuss MTHFR across multiple clinical and biological domains,
 
 ### 1.2 The Two Key Variants
 
-Two common MTHFR polymorphisms have substantial clinical significance:
+Two common MTHFR polymorphisms have been widely studied in clinical and biological contexts:
 
-**C677T (rs1801133, p.Ala222Val):** Located in the catalytic domain, this variant destabilizes FAD cofactor binding. The A222V substitution displaces helix alpha-5, which carries FAD-interacting residues Asn168, Arg171, and Lys172, resulting in a thermolabile enzyme with reduced activity (~35% per allele, ~70% in TT homozygotes) (Pejchal et al., 2006). The degree of thermolability is dramatic: residual activity after heat inactivation is only 18-22% in 677TT individuals compared to 66-67% in wild-type (Levin & Varga, 2016). The T allele frequency ranges from 24-50% across populations. Critically, folate binding to the enzyme protects against FAD dissociation, providing a molecular explanation for why folate supplementation partially rescues enzyme function (Pejchal et al., 2006).
+**C677T (rs1801133, p.Ala222Val):** Located in the catalytic domain, this variant destabilizes FAD cofactor binding. The A222V substitution displaces helix alpha-5, which carries FAD-interacting residues Asn168, Arg171, and Lys172, resulting in a thermolabile enzyme with reduced activity (~35% per allele, ~70% in TT homozygotes) (Pejchal et al., 2006). This variant has been reported to show marked thermolability in prior experimental studies: residual activity after heat inactivation is only 18-22% in 677TT individuals compared to 66-67% in wild-type (Levin & Varga, 2016). The T allele frequency ranges from 24-50% across populations. Critically, folate binding to the enzyme protects against FAD dissociation, providing a molecular explanation for why folate supplementation partially rescues enzyme function (Pejchal et al., 2006).
 
 **A1298C (rs1801131, p.Glu429Ala):** Located in the regulatory domain near the SAM-binding site, this variant has been reported in some studies to associate with reduced enzyme activity of ~30% per allele and has been discussed in relation to BH4-relevant pathways, though the mechanism, effect size, and subgroup specificity remain incompletely defined. The interaction between position 429 and the SAM-binding pocket identified in the 2024 cryo-EM structures (Froese et al., 2024) provides structural context for this variant's functional impact.
 
@@ -251,7 +251,7 @@ The tested dimer models showed comparative differences that were less apparent i
 
 3. **Relative to the tested C677T dimer model, the compound heterozygous dimer showed lower average ipTM within this model set**, which prioritizes that configuration for experimental follow-up.
 
-4. **Within the tested dimer models, position 429 showed the lowest pLDDT values in the compound heterozygous configuration:** From 97.5 (monomers) to 95.0-95.3 (compound dimer), consistent with a possible regulatory-domain contribution in the dimer context and compatible with prior cryo-EM work showing that SAM-mediated allosteric regulation operates across the dimer interface.
+4. **Within the tested dimer models, position 429 showed the lowest pLDDT values in the compound heterozygous configuration:** From 97.5 (monomers) to 95.0-95.3 (compound dimer), compatible with a regulatory-domain difference in the dimer context within the tested model set and compatible with prior cryo-EM work showing that SAM-mediated allosteric regulation operates across the dimer interface.
 
 5. **All findings replicate across independent seeds:** Each variant was predicted with ten independent random seeds. The directional trends were consistent across the tested runs (t-test: WT dimer ipTM 0.752 +/-0.023 vs compound dimer ipTM 0.714 +/-0.026, t=3.437, p=0.003). Three of four key metrics survived Bonferroni correction for 12 comparisons (ipTM adjusted p=0.035, pTM adjusted p=0.031, pLDDT@429 adjusted p=0.000005).
 
