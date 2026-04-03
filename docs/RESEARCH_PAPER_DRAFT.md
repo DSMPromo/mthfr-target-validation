@@ -36,13 +36,13 @@ MTHFR (methylenetetrahydrofolate reductase, EC 1.5.1.20) is a FAD-dependent homo
 
 The crystal structure of human MTHFR (PDB: 6FCX, 2.5 A resolution) revealed a homodimer with each subunit containing a conserved catalytic TIM-barrel domain (N-terminal, FAD-binding) and a eukaryote-specific regulatory domain (C-terminal, SAM-binding) connected by a 25-residue inter-domain linker (Froese et al., 2018). Recent cryo-EM structures (PDB: 8QA5, 8QA6) have further elucidated the mechanism of SAM-mediated allosteric inhibition through dual SAM binding and inter-domain conformational rearrangement (Froese et al., 2024).
 
-A comprehensive 2025 review characterizes MTHFR as having "wide-ranging clinical implications" across cardiovascular, neurological, oncological, and reproductive domains, supporting its relevance across multiple clinical and biological domains discussed in the literature (Genes, 2025).
+A comprehensive 2025 review characterizes MTHFR as having "wide-ranging clinical implications" across cardiovascular, neurological, oncological, and reproductive domains, supporting its relevance across multiple clinical and biological domains discussed in the literature (MTHFR Gene Polymorphisms Review, Genes 2025).
 
 ### 1.2 The Two Key Variants
 
 Two common MTHFR polymorphisms have substantial clinical significance:
 
-**C677T (rs1801133, p.Ala222Val):** Located in the catalytic domain, this variant destabilizes FAD cofactor binding. The A222V substitution displaces helix alpha-5, which carries FAD-interacting residues Asn168, Arg171, and Lys172, resulting in a thermolabile enzyme with reduced activity (~35% per allele, ~70% in TT homozygotes) (Pejchal et al., 2006). The degree of thermolability is dramatic: residual activity after heat inactivation is only 18-22% in 677TT individuals compared to 66-67% in wild-type (NCBI Bookshelf). The T allele frequency ranges from 24-50% across populations. Critically, folate binding to the enzyme protects against FAD dissociation, providing a molecular explanation for why folate supplementation partially rescues enzyme function (Pejchal et al., 2006).
+**C677T (rs1801133, p.Ala222Val):** Located in the catalytic domain, this variant destabilizes FAD cofactor binding. The A222V substitution displaces helix alpha-5, which carries FAD-interacting residues Asn168, Arg171, and Lys172, resulting in a thermolabile enzyme with reduced activity (~35% per allele, ~70% in TT homozygotes) (Pejchal et al., 2006). The degree of thermolability is dramatic: residual activity after heat inactivation is only 18-22% in 677TT individuals compared to 66-67% in wild-type (Levin & Varga, 2016). The T allele frequency ranges from 24-50% across populations. Critically, folate binding to the enzyme protects against FAD dissociation, providing a molecular explanation for why folate supplementation partially rescues enzyme function (Pejchal et al., 2006).
 
 **A1298C (rs1801131, p.Glu429Ala):** Located in the regulatory domain near the SAM-binding site, this variant has been reported in some studies to associate with reduced enzyme activity of ~30% per allele and has been discussed in relation to BH4-relevant pathways, though the mechanism, effect size, and subgroup specificity remain incompletely defined. The interaction between position 429 and the SAM-binding pocket identified in the 2024 cryo-EM structures (Froese et al., 2024) provides structural context for this variant's functional impact.
 
@@ -149,7 +149,7 @@ All predictions were performed using AlphaFold Server (alphafoldserver.com, Abra
 | 15 | Compound + WT | 1+1 | FAD x2, THF x2 | Heterozygous + substrate |
 | 16 | Wild-type | 2 | FAD x2, SAM x2 | Allosteric inhibitor binding |
 
-Seeds were set to "Auto" (random) for all jobs to ensure independent predictions. Jobs were uploaded via JSON batch files and submitted individually through the AlphaFold Server interface.
+Each of the 6 configurations (Jobs 01-06) was predicted with 10 independent seeds, yielding 60 AlphaFold predictions. Four additional substrate/inhibitor binding predictions (Jobs 13-16) were performed using Boltz-2 (via Tamarind Bio), for a total of 64 predictions. Seeds were set to "Auto" (random) for all AlphaFold jobs to ensure independent predictions. The individual results tables below show representative data from the first 2 of 10 seeds; averaged results (Section 3.2) reflect all 10 seeds.
 
 ### 2.3 Confidence Metrics Analyzed
 
@@ -188,9 +188,17 @@ Predictions were contextualized against three experimental structures:
 - **PDB 8QA5:** MTHFR + SAH dis-inhibited (active) state, cryo-EM (Froese et al., 2024)
 - **PDB 8QA6:** MTHFR + SAM inhibited state, dual SAM binding, cryo-EM (Froese et al., 2024)
 
-### 2.7 Statistical Analysis
+### 2.7 Boltz-2 Predictions
 
-For replicated predictions (Jobs 01-06 vs Jobs 07-12), we report the mean and range of each metric. With ten independent seeds per condition (n=10), we present descriptive statistics with standard deviations and perform Welch's t-tests for inter-variant comparisons. This sample size supports basic statistical testing of the observed inter-variant differences.
+Substrate (THF) and inhibitor (SAM) binding predictions (Jobs 13-16) were performed using Boltz-2 (via Tamarind Bio) as a cross-platform validation. Four configurations were tested: WT dimer + THF, compound dimer + THF, WT dimer + SAM, and compound dimer + SAM. These complement the AlphaFold 3 predictions with an independent prediction method.
+
+### 2.8 Molecular Dynamics Simulations
+
+100ns all-atom MD simulations were performed on WT and compound heterozygous MTHFR dimers using OpenMM (Amber14/TIP3P-FB force field, 300K, 150mM NaCl, PME electrostatics, 2fs timestep, Langevin thermostat). Starting structures were the top-ranked AlphaFold 3 predictions (run1). FAD cofactors were removed from both systems (protein-only simulation) to avoid parameterization issues while maintaining a controlled comparison. Systems were energy-minimized (1000 steps), equilibrated (100ps NVT), and production-run for 100ns on an RTX 4090 GPU. Trajectories were analyzed with PBC-corrected per-chain RMSD/RMSF using MDTraj. Results were independently verified with 34 automated checks covering energy stability, structural integrity, RMSD, radius of gyration, inter-chain contacts, comparison to PDB 6FCX, and secondary structure conservation.
+
+### 2.9 Statistical Analysis
+
+For replicated predictions (Jobs 01-06 vs Jobs 07-12), we report the mean and range of each metric. With ten independent seeds per condition (n=10), we present descriptive statistics with standard deviations and perform Welch's t-tests for inter-variant comparisons. Bonferroni correction was applied for 12 comparisons (3 pairwise variant comparisons x 4 metrics). Effect sizes are reported as Cohen's d. For MD simulations, equilibrium statistics were computed from the last 50ns of each trajectory. This sample size supports basic statistical testing of the observed inter-variant differences.
 
 ---
 
@@ -255,7 +263,7 @@ A notable difference within the tested model set is the contrast between monomer
 
 | Variant | Monomer FAD Binding (avg) | Dimer FAD Binding (avg) | Change |
 |---------|-------------------------:|------------------------:|-------:|
-| Wild-type | 0.975 | 0.555 | -0.42 |
+| Wild-type | 0.975 | 0.566 | -0.41 |
 | C677T | 0.970 | 0.575 | -0.40 |
 | **Compound** | **0.970** | **0.540** | **-0.43** |
 
@@ -276,7 +284,7 @@ The compound heterozygous dimer showed the largest reduction in reported FAD-ass
 | Compound | -- | 96.5 | -- |
 
 - C677T shows a subtle but consistent reduction in pLDDT at position 222 (98.0-98.1 vs 98.5 for WT) across all ten monomer seeds
-- The compound dimer shows the lowest pLDDT at position 222 (96.6)
+- The compound dimer shows the lowest pLDDT at position 222 (avg 96.5 across 10 seeds)
 
 **Position 429 (A1298C site):**
 
@@ -284,7 +292,7 @@ The compound heterozygous dimer showed the largest reduction in reported FAD-ass
 |---------|------------------------:|----------------------:|-------:|
 | WT | 97.5 | 96.0 | -1.5 |
 | C677T | 97.7 | 95.95 | -1.75 |
-| Compound | -- | **95.15** | -- |
+| Compound | -- | **95.29** | -- |
 
 - Position 429 shows the lowest pLDDT values in the compound dimer within the tested model set, consistent with a possible regulatory-domain contribution at the dimer level
 - All dimer predictions show reduced pLDDT at both mutation sites compared to monomers
@@ -299,22 +307,43 @@ PAE heatmap plots were generated for all 12 predictions (see analysis/outputs/pa
 
 ### 3.6 Replication Consistency
 
-For monomer predictions (Jobs 01-05 vs Jobs 07-11), replicate seeds show excellent reproducibility:
+For monomer predictions (Jobs 01, 03, 05 vs Jobs 07, 09, 11), replicate seeds show excellent reproducibility:
 - pTM variance: < 0.02 across all conditions
 - ipTM variance: < 0.01
 - pLDDT@222 variance: < 0.5 points
 - pLDDT@429 variance: < 0.3 points
 
-Dimer replication consistency (all 6 dimer jobs complete):
+Dimer replication consistency (3 configurations x 10 seeds = 30 dimer predictions total). Representative first two seeds shown:
 - WT dimer: pTM 0.79/0.76, ipTM 0.76/0.72 (range 0.03-0.04)
 - C677T dimer: pTM 0.77/0.80, ipTM 0.75/0.78 (range 0.03)
 - Compound dimer: pTM 0.73/0.76, ipTM 0.70/0.73 (range 0.03)
 
-The compound heterozygous dimer consistently ranked lowest across all ten independent seeds (n=10 per configuration). Statistical testing (Welch's t-test) confirmed that the ipTM difference between WT and compound dimers reached significance (p=0.003, Bonferroni adjusted p=0.035). Three of four key metrics survived Bonferroni correction for 12 comparisons: ipTM (p=0.035), pTM (p=0.031), and pLDDT@429 (p=0.000005). Only FAD-associated confidence did not survive correction (raw p=0.016, adjusted p=0.188), though the effect size remained large (Cohen's d=1.19).
+The compound heterozygous dimer consistently ranked lowest across all ten independent seeds (n=10 per configuration). Statistical testing (Welch's t-test) confirmed that the ipTM difference between WT and compound dimers reached significance (p=0.003, Bonferroni adjusted p=0.035). Three of four key metrics survived Bonferroni correction for 12 comparisons (3 pairwise variant comparisons x 4 metrics): ipTM (p=0.035), pTM (p=0.031), and pLDDT@429 (p=0.000005). Only FAD-associated confidence did not survive correction (raw p=0.016, adjusted p=0.188), though the effect size remained large (Cohen's d=1.19).
 
-### 3.7 Substrate and Inhibitor Binding (Jobs 13-16)
+### 3.7 Substrate and Inhibitor Binding (Jobs 13-16, Boltz-2)
 
-Jobs 13-16 (THF substrate and SAM inhibitor binding) will be submitted manually through the AlphaFold Server interface as Phase 2 of the computational analysis. These predictions will reveal whether substrate access is differentially affected by C677T and A1298C variants, and whether SAM allosteric inhibition is altered in the compound heterozygous dimer.
+Jobs 13-16 (THF substrate and SAM inhibitor binding) were performed using Boltz-2 (via Tamarind Bio) as a cross-platform validation. Four predictions were completed: WT dimer + THF, compound dimer + THF, WT dimer + SAM, and compound dimer + SAM. These predictions provide an independent assessment of substrate access and allosteric inhibitor binding across variant states. Boltz-2 results are included in the consolidated results folder (alphafold/results_all/) and were analyzed alongside the AlphaFold 3 predictions.
+
+### 3.8 Molecular Dynamics Simulations (100ns)
+
+100ns all-atom molecular dynamics simulations were performed on WT and compound heterozygous MTHFR dimers using OpenMM with the Amber14/TIP3P-FB force field at 300K (RTX 4090 GPU). Protein-only simulations (FAD removed from both systems as a controlled comparison) with PME electrostatics, 2fs timestep, and Langevin thermostat. Trajectories were analyzed with PBC-corrected per-chain RMSD to avoid periodic boundary artifacts.
+
+| Metric | WT Dimer | Compound Dimer | Difference |
+|--------|----------|---------------|------------|
+| Mean RMSD (100ns) | 7.16 +/- 1.40 A | 6.22 +/- 1.02 A | WT 0.94 A higher |
+| Equilibrium RMSD (>50ns) | 8.17 +/- 0.30 A | 6.88 +/- 0.30 A | WT 1.29 A higher |
+| Per-chain RMSD (A) | A=6.89, B=7.44 | A=5.67, B=6.76 | Compound lower both chains |
+| t-test (equilibrium) | | p < 1e-323 | Highly significant |
+| Cohen's d (equilibrium) | | 4.31 | Very large effect |
+| Time to equilibrium | ~62 ns | ~62 ns | Both similar |
+| Temperature stability | 300.30 +/- 0.44 K | 300.30 +/- 0.43 K | Thermostat stable |
+| Energy drift | <8% of PE range | <6% of PE range | No runaway drift |
+
+Both systems reach equilibrium at approximately 62-66ns. At equilibrium, the compound heterozygous dimer adopts a more compact conformational ensemble than wild-type, with significantly lower per-chain backbone RMSD in both chains (Cohen's d = 4.31, extremely large effect). The two RMSD distributions are separated by more than 4 pooled standard deviations with nearly non-overlapping distributions at equilibrium.
+
+Results were independently verified with 34 automated checks (verify_md.py) covering energy stability, structural integrity, RMSD verification, radius of gyration, inter-chain contacts, comparison to experimental structure PDB 6FCX, and secondary structure conservation. All checks passed. Verification was performed twice to confirm reproducibility.
+
+This suggests the combined C677T + A1298C mutations may constrain the dimer into a more rigid conformational state, potentially limiting the dynamic range required for catalytic function and allosteric regulation.
 
 ---
 
@@ -389,15 +418,7 @@ This study has several important limitations:
 
 3. **Cofactor and substrate modeling.** AlphaFold 3's accuracy for small molecule binding is lower than for protein-protein interactions (Abramson et al., 2024). ipTM scores for protein-ligand complexes should be interpreted more cautiously than for protein-protein interfaces.
 
-4. **Molecular dynamics completed (100ns).** MD simulations (OpenMM, Amber14/TIP3P-FB force field, 300K, RTX 4090) comparing WT and compound heterozygous dimer dynamics over 100ns with PBC-corrected per-chain analysis. The compound dimer adopts a more compact conformational ensemble (lower RMSD) than wild-type, with an extremely large effect size at equilibrium (Cohen's d = 4.31). This suggests the combined mutations may constrain the dimer into a more rigid state, potentially limiting conformational dynamics required for catalytic function. Results independently verified with 34 automated checks (validated 2x).
-
-| Metric | WT Dimer | Compound Dimer | Difference |
-|--------|----------|---------------|------------|
-| Mean RMSD (100ns) | 7.16 +/- 1.40 A | 6.22 +/- 1.02 A | WT 0.94 A higher |
-| Equilibrium RMSD (>50ns) | 8.17 +/- 0.30 A | 6.88 +/- 0.30 A | WT 1.29 A higher |
-| Per-chain RMSD (A) | A=6.89, B=7.44 | A=5.67, B=6.76 | Compound lower both chains |
-| t-test (equilibrium) | | p < 1e-323 | Highly significant |
-| Cohen's d (equilibrium) | | 4.31 | Very large effect |
+4. **Molecular dynamics scope.** The 100ns MD simulations (Section 3.8) provide dynamic characterization but are protein-only (FAD removed from both systems). Longer simulations or enhanced sampling methods may be needed to capture FAD dissociation kinetics and allosteric communication dynamics. The simulations were performed on a single starting structure per variant (run1); additional starting conformations would strengthen the conclusions.
 
 5. **Clinical extrapolation.** The connection between structural predictions and clinical phenotypes involves many biological layers (protein folding kinetics, cellular environment, tissue-specific expression, compensatory mechanisms, microbiome effects) that computational modeling cannot capture.
 
@@ -413,7 +434,7 @@ This study has several important limitations:
 
 2. **Thermal shift assays:** Differential scanning fluorimetry (DSF) to quantify FAD binding affinity and thermal stability of WT vs variant MTHFR, with and without riboflavin supplementation.
 
-3. **Molecular dynamics simulations (100ns complete):** 100ns MD simulations of WT and compound heterozygous MTHFR dimers have been completed (OpenMM, Amber14/TIP3P-FB, 300K, RTX 4090) with PBC-corrected per-chain analysis. The compound dimer adopts a more compact conformational ensemble (equilibrium RMSD 6.88 +/- 0.30 A vs WT 8.17 +/- 0.30 A, p < 1e-323, Cohen's d = 4.31). Both systems reach equilibrium at ~62-66ns. Per-chain analysis confirms the compound dimer is more structurally constrained in both chains (A: 5.67 vs 6.89 A, B: 6.76 vs 7.44 A). Results verified with 34 independent checks (validated 2x). Follow-up could investigate FAD dissociation kinetics and allosteric communication dynamics.
+3. **Extended molecular dynamics:** Follow-up simulations with explicit FAD cofactor (using parameterized force field) would enable investigation of FAD dissociation kinetics under thermal stress. Enhanced sampling methods (replica exchange, metadynamics) could characterize allosteric communication pathways between the catalytic and regulatory domains. Multiple independent starting conformations would strengthen the dynamic conclusions from Section 3.8.
 
 4. **Cell-based follow-up after biochemical validation:** Once biochemical and structural follow-up supports continued investigation, computational guide design and initial cell-based feasibility testing could be used to assess whether sequence correction is technically plausible in a controlled setting.
 
@@ -561,6 +582,10 @@ The author affirms that no individual should feel pressured to share their genet
 19. YOLT-101 Phase 1 Clinical Data. (2025). YolTech Press Release, March 2025. https://www.yoltx.com/news/press-release/95
 
 20. LNP-mediated in vivo base editing of Agxt in a primary hyperoxaluria type 1 model. (2025). PubMed. PMID: 41275431
+
+21. Weisberg I, Tran P, Christensen B, et al. (1998). A second genetic polymorphism in methylenetetrahydrofolate reductase (MTHFR) associated with decreased enzyme activity. *Mol Genet Metab*, 64(3):169-172. PMID: 9719624
+
+22. Levine SZ, Kodesh A, Viber A, et al. (2018). Association of maternal use of folic acid and multivitamin supplements in the periods before and during pregnancy with the risk of autism spectrum disorder in offspring. *JAMA Psychiatry*, 75(2):176-184. PMID: 29299606
 
 ---
 

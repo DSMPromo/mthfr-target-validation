@@ -153,7 +153,7 @@ We used [AlphaFold 3 Server](https://alphafoldserver.com) to predict structures 
 ### Methodology
 
 - **Sequences:** All derived from canonical [UniProt P42898](https://www.uniprot.org/uniprotkb/P42898/entry) (656 amino acids) with verified mutations at positions 222 and 429
-- **Predictions:** 16 jobs total (monomers, homodimers, heterodimers, with FAD, THF, and SAM)
+- **Predictions:** 64 total (6 configurations x 10 seeds = 60 AlphaFold 3 + 4 Boltz-2 substrate/inhibitor)
 - **Replication:** 10 independent seeds per configuration (64 total predictions) enabling statistical comparison (t-test)
 - **Upload-ready JSON files** included in `alphafold/jobs/json/` for one-click replication
 
@@ -387,9 +387,9 @@ mthfr-target-validation/
 |
 |-- alphafold/
 |   |-- jobs/
-|   |   |-- submission_plan.md          <-- 34 jobs, step-by-step
+|   |   |-- submission_plan.md          <-- 16 job configurations, step-by-step
 |   |   |-- json/                       <-- Original 12 job JSONs
-|   |   |-- json_all/                   <-- All 30 AlphaFold Server JSONs + ALL_34_JOBS.json
+|   |   |-- json_all/                   <-- All 30 AlphaFold Server JSONs + ALL_30_JOBS.json
 |   |-- results_all/                    <-- All 64 results (unified folder)
 |       |-- wt_mono_run1..10/            <-- WT monomer, 10 seeds
 |       |-- wt_dimer_run1..10/           <-- WT dimer, 10 seeds

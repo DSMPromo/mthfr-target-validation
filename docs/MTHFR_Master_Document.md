@@ -138,9 +138,9 @@ These predictions are used for hypothesis prioritization only. They do not estab
 
 | Variant, dimer averaged | Avg pTM | Avg ipTM | Avg FAD Binding | Avg pLDDT@222 | Avg pLDDT@429 |
 |-------------------------|---------|----------|-----------------|---------------|---------------|
-| Wild-type | 0.775 | 0.740 | 0.555 | 97.3 | 96.0 |
+| Wild-type (n=10) | 0.786 +/-0.016 | 0.752 +/-0.023 | 0.566 +/-0.018 | 97.3 | 96.0 |
 | C677T | 0.785 | 0.765 | 0.575 | 97.05 | 95.95 |
-| Compound heterozygous | 0.745 | 0.715 | 0.540 | 96.5 | 95.15 |
+| Compound heterozygous (n=10) | 0.744 +/-0.027 | 0.714 +/-0.026 | 0.540 +/-0.023 | 96.5 | 95.29 |
 
 #### Boltz-2, Jobs 13 to 16
 
