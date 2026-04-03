@@ -1,5 +1,19 @@
 # Changelog
 
+## v1.4 (April 3, 2026) -- COMPLETE
+- Extended molecular dynamics to 100ns (was 10ns) on RTX 4090
+- Fixed PBC artifact: per-chain RMSD analysis instead of whole dimer
+- 100ns results: compound dimer more compact than WT (RMSD 6.22 vs 7.16 A)
+- Equilibrium RMSD (>50ns): compound 6.88 vs WT 8.17 A (Cohen's d = 4.31)
+- Per-chain RMSD: WT A=6.89/B=7.44, Compound A=5.67/B=6.76
+- t-test (equilibrium): p < 1e-323 (highly significant)
+- Both systems reach equilibrium at ~62-66ns
+- Added verify_md.py: 34 independent verification checks (validated 2x)
+- Added strided trajectory loading for memory-safe analysis of 50+ GB DCD files
+- Added RMSD CSV exports for reproducibility
+- Updated all documents with corrected 100ns findings
+- Updated run_md.py with PBC correction and per-chain analysis
+
 ## v1.3 (March 29, 2026) -- COMPLETE
 - Extended to 10 independent seeds per configuration (64 total AlphaFold predictions)
 - 3 of 4 key metrics now survive Bonferroni correction (was 1 of 4 with 5 seeds)

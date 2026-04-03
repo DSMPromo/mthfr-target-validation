@@ -389,15 +389,15 @@ This study has several important limitations:
 
 3. **Cofactor and substrate modeling.** AlphaFold 3's accuracy for small molecule binding is lower than for protein-protein interactions (Abramson et al., 2024). ipTM scores for protein-ligand complexes should be interpreted more cautiously than for protein-protein interfaces.
 
-4. **Molecular dynamics completed (10ns).** MD simulations (OpenMM, Amber14/TIP3P-FB force field, 300K, Google Colab A100 GPU) comparing WT and compound heterozygous dimer dynamics have been completed. Results show significantly higher structural drift in the compound dimer (mean RMSD 7.34 +/- 7.40 A vs 5.29 +/- 1.18 A for WT, p = 1.05e-17) and dramatically increased per-residue flexibility at both mutation sites (RMSF 6.6x higher at position 222, 4.3x higher at position 429). These dynamic observations are directionally consistent with the static AlphaFold predictions but require orthogonal experimental validation. Extended simulations (100ns+) are planned as follow-up.
+4. **Molecular dynamics completed (100ns).** MD simulations (OpenMM, Amber14/TIP3P-FB force field, 300K, RTX 4090) comparing WT and compound heterozygous dimer dynamics over 100ns with PBC-corrected per-chain analysis. The compound dimer adopts a more compact conformational ensemble (lower RMSD) than wild-type, with an extremely large effect size at equilibrium (Cohen's d = 4.31). This suggests the combined mutations may constrain the dimer into a more rigid state, potentially limiting conformational dynamics required for catalytic function. Results independently verified with 34 automated checks (validated 2x).
 
-| Metric | WT Dimer | Compound Dimer | Ratio |
-|--------|----------|---------------|-------|
-| Mean RMSD | 5.29 +/- 1.18 A | 7.34 +/- 7.40 A | 1.4x higher |
-| RMSD variance | 1.18 A | 7.40 A | 6.3x more variable |
-| RMSF @ pos 222 | 1.47 A | 9.76 A | 6.6x more flexible |
-| RMSF @ pos 429 | 1.61 A | 6.96 A | 4.3x more flexible |
-| t-test (RMSD) | | p = 1.05e-17 | Highly significant |
+| Metric | WT Dimer | Compound Dimer | Difference |
+|--------|----------|---------------|------------|
+| Mean RMSD (100ns) | 7.16 +/- 1.40 A | 6.22 +/- 1.02 A | WT 0.94 A higher |
+| Equilibrium RMSD (>50ns) | 8.17 +/- 0.30 A | 6.88 +/- 0.30 A | WT 1.29 A higher |
+| Per-chain RMSD (A) | A=6.89, B=7.44 | A=5.67, B=6.76 | Compound lower both chains |
+| t-test (equilibrium) | | p < 1e-323 | Highly significant |
+| Cohen's d (equilibrium) | | 4.31 | Very large effect |
 
 5. **Clinical extrapolation.** The connection between structural predictions and clinical phenotypes involves many biological layers (protein folding kinetics, cellular environment, tissue-specific expression, compensatory mechanisms, microbiome effects) that computational modeling cannot capture.
 
@@ -413,7 +413,7 @@ This study has several important limitations:
 
 2. **Thermal shift assays:** Differential scanning fluorimetry (DSF) to quantify FAD binding affinity and thermal stability of WT vs variant MTHFR, with and without riboflavin supplementation.
 
-3. **Molecular dynamics simulations (10ns complete):** Initial 10ns MD simulations of WT and compound heterozygous MTHFR dimers have been completed (OpenMM, Amber14/TIP3P-FB, 300K, Google Colab A100 GPU). The compound dimer showed significantly higher RMSD (7.34 +/- 7.40 A vs 5.29 +/- 1.18 A, p = 1.05e-17), 6.3x greater RMSD variance, and dramatically increased RMSF at both mutation sites (6.6x at position 222, 4.3x at position 429). Extended simulations (100ns+) are planned as follow-up to capture FAD dissociation kinetics and allosteric communication dynamics.
+3. **Molecular dynamics simulations (100ns complete):** 100ns MD simulations of WT and compound heterozygous MTHFR dimers have been completed (OpenMM, Amber14/TIP3P-FB, 300K, RTX 4090) with PBC-corrected per-chain analysis. The compound dimer adopts a more compact conformational ensemble (equilibrium RMSD 6.88 +/- 0.30 A vs WT 8.17 +/- 0.30 A, p < 1e-323, Cohen's d = 4.31). Both systems reach equilibrium at ~62-66ns. Per-chain analysis confirms the compound dimer is more structurally constrained in both chains (A: 5.67 vs 6.89 A, B: 6.76 vs 7.44 A). Results verified with 34 independent checks (validated 2x). Follow-up could investigate FAD dissociation kinetics and allosteric communication dynamics.
 
 4. **Cell-based follow-up after biochemical validation:** Once biochemical and structural follow-up supports continued investigation, computational guide design and initial cell-based feasibility testing could be used to assess whether sequence correction is technically plausible in a controlled setting.
 
@@ -442,7 +442,7 @@ From computational prioritization to staged experimental follow-up:
 | Phase | Focus | Timeline | Cost | Status |
 |-------|-------|----------|------|--------|
 | **1** | Computational hypothesis prioritization: AlphaFold 3 and Boltz-2 structural comparison, reproducible pipeline, open repository | **Done** | **$0** | **Complete** |
-| **2a** | Molecular dynamics simulations: OpenMM/Amber14, WT dimer vs compound dimer, RMSD/RMSF/flexibility analysis | **Done** | **$0** | **Complete** |
+| **2a** | Molecular dynamics simulations: 100ns OpenMM/Amber14, WT vs compound dimer, PBC-corrected per-chain RMSD, 34-check verification (2x validated) | **Done** | **$0** | **Complete** |
 | **2b** | Preprint (bioRxiv submitted), researcher outreach, extended structural benchmarking | 1-3 months | ~$500 | In progress |
 | **3** | Biochemical validation: expression of wild-type and selected variant proteins, dimer stability assays, FAD and THF interaction assays | 6-12 months | $50K-150K | Requires lab partner |
 | **4** | Exploratory biomarker correlation studies, including homocysteine, methylation panels, retinal OCT, and BH4-related readouts in well-defined compound heterozygous cohorts | 12-18 months | $100K-300K | Requires clinical collaborator |
